@@ -1,100 +1,97 @@
-#include "Declarations.h"
 #include "Queue.h"
-#include "CardStack.h"
 
-Queue::Queue() {
-
-	front = nullptr;
-	rear = nullptr;
-	num_cards = 0;
-
-}
-
-Queue::~Queue() {
-
-	clear();
-
-}
-
-void Queue::enqueue(card new_card) {
-
-	QNode* newNode = nullptr;
-
-	newNode = new QNode;
-	newNode->monster = new_card;
+void Queue::enqueue(Card newCard) {
+	QueueNode* newNode = new QueueNode;
+	newNode->prev = nullptr;
 	newNode->next = nullptr;
-
-	if (isEmpty())
-	{
-		front = newNode;
+	newNode->card = newCard;
+	QueueNode* temp;
+	if (rear == nullptr) {
 		rear = newNode;
-	}
-	else
-	{
-		rear->next = newNode;
-		rear = newNode;
-	}
-
-	num_cards++;
-
-}
-
-void Queue::dequeue(card &card_destination) {
-
-	QNode* temp = nullptr;
-
-	if (isEmpty()) {
-
-		cout << "Empty Queue" << endl;
-
+		rear->next = nullptr;
+		rear->prev = nullptr;
+		front = rear;
 	}
 	else {
-
-		card_destination = front->monster;
-
-		temp = front;
-		front = front->next;
-		delete temp;
-
-		num_cards--;
-
+		newNode->next = rear;// newNode -> rear
+		rear->prev = newNode;// newNode <-> rear
+		rear = newNode;// rear(newNode) <-> (old rear)
 	}
-
 }
 
-bool Queue::isEmpty() {
+bool Queue::dequeue(Card& store) {
+	if (front == nullptr) {
+		//cout << "There is nothing to dequeue";
+		return false;
+	}
+	else if (front == rear) {// executes if the front == rear
+		store = front->card;
+		delete front;
+		front = nullptr;
+		rear = nullptr;
+		return true;
+	}
+	else {//only executes if front != rear
+		store = front->card;//stores front
+		front = front->prev;//front -> (old front)
+		delete front->next;// front -> [deleted]
+		front->next = nullptr;//front -> nullptr
+		return true;
+	}
+}
 
-	bool status;
+int Queue::size(void) {
+	int count = 0;
+	QueueNode* current = rear;
+	while (current != nullptr) {
+		count++;
+		current = current->next;
+	}
+	return count;
+}
+bool Queue::dequeue(void) {
+	if (front == nullptr) {
+		cout << "There is nothing to dequeue";
+		EnterKey();
+		return false;
+	}
+	else if (front == rear) {// executes if the front == rear
+		delete front;
+		front = nullptr;
+		rear = nullptr;
+		return true;
+	}
+	else {//only executes if front != rear
+		front = front->prev;//front -> (old front)
+		delete front->next;// front -> [deleted]
+		front->next = nullptr;//front -> nullptr
+		return true;
+	}
+}
+bool Queue::card(int x, Card& card) {
+	int count = 0;
+	QueueNode* current = front;
+	while (current != nullptr && count != x) {//loop which checks if the nodepointer contains a value or if the count has been reached.
+		count++;
+		current = current->prev;//
+	}
+	if (current == nullptr) {//cannot access data outside of the queue size.
+		cout << "You tried accessing a card that is out of bounds." << endl;
+		EnterKey();
+		return false;
+	}
+	else {//card is saved to the variable paramater that was given.
+		card = current->card;
+		return true;
+	}
+}
 
-	if (num_cards > 0) {
-
-		status = false;
-
+bool Queue::peek(Card& card) {
+	if (front == nullptr) {
+		return false;
 	}
 	else {
-
-		status = true;
-
+		card = front->card;
+		return true;
 	}
-
-	return status;
-
-}
-
-int Queue::count() {
-
-	return num_cards;
-
-}
-
-void Queue::clear() {
-
-	card monster;
-
-	while (!isEmpty()) {
-
-		dequeue(monster);
-
-	}
-
 }
