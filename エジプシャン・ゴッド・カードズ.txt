@@ -1,3 +1,0 @@
-Slifer the Sky Dragon,X000,X000,Divine-Beast
-Obilisk the Tormentor,4000,4000,Divine-Beast
-The Winged Dragon of RA,?,?,Divine-Beast
