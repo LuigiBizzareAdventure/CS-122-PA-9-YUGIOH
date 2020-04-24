@@ -18,6 +18,30 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Trunk.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="List.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Stack.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{E3A84C16-6494-4796-BFE3-F6A18F811326}</ProjectGuid>
@@ -137,30 +161,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\Card.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\Functions.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\Game.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\List.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\MainMenu.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\Player.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\Queue.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\yugioh\Stack.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\Card.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\Game.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\Header.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\List.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\MainMenu.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\Player.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\Queue.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\yugioh\Stack.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\..\Desktop\yugioh\Trunk.csv" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
