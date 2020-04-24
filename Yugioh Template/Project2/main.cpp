@@ -2,6 +2,10 @@
 #include "MainMenu.h"
 
 int main(void) {
+
+
+	//fasdasdasdasd
+
 	srand(time(NULL));//generates a seed for random numbers
 	MainMenu menu;
 	menu.loadTrunk();//loads cards from the csv file
