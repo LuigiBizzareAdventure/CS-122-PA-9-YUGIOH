@@ -281,6 +281,8 @@ void Game::compBattlePhase() {
 	EnterKey();
 }
 
+//hubba bubba
+
 void Game::damageCalculation() {
 	cout << "Calculation:\n\n";
 	display();
