@@ -2,6 +2,10 @@
 #include "MainMenu.h"
 #include <SFML/Graphics.hpp>
 int main(void) {
+
+
+	//fasdasdasdasd
+
 	srand(time(NULL));//generates a seed for random numbers
 
 	//render window
