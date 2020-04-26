@@ -1,8 +1,22 @@
 #include "Header.h"
 #include "MainMenu.h"
-
+#include <SFML/Graphics.hpp>
 int main(void) {
 	srand(time(NULL));//generates a seed for random numbers
+
+	//render window
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Yugioh");
+	sf::Event event;
+
+	while (window.isOpen()) {
+		while (window.pollEvent(event)) {
+			if (event.type == sf::Event::Closed) {
+				window.close();
+			}
+		}
+	}
+
+
 	MainMenu menu;
 	menu.loadTrunk();//loads cards from the csv file
 	int selection = 0;
