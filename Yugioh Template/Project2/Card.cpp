@@ -23,7 +23,7 @@ void Card::setType(string x) {
 		type = Type::Dragon;
 	else if (x.compare("STAND") == 0)
 		type = Type::STAND;
-	else if (x.compare("SpellCaster") == 0)
+	else if (x.compare("SpellCaster") == 0 || x.compare("Spellcaster") == 0)
 		type = Type::SpellCaster;
 	else if (x.compare("Helper") == 0)
 		type = Type::Helper;
@@ -33,6 +33,27 @@ void Card::setType(string x) {
 		type = Type::GOD;
 	else if (x.compare("Beast") == 0)
 		type = Type::Beast;
+
+	//New types (Added 4/27/20)
+	else if (x.compare("Rock") == 0)
+		type = Type::Rock;
+	else if (x.compare("Warrior") == 0)
+		type = Type::Warrior;
+	else if (x.compare("Machine") == 0)
+		type = Type::Machine;
+	else if (x.compare("Divine") == 0)
+		type = Type::Divine;
+	else if (x.compare("Fairy") == 0)
+		type = Type::Fairy;
+	else if (x.compare("SeaSerpent") == 0)
+		type = Type::SeaSerpent;
+	else if (x.compare("Thunder") == 0)
+		type = Type::Thunder;
+	else if (x.compare("Dinosaur") == 0)
+		type = Type::Dinosaur;
+	else if (x.compare("Insect") == 0)
+		type = Type::Insect;
+	//End new types added
 	else {
 		type = Type::initial;
 		typeName = "initial";
