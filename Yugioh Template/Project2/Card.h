@@ -12,6 +12,7 @@ private:
 	int defPoints;
 	Type type;
 	string typeName;
+	
 public:
 	Card() {
 		name = "empty";

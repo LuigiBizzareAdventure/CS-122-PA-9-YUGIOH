@@ -42,6 +42,19 @@
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\PA9\monsterama\monsterama.ttf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ExcludedFromBuild>
+    </Font>
+    <Font Include="Bebas-Regular.ttf" />
+    <Font Include="squealer embossed.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BlizzardDragon.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{E3A84C16-6494-4796-BFE3-F6A18F811326}</ProjectGuid>
