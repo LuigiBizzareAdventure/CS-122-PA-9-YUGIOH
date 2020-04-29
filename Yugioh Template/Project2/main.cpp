@@ -121,6 +121,10 @@ int main(void) {
 				window.draw(background);
 				window.draw(players);
 				window.display();
+				//delay screen
+				int milli_seconds = 1000 * 3;
+				clock_t start_time = clock();
+				while (clock() < start_time + milli_seconds);
 			//old screen
 				window.clear();
 				window.draw(background);
@@ -136,6 +140,10 @@ int main(void) {
 				window.draw(background);
 				window.draw(editDeck);
 				window.display();
+				//delay screen
+				int milli_seconds = 1000 * 3;
+				clock_t start_time = clock();
+				while (clock() < start_time + milli_seconds);
 			//old screen
 				window.clear();
 				window.draw(background);
@@ -151,6 +159,10 @@ int main(void) {
 				window.draw(background);
 				window.draw(Trade);
 				window.display();
+				//delay screen
+				int milli_seconds = 1000 * 3;
+				clock_t start_time = clock();
+				while (clock() < start_time + milli_seconds);
 			//old screen
 				window.clear();
 				window.draw(background);
@@ -166,6 +178,10 @@ int main(void) {
 				window.draw(background);
 				window.draw(Duel);
 				window.display();
+				//delay screen
+				int milli_seconds = 1000 * 3;
+				clock_t start_time = clock();
+				while (clock() < start_time + milli_seconds);
 			//old screen
 				window.clear();
 				window.draw(background);
@@ -181,6 +197,10 @@ int main(void) {
 				window.draw(background);
 				window.draw(loadTrunk);
 				window.display();
+				//delay screen
+				int milli_seconds = 1000 * 3;
+				clock_t start_time = clock();
+				while (clock() < start_time + milli_seconds);
 			//old screen
 				window.clear();
 				window.draw(background);
