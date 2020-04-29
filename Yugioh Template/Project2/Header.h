@@ -50,7 +50,20 @@ enum class Type{
 	Helper,
 	STAND_USER,
 	GOD,
-	Beast
+	Beast,
+
+	//Added 4/27/20. Incoorperates new cards from Cards.txt 
+	Rock,
+	Warrior,
+	Machine,
+	Divine,
+	Fairy,
+	SeaSerpent,
+	Thunder,
+	Dinosaur,
+	Insect,
+
+
 };
 
 
