@@ -73,4 +73,20 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\PA9\monsterama\monsterama.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="squealer embossed.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="Bebas-Regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BlizzardDragon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
