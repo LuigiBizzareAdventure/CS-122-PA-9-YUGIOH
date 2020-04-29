@@ -29,19 +29,7 @@
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Trunk.csv" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Card.cpp">
-      <AdditionalUsingDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalUsingDirectories>
-      <AdditionalUsingDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalUsingDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalIncludeDirectories>
-    </ClCompile>
+    <ClCompile Include="Card.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="List.cpp" />
@@ -63,6 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="BlizzardDragon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.vs\Yugioh Template\v16\.suo" />
+    <None Include="Trunk.csv" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

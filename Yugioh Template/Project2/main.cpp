@@ -4,9 +4,6 @@
 #pragma warning(disable : 4996)
 int main(void) {
 
-
-	//fasdasdasdasd
-
 	srand(time(NULL));//generates a seed for random numbers
 
 	//render window
@@ -32,7 +29,7 @@ int main(void) {
 	welcome.setOutlineColor(sf::Color::Color(150,150,150,255));
 
 	//Diplay menu options
-	sf::Text text("1. Create Players\n2. Edit Deck\n3. Trade Cards With Opponent\n4. Duel\n5. Load Trunk\n6. Exit\n", regular);
+	sf::Text text("1. Duel \n2. Exit\n", regular);
 	text.setCharacterSize(34);
 	//text.setStyle(sf::Text::Bold);
 	text.setColor(sf::Color::Color(10,10,10,255));
@@ -61,31 +58,31 @@ int main(void) {
 	menu1.setFillColor(sf::Color::Color(139, 69, 19, 255));
 	menu1.setPosition(100, 0);
 
-	//Create players
-	sf::Text players("Creating Players", regular);
-	players.setCharacterSize(100);
-	players.setStyle(sf::Text::Bold);
-	players.setColor(sf::Color::Color(10, 10, 10, 255));
-	players.setPosition(120, 120);
-	players.setLineSpacing(1.3);
+	////Create players
+	//sf::Text players("Creating Players", regular);
+	//players.setCharacterSize(100);
+	//players.setStyle(sf::Text::Bold);
+	//players.setColor(sf::Color::Color(10, 10, 10, 255));
+	//players.setPosition(120, 120);
+	//players.setLineSpacing(1.3);
 
-	//Edit deck
-	sf::Text editDeck("Edit deck", regular);
-	editDeck.setCharacterSize(100);
-	editDeck.setStyle(sf::Text::Bold);
-	editDeck.setColor(sf::Color::Color(10, 10, 10, 255));
-	editDeck.setPosition(120, 120);
-	editDeck.setLineSpacing(1.3);
+	////Edit Decks
+	//sf::Text editDeck("Edit deck", regular);
+	//editDeck.setCharacterSize(100);
+	//editDeck.setStyle(sf::Text::Bold);
+	//editDeck.setColor(sf::Color::Color(10, 10, 10, 255));
+	//editDeck.setPosition(120, 120);
+	//editDeck.setLineSpacing(1.3);
 
-	//Trading cards
-	sf::Text Trade("Trading cards", regular);
-	Trade.setCharacterSize(100);
-	Trade.setStyle(sf::Text::Bold);
-	Trade.setColor(sf::Color::Color(10, 10, 10, 255));
-	Trade.setPosition(120, 120);
-	Trade.setLineSpacing(1.3);
+	////Trading Cards
+	//sf::Text Trade("Trading cards", regular);
+	//Trade.setCharacterSize(100);
+	//Trade.setStyle(sf::Text::Bold);
+	//Trade.setColor(sf::Color::Color(10, 10, 10, 255));
+	//Trade.setPosition(120, 120);
+	//Trade.setLineSpacing(1.3);
 
-	//Duel
+	//DUEL
 	sf::Text Duel("Welcome to the battle!", regular);
 	Duel.setCharacterSize(100);
 	Duel.setStyle(sf::Text::Bold);
@@ -93,13 +90,21 @@ int main(void) {
 	Duel.setPosition(120, 120);
 	Duel.setLineSpacing(1.3);
 
-	//Load trunk
-	sf::Text loadTrunk("Loaded trunk", regular);
-	loadTrunk.setCharacterSize(100);
-	loadTrunk.setStyle(sf::Text::Bold);
-	loadTrunk.setColor(sf::Color::Color(10, 10, 10, 255));
-	loadTrunk.setPosition(120, 120);
-	loadTrunk.setLineSpacing(1.3);
+	////Load Trunk
+	//sf::Text loadTrunk("Loaded trunk", regular);
+	//loadTrunk.setCharacterSize(100);
+	//loadTrunk.setStyle(sf::Text::Bold);
+	//loadTrunk.setColor(sf::Color::Color(10, 10, 10, 255));
+	//loadTrunk.setPosition(120, 120);
+	//loadTrunk.setLineSpacing(1.3);
+
+	//Exit
+	sf::Text Exit("Exit!", regular);
+	Exit.setCharacterSize(100);
+	Exit.setStyle(sf::Text::Bold);
+	Exit.setColor(sf::Color::Color(10, 10, 10, 255));
+	Exit.setPosition(120, 140);
+	Exit.setLineSpacing(1.3);
 
 	//Render
 	window.clear();
@@ -121,7 +126,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(players);
 				window.display();
-			//delay screen
+				//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -140,7 +145,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(editDeck);
 				window.display();
-			//delay screen
+				//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -159,7 +164,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(Trade);
 				window.display();
-			//delay screen
+				//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -178,7 +183,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(Duel);
 				window.display();
-			//delay screen
+				//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -197,7 +202,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(loadTrunk);
 				window.display();
-			//delay screen
+				//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -217,22 +222,24 @@ int main(void) {
 	}
 
 
-	MainMenu menu;
-	menu.loadTrunk();//loads cards from the csv file
-	int selection = 0;
-	do {
-		selection = menu.display();
-		clrscr();
-		switch (selection) {
-		case CREATE_PLAYERS:menu.createPlayers(); break;
-		case EDIT_DECK:menu.editDeck(); break;
-		case TRADE_CARDS: menu.tradeCards(); break;
-		case DUEL: menu.duel(); break;
-		case LOAD_TRUNK: menu.loadTrunk(); break;
-		case EXIT:break;
-		default: selection = 0;  cout << "Please select a valid option.\n"; EnterKey(); break;
+			MainMenu menu;
+			menu.loadTrunk();//loads cards from the csv file
+			menu.createPlayers();
+			do {
+				selection = menu.display();
+				clrscr();
+				switch (selection) {
+			//	case CREATE_PLAYERS:menu.createPlayers(); break;
+			//	case EDIT_DECK:menu.editDeck(); break;
+			//	case TRADE_CARDS: menu.tradeCards(); break;
+				case DUEL: menu.duel(); break;
+			//	case LOAD_TRUNK: menu.loadTrunk(); break;
+				case EXIT:break;
+				default: selection = 0;  cout << "Please select a valid option.\n"; EnterKey(); break;
+				}
+			} while (selection != EXIT);
 		}
-	} while (selection != EXIT);
+	}
 
 	cout << "Thanks for playing!\n";
 
