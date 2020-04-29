@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.vs\Yugioh Template\v16\.suo" />
+    <None Include="Trunk.csv" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
