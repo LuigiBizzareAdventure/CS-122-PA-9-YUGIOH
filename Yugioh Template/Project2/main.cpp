@@ -114,45 +114,92 @@ int main(void) {
 	window.draw(welcome);
 	window.draw(text);
 	window.display();
-
-
-	int selection = 0;
-	
-	while (window.isOpen() && selection == 0) {
-		while (selection == 0) {
-			while (window.pollEvent(event)) {
-				if (event.type == sf::Event::Closed) {
-					window.close();
-				}
+	while (window.isOpen()) {
+		while (window.pollEvent(event)) {
+			if (event.type == sf::Event::Closed) {
+				window.close();
 			}
-			selection = 0;
+		}
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))){
+			//new screen
+				window.clear();
+				window.draw(background);
+				window.draw(players);
+				window.display();
+			//old screen
+				window.clear();
+				window.draw(background);
+				window.draw(menu1);
+				window.draw(spriteDragon);
+				window.draw(welcome);
+				window.draw(text);
+				window.display();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+			//new screen
+				window.clear();
+				window.draw(background);
+				window.draw(editDeck);
+				window.display();
+			//old screen
+				window.clear();
+				window.draw(background);
+				window.draw(menu1);
+				window.draw(spriteDragon);
+				window.draw(welcome);
+				window.draw(text);
+				window.display();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+			//new screen
+				window.clear();
+				window.draw(background);
+				window.draw(Trade);
+				window.display();
+			//old screen
+				window.clear();
+				window.draw(background);
+				window.draw(menu1);
+				window.draw(spriteDragon);
+				window.draw(welcome);
+				window.draw(text);
+				window.display();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+			//new screen
+				window.clear();
+				window.draw(background);
+				window.draw(Duel);
+				window.display();
+			//old screen
+				window.clear();
+				window.draw(background);
+				window.draw(menu1);
+				window.draw(spriteDragon);
+				window.draw(welcome);
+				window.draw(text);
+				window.display();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+			//new screen
+				window.clear();
+				window.draw(background);
+				window.draw(loadTrunk);
+				window.display();
+			//old screen
+				window.clear();
+				window.draw(background);
+				window.draw(menu1);
+				window.draw(spriteDragon);
+				window.draw(welcome);
+				window.draw(text);
+				window.display();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))) {
 			window.clear();
-			window.draw(background);
-			window.draw(menu1);
-			window.draw(spriteDragon);
-			window.draw(welcome);
-			window.draw(text);
-			window.display();
-
-			//////change this code to a click
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
-				selection = DUEL;
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
-				selection = 2;
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
-				selection = 3;
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
-				selection = 4;
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-				selection = 5;
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))) {
-				selection = 6;
-			}
+			window.close();
+		}
+	}
 
 
 			MainMenu menu;
