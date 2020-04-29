@@ -84,4 +84,9 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.vs\Yugioh Template\v16\.suo">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

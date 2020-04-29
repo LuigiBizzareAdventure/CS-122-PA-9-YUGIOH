@@ -52,6 +52,9 @@
   <ItemGroup>
     <Image Include="BlizzardDragon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.vs\Yugioh Template\v16\.suo" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{E3A84C16-6494-4796-BFE3-F6A18F811326}</ProjectGuid>
