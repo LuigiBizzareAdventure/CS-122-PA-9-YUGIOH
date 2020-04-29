@@ -29,9 +29,6 @@
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Trunk.csv" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Game.cpp" />
