@@ -69,7 +69,7 @@ int main(void) {
 	players.setPosition(120, 120);
 	players.setLineSpacing(1.3);
 
-	//Create players
+	//Edit deck
 	sf::Text editDeck("Edit deck", regular);
 	editDeck.setCharacterSize(100);
 	editDeck.setStyle(sf::Text::Bold);
@@ -77,7 +77,7 @@ int main(void) {
 	editDeck.setPosition(120, 120);
 	editDeck.setLineSpacing(1.3);
 
-	//Create players
+	//Trading cards
 	sf::Text Trade("Trading cards", regular);
 	Trade.setCharacterSize(100);
 	Trade.setStyle(sf::Text::Bold);
@@ -85,7 +85,7 @@ int main(void) {
 	Trade.setPosition(120, 120);
 	Trade.setLineSpacing(1.3);
 
-	//Create players
+	//Duel
 	sf::Text Duel("Welcome to the battle!", regular);
 	Duel.setCharacterSize(100);
 	Duel.setStyle(sf::Text::Bold);
@@ -93,7 +93,7 @@ int main(void) {
 	Duel.setPosition(120, 120);
 	Duel.setLineSpacing(1.3);
 
-	//Create players
+	//Load trunk
 	sf::Text loadTrunk("Loaded trunk", regular);
 	loadTrunk.setCharacterSize(100);
 	loadTrunk.setStyle(sf::Text::Bold);
@@ -121,7 +121,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(players);
 				window.display();
-				//delay screen
+			//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -140,7 +140,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(editDeck);
 				window.display();
-				//delay screen
+			//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -159,7 +159,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(Trade);
 				window.display();
-				//delay screen
+			//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -178,7 +178,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(Duel);
 				window.display();
-				//delay screen
+			//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
@@ -197,7 +197,7 @@ int main(void) {
 				window.draw(background);
 				window.draw(loadTrunk);
 				window.display();
-				//delay screen
+			//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
