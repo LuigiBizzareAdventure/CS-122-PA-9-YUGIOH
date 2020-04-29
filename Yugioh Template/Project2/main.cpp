@@ -124,7 +124,7 @@ int main(void) {
 			//new screen
 				window.clear();
 				window.draw(background);
-				window.draw(players);
+				window.draw(Duel);
 				window.display();
 				//delay screen
 				int milli_seconds = 1000 * 3;
@@ -143,88 +143,84 @@ int main(void) {
 			//new screen
 				window.clear();
 				window.draw(background);
-				window.draw(editDeck);
+				window.draw(Exit);
 				window.display();
 				//delay screen
 				int milli_seconds = 1000 * 3;
 				clock_t start_time = clock();
 				while (clock() < start_time + milli_seconds);
-			//old screen
+			//exit
 				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
+				window.close();
 		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
-			//new screen
-				window.clear();
-				window.draw(background);
-				window.draw(Trade);
-				window.display();
-				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
-			//old screen
-				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
-		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
-			//new screen
-				window.clear();
-				window.draw(background);
-				window.draw(Duel);
-				window.display();
-				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
-			//old screen
-				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
-		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-			//new screen
-				window.clear();
-				window.draw(background);
-				window.draw(loadTrunk);
-				window.display();
-				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
-			//old screen
-				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
-		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))) {
-			window.clear();
-			window.close();
-		}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+		//	//new screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(Trade);
+		//		window.display();
+		//		//delay screen
+		//		int milli_seconds = 1000 * 3;
+		//		clock_t start_time = clock();
+		//		while (clock() < start_time + milli_seconds);
+		//	//old screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(menu1);
+		//		window.draw(spriteDragon);
+		//		window.draw(welcome);
+		//		window.draw(text);
+		//		window.display();
+		//}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+		//	//new screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(Duel);
+		//		window.display();
+		//		//delay screen
+		//		int milli_seconds = 1000 * 3;
+		//		clock_t start_time = clock();
+		//		while (clock() < start_time + milli_seconds);
+		//	//old screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(menu1);
+		//		window.draw(spriteDragon);
+		//		window.draw(welcome);
+		//		window.draw(text);
+		//		window.display();
+		//}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+		//	//new screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(loadTrunk);
+		//		window.display();
+		//		//delay screen
+		//		int milli_seconds = 1000 * 3;
+		//		clock_t start_time = clock();
+		//		while (clock() < start_time + milli_seconds);
+		//	//old screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(menu1);
+		//		window.draw(spriteDragon);
+		//		window.draw(welcome);
+		//		window.draw(text);
+		//		window.display();
+		//}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))) {
+		//	window.clear();
+		//	window.close();
+		//}
 	}
 
 
 			MainMenu menu;
 			menu.loadTrunk();//loads cards from the csv file
 			menu.createPlayers();
+			int selection = 0;
 			do {
 				selection = menu.display();
 				clrscr();
@@ -238,9 +234,7 @@ int main(void) {
 				default: selection = 0;  cout << "Please select a valid option.\n"; EnterKey(); break;
 				}
 			} while (selection != EXIT);
-		}
-	}
-
+		
 	cout << "Thanks for playing!\n";
 
 	return 0;
