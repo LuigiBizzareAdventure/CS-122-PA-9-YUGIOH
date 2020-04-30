@@ -38,6 +38,9 @@
     <ClInclude Include="Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp">
@@ -81,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="BlizzardDragon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="coin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Pokecoin.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

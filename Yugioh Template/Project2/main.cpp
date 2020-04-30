@@ -1,6 +1,6 @@
 #include "Header.h"
 #include "MainMenu.h"
-#include <SFML/Graphics.hpp>
+#include "Object.h"
 #pragma warning(disable : 4996)
 int main(void) {
 
@@ -8,6 +8,7 @@ int main(void) {
 
 	//render window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Yugioh");
+	window.setFramerateLimit(30);
 	sf::Event event;
 
 	//Create Yugioh Font 
@@ -41,17 +42,14 @@ int main(void) {
 	background.setFillColor(sf::Color::Black);
 	background.setPosition(0, 0);
 
+	//create dragon sprite
+	Object spriteDragon("BlizzardDragon.png", 300, 380, 0.2, 0.2);
 
-	//create logo
-	sf::Texture logo;
-	logo.loadFromFile("BlizzardDragon.png");
-	logo.setSmooth(true);
-	
-	//create sprite
-	sf::Sprite spriteDragon;
-	spriteDragon.setTexture(logo);
-	spriteDragon.setPosition(300, 380);
-	spriteDragon.setScale(0.2,.2);
+	//create front of coin
+	Object Coin("coin.png", 275, 150, 0.5, 0.5);
+
+	//create back of coin
+	Object PokeCoin("Pokecoin.png", 275, 150, 0.5, 0.5);
 
 	//Create a rectangle to represent the menu
 	sf::RectangleShape menu1(sf::Vector2f(600, 800));
@@ -110,7 +108,7 @@ int main(void) {
 	window.clear();
 	window.draw(background);
 	window.draw(menu1);
-	window.draw(spriteDragon);
+	spriteDragon.drawObject(window);
 	window.draw(welcome);
 	window.draw(text);
 	window.display();
@@ -124,17 +122,22 @@ int main(void) {
 			//new screen
 				window.clear();
 				window.draw(background);
-				window.draw(players);
+				window.draw(Duel);
 				window.display();
 				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
+				delayScreen(3);
+				//flip coin
+				window.clear();
+				window.draw(background);
+				Coin.drawObject(window);
+				window.display();
+				//delay screen
+				delayScreen(3);
 			//old screen
 				window.clear();
 				window.draw(background);
 				window.draw(menu1);
-				window.draw(spriteDragon);
+				spriteDragon.drawObject(window);
 				window.draw(welcome);
 				window.draw(text);
 				window.display();
@@ -143,88 +146,76 @@ int main(void) {
 			//new screen
 				window.clear();
 				window.draw(background);
-				window.draw(editDeck);
+				window.draw(Exit);
 				window.display();
 				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
-			//old screen
+				delayScreen(3);
+			//exit
 				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
+				window.close();
 		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
-			//new screen
-				window.clear();
-				window.draw(background);
-				window.draw(Trade);
-				window.display();
-				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
-			//old screen
-				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
-		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
-			//new screen
-				window.clear();
-				window.draw(background);
-				window.draw(Duel);
-				window.display();
-				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
-			//old screen
-				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
-		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-			//new screen
-				window.clear();
-				window.draw(background);
-				window.draw(loadTrunk);
-				window.display();
-				//delay screen
-				int milli_seconds = 1000 * 3;
-				clock_t start_time = clock();
-				while (clock() < start_time + milli_seconds);
-			//old screen
-				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				window.draw(spriteDragon);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
-		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))) {
-			window.clear();
-			window.close();
-		}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+		//	//new screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(Trade);
+		//		window.display();
+		//		//delay screen
+		//		delayScreen(3);
+		//	//old screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(menu1);
+		//		window.draw(spriteDragon);
+		//		window.draw(welcome);
+		//		window.draw(text);
+		//		window.display();
+		//}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+		//	//new screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(Duel);
+		//		window.display();
+		//		//delay screen
+		//		delayScreen(3);
+		//	//old screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(menu1);
+		//		window.draw(spriteDragon);
+		//		window.draw(welcome);
+		//		window.draw(text);
+		//		window.display();
+		//}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+		//	//new screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(loadTrunk);
+		//		window.display();
+		//		//delay screen
+		//		delayScreen(3);
+		//	//old screen
+		//		window.clear();
+		//		window.draw(background);
+		//		window.draw(menu1);
+		//		window.draw(spriteDragon);
+		//		window.draw(welcome);
+		//		window.draw(text);
+		//		window.display();
+		//}
+		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))) {
+		//	window.clear();
+		//	window.close();
+		//}
 	}
 
 
 			MainMenu menu;
 			menu.loadTrunk();//loads cards from the csv file
 			menu.createPlayers();
+			int selection = 0;
 			do {
 				selection = menu.display();
 				clrscr();
@@ -238,9 +229,7 @@ int main(void) {
 				default: selection = 0;  cout << "Please select a valid option.\n"; EnterKey(); break;
 				}
 			} while (selection != EXIT);
-		}
-	}
-
+		
 	cout << "Thanks for playing!\n";
 
 	return 0;
