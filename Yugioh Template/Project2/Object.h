@@ -2,7 +2,7 @@
 #define OBJECT_H
 
 #include "Header.h"
-#include<SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class Object {
 private:
