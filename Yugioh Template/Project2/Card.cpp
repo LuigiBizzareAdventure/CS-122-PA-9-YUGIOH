@@ -1,5 +1,6 @@
 #include "Card.h"
 
+
 void Card::setName(string newName) {
 	name = newName;
 }
