@@ -7,6 +7,12 @@ int main(void) {
 
 	srand(time(NULL));//generates a seed for random numbers
 
+	MainMenu menu;
+	menu.loadTrunk();//loads cards from the csv file
+	menu.createPlayers();
+	List player1 = menu.getdeck(0);
+	List player2 = menu.getdeck(1);
+
 	//render window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Yugioh");
 	window.setFramerateLimit(30);
@@ -50,59 +56,47 @@ int main(void) {
 	Object Coin("coin.png", 275, 150, 0.5, 0.5);
 
 	//create back of coin
-	Object PokeCoin("Pokecoin.png", 275, 150, 0.5, 0.5);
+	Object PokeCoin("Pokecoin.png", 275, 150, 1, 1);
 
 	//Create a rectangle to represent the menu
 	sf::RectangleShape menu1(sf::Vector2f(600, 800));
 	menu1.setFillColor(sf::Color::Color(139, 69, 19, 255));
 	menu1.setPosition(100, 0);
 
-	////Create players
-	//sf::Text players("Creating Players", regular);
-	//players.setCharacterSize(100);
-	//players.setStyle(sf::Text::Bold);
-	//players.setColor(sf::Color::Color(10, 10, 10, 255));
-	//players.setPosition(120, 120);
-	//players.setLineSpacing(1.3);
-
-	////Edit Decks
-	//sf::Text editDeck("Edit deck", regular);
-	//editDeck.setCharacterSize(100);
-	//editDeck.setStyle(sf::Text::Bold);
-	//editDeck.setColor(sf::Color::Color(10, 10, 10, 255));
-	//editDeck.setPosition(120, 120);
-	//editDeck.setLineSpacing(1.3);
-
-	////Trading Cards
-	//sf::Text Trade("Trading cards", regular);
-	//Trade.setCharacterSize(100);
-	//Trade.setStyle(sf::Text::Bold);
-	//Trade.setColor(sf::Color::Color(10, 10, 10, 255));
-	//Trade.setPosition(120, 120);
-	//Trade.setLineSpacing(1.3);
-
 	//DUEL
-	sf::Text Duel("Welcome to the battle!", regular);
+	sf::Text Duel("Welcome to the\n      BATTLE!", yugioh);
 	Duel.setCharacterSize(100);
 	Duel.setStyle(sf::Text::Bold);
-	Duel.setColor(sf::Color::Color(10, 10, 10, 255));
-	Duel.setPosition(120, 120);
-	Duel.setLineSpacing(1.3);
+	Duel.setColor(sf::Color::Red);
+	Duel.setPosition(120, 30);
 
-	////Load Trunk
-	//sf::Text loadTrunk("Loaded trunk", regular);
-	//loadTrunk.setCharacterSize(100);
-	//loadTrunk.setStyle(sf::Text::Bold);
-	//loadTrunk.setColor(sf::Color::Color(10, 10, 10, 255));
-	//loadTrunk.setPosition(120, 120);
-	//loadTrunk.setLineSpacing(1.3);
+	//coin flip text
+	sf::Text Flip("We will flip a coin to see who goes first.\n              The Yugioh coin is you.\n          The Pokemon coin is the bot.", regular);
+	Flip.setCharacterSize(35);
+	Flip.setStyle(sf::Text::Bold);
+	Flip.setColor(sf::Color::White);
+	Flip.setPosition(130, 350);
+
+	//Player 1 goes first
+	sf::Text First("You're going\nfirst", regular);
+	First.setCharacterSize(150);
+	First.setStyle(sf::Text::Bold);
+	First.setColor(sf::Color::Red);
+	First.setPosition(120, 30);
+
+	//Player 2 goes first
+	sf::Text Second("The bot is\ngoing first", regular);
+	Second.setCharacterSize(150);
+	Second.setStyle(sf::Text::Bold);
+	Second.setColor(sf::Color::Red);
+	Second.setPosition(120, 30);
 
 	//Exit
-	sf::Text Exit("Exit!", regular);
-	Exit.setCharacterSize(100);
+	sf::Text Exit("Exit!", yugioh);
+	Exit.setCharacterSize(150);
 	Exit.setStyle(sf::Text::Bold);
-	Exit.setColor(sf::Color::Color(10, 10, 10, 255));
-	Exit.setPosition(120, 140);
+	Exit.setColor(sf::Color::Red);
+	Exit.setPosition(250, 160);
 	Exit.setLineSpacing(1.3);
 
 	//Render
@@ -124,17 +118,54 @@ int main(void) {
 				window.clear();
 				window.draw(background);
 				window.draw(Duel);
+				window.draw(Flip);
 				window.display();
-				//delay screen
-				delayScreen(3);
+				delayScreen(5);
+
+
 				//flip coin
-				window.clear();
-				window.draw(background);
-				Coin.drawObject(window);
+				int firstPlayer = rand() % 2 + 1;
+				for (int i = 0; i < 10; i++) {
+					window.clear();
+					window.draw(background);
+					Coin.drawObject(window);
+					window.display();
+					delayScreen(.2);
+					window.clear();
+					window.draw(background);
+					PokeCoin.drawObject(window);
+					window.display();
+					delayScreen(.2); 
+					window.clear();
+				}
+				if (firstPlayer == 0) {
+					window.draw(background);
+					Coin.drawObject(window);
+					window.display();
+					delayScreen(.8);
+					window.clear();
+					window.draw(background);
+					window.draw(Second);
+				}
+				else {
+					window.draw(background);
+					PokeCoin.drawObject(window);
+					window.display();
+					delayScreen(.8);
+					window.clear();
+					window.draw(background);
+					window.draw(Second);
+				}
 				window.display();
+				delayScreen(2);
+				window.clear();
+
+
+
+
 				//delay screen
-				delayScreen(3);
-			//old screen
+				delayScreen(1.5);
+				//old screen
 				window.clear();
 				window.draw(background);
 				window.draw(menu1);
@@ -150,7 +181,7 @@ int main(void) {
 				window.draw(Exit);
 				window.display();
 				//delay screen
-				delayScreen(3);
+				delayScreen(1.5);
 			//exit
 				window.clear();
 				window.close();
@@ -211,27 +242,19 @@ int main(void) {
 		//	window.close();
 		//}
 	}
-
-
-			MainMenu menu;
-			menu.loadTrunk();//loads cards from the csv file
-			menu.createPlayers();
-			int selection = 0;
-			do {
-				selection = menu.display();
-				clrscr();
-				switch (selection) {
+	int selection = 0;
+	do {
+		selection = menu.display();
+		clrscr();
+		switch (selection) {
 			//	case CREATE_PLAYERS:menu.createPlayers(); break;
 			//	case EDIT_DECK:menu.editDeck(); break;
 			//	case TRADE_CARDS: menu.tradeCards(); break;
-				case DUEL: menu.duel(); break;
+		case DUEL: menu.duel(); break;
 			//	case LOAD_TRUNK: menu.loadTrunk(); break;
-				case EXIT:break;
-				default: selection = 0;  cout << "Please select a valid option.\n"; EnterKey(); break;
-				}
-			} while (selection != EXIT);
-		
-	cout << "Thanks for playing!\n";
-
+		case EXIT:break;
+		default: selection = 0;  cout << "Please select a valid option.\n"; EnterKey(); break;
+		}
+	} while (selection != EXIT);
 	return 0;
 }

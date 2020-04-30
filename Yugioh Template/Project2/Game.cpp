@@ -41,32 +41,32 @@ void Game::display(void) {
 void Game::Start(void) {
 	player[0].setLife();
 	player[1].setLife();
-	int firstPlayer;
+	int firstPlayer = 0;
 	Card temp; //used for functions
 	//coin flip
-	int guess = 0;
-	do {
-		guess = 0;
-		cout << "Let's flip a coin to determine who goes first!\n";
-		cout << "Pick a side, 1 for Heads or 2 for Tails: ";
-		cin >> guess;
-		flushCin();
-		if (guess != 1 && guess != 2) {
-			guess = INVALID;
-			cout << "Invalid Input! What are you doing Ashlyn!\n";
-			EnterKey();
-		}
-	} while (guess != 1 && guess != 2);
-	int coin = rand() % 2 + 1;
-	if (coin == guess) {
+	//int guess = 0;
+	//do {
+	//	guess = 0;
+	//	//cout << "Let's flip a coin to determine who goes first!\n";
+	//	//cout << "Pick a side, 1 for Heads or 2 for Tails: ";
+	//	//cin >> guess;
+	//	//flushCin();
+	//	if (guess != 1 && guess != 2) {
+	//		guess = INVALID;
+	//		cout << "Invalid Input! What are you doing Ashlyn!\n";
+	//		EnterKey();
+	//	}
+	//} while (guess != 1 && guess != 2);
+	/*int coin = rand() % 2 + 1;
+	if (coin == 1) {
 		firstPlayer = 1;
 	}
 	else
-		firstPlayer = 2;
-	cout << "The coin landed on " << ((coin == 1) ? "Heads" : "Tails") << ", Player " << firstPlayer << " will go first.\n";
-	EnterKey();
+		firstPlayer = 2;*/
+	//cout << "The coin landed on " << ((coin == 1) ? "Heads" : "Tails") << ", Player " << firstPlayer << " will go first.\n";
+	//EnterKey();
 	//
-	firstPlayer = firstPlayer - 1;
+	//firstPlayer = firstPlayer - 1;
 
 	do{
 		//draw

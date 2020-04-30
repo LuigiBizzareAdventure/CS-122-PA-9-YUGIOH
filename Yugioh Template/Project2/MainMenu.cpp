@@ -96,8 +96,8 @@ bool MainMenu::loadTrunk(void) {
 		return false;
 	}
 	else {
-		cout << "Trunk.csv has been succesfully loaded\n";
-		EnterKey();
+		//cout << "Trunk.csv has been succesfully loaded\n";
+		//EnterKey();
 		return true;
 	}
 	trunkFile.close();
@@ -108,17 +108,18 @@ void MainMenu::createPlayers(void) {
 		return;
 	}
 	emptyDeck(0);
-	cout << "Emptied deck 0\n";
+	//cout << "Emptied deck 0\n";
 	emptyDeck(1);
-	cout << "Emptied deck 1\n";
+	//cout << "Emptied deck 1\n";
 	fillDeck(0);//fills player 1's deck with random cards
-	cout << "Filled deck 0\n";
+	//cout << "Filled deck 0\n";
 	fillDeck(1);//fills player 2's deck with random cards
-	cout << "Filled deck 1\n";
-	cout << "The deck of each player has been randomly generated.\n";
-	EnterKey();
+	//cout << "Filled deck 1\n";
+	//cout << "The deck of each player has been randomly generated.\n";
+	//EnterKey();
 	return;
 }
+
 void MainMenu::fillDeck(int player) {
 	
 	int count = deckPh[player].size();
@@ -298,3 +299,4 @@ void MainMenu::duel(void) {
 		Game game(deckPh[0], deckPh[1]);//adds the decks as stacks to the game.
 		game.Start();
 }
+

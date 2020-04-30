@@ -16,6 +16,7 @@ public:
 
 	int display();//prints the main menu options to the console
 	void createPlayers();
+
 	void editDeck();//opens the edit deck menu.
 	void tradeCards();
 	void duel();//place holder decks are added into the stack first card first
@@ -25,9 +26,13 @@ public:
 	void displayDeck(int);
 	void displayCardInfo(Card);
 
+
 	//Edit Options
 	void addCards();
 	void removeCards();
 	void randomlyFillDeck();
 	void emptyDeck(int);
+	List getdeck(int player) {
+		return deckPh[player];
+	}
 };
