@@ -10,8 +10,7 @@ int main(void) {
 	MainMenu menu;
 	menu.loadTrunk();//loads cards from the csv file
 	menu.createPlayers();
-	List player1 = menu.getdeck(0);
-	List player2 = menu.getdeck(1);
+	int firstPlayer = 0;
 
 	//render window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Yugioh");
@@ -124,7 +123,7 @@ int main(void) {
 
 
 				//flip coin
-				int firstPlayer = rand() % 2 + 1;
+				firstPlayer = rand() % 2 + 1;
 				for (int i = 0; i < 10; i++) {
 					window.clear();
 					window.draw(background);
@@ -160,9 +159,9 @@ int main(void) {
 				delayScreen(2);
 				window.clear();
 
-
-
-
+				//give c++ code firstPlayer
+				menu.duel(firstPlayer);
+				
 				//delay screen
 				delayScreen(1.5);
 				//old screen
@@ -250,7 +249,7 @@ int main(void) {
 			//	case CREATE_PLAYERS:menu.createPlayers(); break;
 			//	case EDIT_DECK:menu.editDeck(); break;
 			//	case TRADE_CARDS: menu.tradeCards(); break;
-		case DUEL: menu.duel(); break;
+		case DUEL: menu.duel(firstPlayer); break;
 			//	case LOAD_TRUNK: menu.loadTrunk(); break;
 		case EXIT:break;
 		default: selection = 0;  cout << "Please select a valid option.\n"; EnterKey(); break;

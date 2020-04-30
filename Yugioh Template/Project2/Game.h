@@ -1,11 +1,14 @@
 #include "Header.h"
 #include "Player.h"
+#include "Object.h"
 class Game {
 private:
+	int firstPlayer;
 	int round;
 	Player player[2];
 public:
 	Game(List preDeck0, List preDeck1) {
+		firstPlayer = -1;
 		int count = 0;
 		Card temp;
 		while (count != DECK_SIZE) {
@@ -27,10 +30,10 @@ public:
 
 	void compBattlePhase();
 	void playerBattlePhase();
-
+	void setFirstPlayer(int aPlayer) {
+		firstPlayer = aPlayer;
+	}
 	void damageCalculation();
-
-
 
 
 	void display();

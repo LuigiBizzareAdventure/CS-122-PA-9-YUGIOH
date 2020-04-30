@@ -33,4 +33,7 @@ public:
 	int size(void);
 	bool removeCard(int, Card&);
 	bool removeCard(int);
+	void setHand(List aHand) {
+		hand = aHand;
+	}
 };
