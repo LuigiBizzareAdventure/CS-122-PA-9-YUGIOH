@@ -29,6 +29,7 @@
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.vs\Yugioh Template\v16\.suo" />
     <None Include="Trunk.csv" />
   </ItemGroup>
   <ItemGroup>
