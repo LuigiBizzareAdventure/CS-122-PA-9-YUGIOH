@@ -1,6 +1,6 @@
 #include "Header.h"
 #include "Card.h"
- 
+
 struct ListNode {
 	Card card;
 	ListNode* next;
