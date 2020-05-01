@@ -1,6 +1,5 @@
 #include "Header.h"
 #include "Player.h"
-#include "Object.h"
 class Game {
 private:
 	int firstPlayer;
@@ -10,7 +9,7 @@ public:
 	Game(List preDeck0, List preDeck1) {
 		firstPlayer = -1;
 		int count = 0;
-		Card temp;
+		YCard temp;
 		while (count != DECK_SIZE) {
 			preDeck0.card(count, temp);
 			player[0].insertCardtoDeck(temp);
@@ -27,12 +26,9 @@ public:
 	void swapTurn(int&);
 	void compSetPhase();
 	void playerSetPhase();
-
+	//comment
 	void compBattlePhase();
 	void playerBattlePhase();
-	void setFirstPlayer(int aPlayer) {
-		firstPlayer = aPlayer;
-	}
 	void damageCalculation();
 
 

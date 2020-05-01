@@ -36,7 +36,12 @@ public:
 		aSprite.setPosition(positionX, positionY);
 		aSprite.setScale(scaleX, scaleY);
 	}
+	
 
+	void setString(string astring) {
+		aTexture.loadFromFile(astring);
+		aSprite.setTexture(aTexture);
+	}
 	void drawObject(sf::RenderWindow& window) {
 		window.draw(aSprite);
 	}
@@ -47,6 +52,11 @@ public:
 
 	void setScale(float x, float y) {
 		aSprite.setScale(x, y);
+	}
+
+	void setDimensions(float x, float y) {
+		sf::Vector2f targetSize(x, y);
+		aSprite.setScale(targetSize.x / aSprite.getLocalBounds().width, targetSize.y / aSprite.getLocalBounds().height);
 	}
 
 	void moveObject(char direction, float moveSpeed) {

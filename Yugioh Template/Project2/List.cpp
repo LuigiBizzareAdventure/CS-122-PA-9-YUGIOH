@@ -1,6 +1,6 @@
 #include "List.h"
 
-void List::addCard(Card newCard) {
+void List::addCard(YCard newCard) {
 	ListNode* x = new ListNode;
 	x->card = newCard;
 	x->next = nullptr;
@@ -40,7 +40,7 @@ int List::size(void) {
 	return count;
 }
 
-bool List::card(int x, Card& card) {
+bool List::card(int x, YCard& card) {
 	int count = 0;
 	ListNode* current = top;
 	while (current != nullptr && count != x) {
@@ -58,7 +58,7 @@ bool List::card(int x, Card& card) {
 	}
 }
 
-bool List::removeCard(int x, Card& store) {
+bool List::removeCard(int x, YCard& store) {
 	int count = 0;
 	ListNode* current = top;
 	ListNode* prev = nullptr;

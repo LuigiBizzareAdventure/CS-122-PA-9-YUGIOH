@@ -17,7 +17,7 @@ void Player::setLife(void) {
 	lifePoints = DEFAULT_LIFEPOINTS;
 }
 
-void Player::insertCardtoDeck(Card x) {
+void Player::insertCardtoDeck(YCard x) {
 	deck.push(x);
 }
 
@@ -37,11 +37,11 @@ int Player::getDeckSize(void) {
 	return deck.size();
 }
 
-bool Player::card(int x, Card& card) {
+bool Player::card(int x, YCard& card) {
 	return hand.card(x, card);
 }
 
-void addCard(Card);
+void addCard(YCard);
 int size(void);
-bool removeCard(int, Card&);
+bool removeCard(int, YCard&);
 bool removeCard(int);
