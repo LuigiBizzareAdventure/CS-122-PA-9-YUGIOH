@@ -42,7 +42,7 @@ void Game::display(void) {
 void Game::Start() {
 	player[0].setLife();
 	player[1].setLife();
-	Card temp; //used for functions
+	YCard temp; //used for functions
 
 	//Create Yugioh Font 
 	sf::Font yugioh;
@@ -195,7 +195,7 @@ int Game::winnerCheck(void) {
 		winner = 2;
 	}
 	else if (player[0].getDeckSize() == 0 || player[1].getDeckSize() == 0) {
-		winner = 3; //game is a draw if either player has no cards in their deck.
+		winner = 3; //game is a draw if either player has no YCards in their deck.
 	}
 	else {
 		winner = 0;
@@ -205,7 +205,7 @@ int Game::winnerCheck(void) {
 
 
 void Game::playerSetPhase() {
-	Card temp;
+	YCard temp;
 	int selection;
 	//render window
 	sf::RenderWindow window2(sf::VideoMode(800, 600), "Yugioh");
@@ -221,8 +221,8 @@ void Game::playerSetPhase() {
 	sf::Font regular;
 	regular.loadFromFile("Bebas-Regular.ttf");
 
-	//Choose card for attacking
-	sf::Text Choose("Choose A Card For Attacking(1-5):", regular);
+	//Choose YCard for attacking
+	sf::Text Choose("Choose A YCard For Attacking(1-5):", regular);
 	Choose.setCharacterSize(50);
 	Choose.setStyle(sf::Text::Bold);
 	Choose.setFillColor(sf::Color::Red);
@@ -241,11 +241,11 @@ void Game::playerSetPhase() {
 	Stats.setPosition(0, 0);
 	Stats.setLineSpacing(1.3);
 
-	//Create card
+	//Create YCard
 	float positionx= 10, positiony= 330; 
 	player[0].hand.card(0, temp);
-	Object cardObject(temp.getName()+".png", positionx, positiony);
-	cardObject.setDimensions((float)150, (float)225);
+	Object YCardObject(temp.getName()+".png", positionx, positiony);
+	YCardObject.setDimensions((float)150, (float)225);
 
 	int handSize = player[0].hand.size();
 	selection = 0;
@@ -254,14 +254,14 @@ void Game::playerSetPhase() {
 	window2.draw(background);
 	window2.draw(Choose);
 	window2.draw(Stats);
-	cardObject.drawObject(window2);
+	YCardObject.drawObject(window2);
 	for (int i = 1; i < 5; i++) {
 		positionx += 160;
 		player[0].hand.card(i, temp);
-		cardObject.setString(temp.getName() + ".png");
-		cardObject.setObjectPosition(positionx, positiony);
-		cardObject.setDimensions((float)150, (float)225);
-		cardObject.drawObject(window2);
+		YCardObject.setString(temp.getName() + ".png");
+		YCardObject.setObjectPosition(positionx, positiony);
+		YCardObject.setDimensions((float)150, (float)225);
+		YCardObject.drawObject(window2);
 	}
 	window2.display();
 	while (window2.isOpen()) {
@@ -307,13 +307,13 @@ void Game::playerSetPhase() {
 	window3.draw(background);
 	window3.draw(Choose);
 	window3.draw(Stats);
-	cardObject.drawObject(window3);
+	YCardObject.drawObject(window3);
 	for (int i = 0; i < 4; i++) {
 		player[0].hand.card(i, temp);
-		cardObject.setString(temp.getName() + ".png");
-		cardObject.setObjectPosition(positionx, positiony);
-		cardObject.setDimensions((float)200, (float)300);
-		cardObject.drawObject(window3);
+		YCardObject.setString(temp.getName() + ".png");
+		YCardObject.setObjectPosition(positionx, positiony);
+		YCardObject.setDimensions((float)200, (float)300);
+		YCardObject.drawObject(window3);
 		positionx += 210;
 	}
 	window3.display();
