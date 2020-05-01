@@ -105,7 +105,7 @@ void Game::Start() {
 	delayScreen(5);
 
 	//flip coin
-	firstPlayer = rand() % 2 + 1;
+	firstPlayer = rand() % 2;
 	for (int i = 0; i < 10; i++) {
 		windowPtr->clear();
 		windowPtr->draw(background);
@@ -126,7 +126,7 @@ void Game::Start() {
 		delayScreen(.8);
 		windowPtr->clear();
 		windowPtr->draw(background);
-		windowPtr->draw(Second);
+		windowPtr->draw(First);
 	}
 	else {
 		windowPtr->draw(background);
@@ -258,19 +258,22 @@ void Game::playerSetPhase() {
 		windowPtr->draw(background);
 		windowPtr->draw(Choose);
 		windowPtr->draw(Stats);
-		windowPtr->draw(temp);
-		sf::Sprite x;
+		sf::Sprite cardSprite;
+		sf::Texture texture;
 		for (int i = 0; i < 5; i++) {
 			player[0].hand.card(i, temp);
-			temp.setPosition(positionx, positiony);
-			temp.setDimensions((float)150, (float)225);
-			windowPtr->draw(temp);
+			texture.loadFromFile(temp.getFrontPath());
+			cardSprite.setTexture(texture);
+			cardSprite.setPosition(positionx, positiony);
+			float x = 150;
+			float y = 225;
+			sf::Vector2f targetSize(x, y);
+			cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+			windowPtr->draw(cardSprite);
 			positionx += 160;
 
 		}
 		windowPtr->display();
-
-
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
 			selection = 0;
 			windowPtr->close();

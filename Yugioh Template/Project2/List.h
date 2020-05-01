@@ -28,6 +28,7 @@ public:
 	void addCard(YCard);//dynamically allocates space for the new card.
 	int size(void);//checks hand size.
 	bool card(int, YCard&);//copies the selected card the Card parameter, returns true, if successful.
+	bool cardPtr(int, YCard**);
 	bool removeCard(int, YCard&);//removes a card given an index. Stores the removed card in the input parameter.
 	bool removeCard(int);
 };
