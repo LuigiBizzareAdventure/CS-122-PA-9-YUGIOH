@@ -12,6 +12,12 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{631deda5-a9e9-4d3a-8990-d9f778b6c124}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\CardPngs">
+      <UniqueIdentifier>{6da02118-16d6-4cbd-a652-3e88579d78d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\MicsResources">
+      <UniqueIdentifier>{455b9756-cd8c-44ec-b2ca-a5fc2ebb41e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -38,11 +44,9 @@
     <ClInclude Include="Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Trunk.csv">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp">
@@ -74,430 +78,441 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="..\..\..\PA9\monsterama\monsterama.ttf">
-      <Filter>Resource Files</Filter>
-    </Font>
     <Font Include="squealer embossed.ttf">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\MicsResources</Filter>
+    </Font>
+    <Font Include="..\..\..\PA9\monsterama\monsterama.ttf">
+      <Filter>Resource Files\MicsResources</Filter>
     </Font>
     <Font Include="Bebas-Regular.ttf">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\MicsResources</Filter>
     </Font>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="BlizzardDragon.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Alligator%27s Sword Dragon.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Alligator%27s Sword.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Alpha The Magnet Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
+    </Image>
+    <Image Include="Alligator%27s Sword.png">
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Arcana Knight Joker.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Assault Wyvern.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Axe Raider.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Baby Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Bakura.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Battle Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Beast of Gilfer.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Beaver Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Berfomet.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Beta The Magnet Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Big Shield Garnda.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Black Luster Soldier.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Black Skull Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Blade Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Blue-Eyes Alternative White Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Blue-Eyes Chaos MAX Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Blue-Eyes Ultimate Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Blue-Eyes White Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Brigadier of Landstar.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Buster Blader.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Catapult Turtle.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Cave Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Celtic Guardian.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Chaos Emperor Dragon - Envoy of the End.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Chimera the Flying Mythical Beast.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Copy Cat.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Curse of Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Cyber End Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Cyber-Tech Alligator.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Dark Magician Girl.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Dark Magician.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Dark Paladin.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Dark Sage.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Different Dimension Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Electromagnetic Turtle.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Familiar Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Feral Imp.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Flame Swordsman.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Gadget Soldier.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Gaia The Fierce Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Gamme The Magnet Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Gazelle the King of Mythical Beasts.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Gearfried the Iron Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Gearfried the Swordmaster.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Giant Germ.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Giant Soldier of Stone.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Gilford the Lightning.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Giltia the Dark Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Goblin Attack Force.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Grappler of Landstar.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Hayabusa Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Hitotsu-Me Giant.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Horn Imp.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Insect Queen.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Isabelle Best Girl.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Jack%27s Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Jim Morrison.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Jinzo.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Joseph Joestar.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Judge Man.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Kaibaman.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Kaiser Glider.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Kaiser Sea Horse.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Kakyoin.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="King Crimson.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="King%27s Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Knight of Dark Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Knight of Landstar.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Koumori Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Kuriboh.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Lava Battleguard.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Little-Winguard.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Lord of D..png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Lord of the Red.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Luigi.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Luster Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Mad Sword Beast.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Magician of Black Chaos.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Magician%27s Valkyria.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Malick Blishtar.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Mammoth Graveyard.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Marauding Captain.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Mario.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Marshmallon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Masaki the Legendary Swordsman.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Mayosenju Daibak.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Meteor Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Mystical Elf.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Obelisk the Tormentor.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Padoru Padoru.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Paladin of White Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Pandemic Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Panther Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Parasite Paracide.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Peten the Dark Clown.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Pitch-Dark Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Queen%27s Knight.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Red-Eyes Black Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Rocket Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Rude Kaiser.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Ryu-Kishin.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Saggi the Dark Clown.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Sangan.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Sasuke Samurai.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Slate Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Slifer the Sky Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Sorcerer of Dark Magic.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Spear Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Spirit Ryu.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="STAR PLATINUM.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Summoned Skull.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Swamp Battleguard.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Sword Hunter.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Swordsman of Landstar.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="The Legendary Fisherman.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="The White Stone of Legend.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Thousand Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Thunder Dragon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Tiger Axe.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Time Wizard.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Tohru.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Tour Guide from the Underworld.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Twin-Headed Behemoth.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Valkyrion the Magna Warrior.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Versago the Destroyer.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Viking Sasuke.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Vinny Vinesauce.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Vorse Raider.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Watapon.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Winged Dragon Guardian of the Fortress.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Y-Dragon Head.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="YuGiOh Card Back.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="ZA WARUDO.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Z-Metal Tank.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
+    <Image Include="Pokecoin.png">
+      <Filter>Resource Files\MicsResources</Filter>
+    </Image>
+    <Image Include="coin.png">
+      <Filter>Resource Files\MicsResources</Filter>
+    </Image>
+    <Image Include="BlizzardDragon.png">
+      <Filter>Resource Files\MicsResources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Trunk.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

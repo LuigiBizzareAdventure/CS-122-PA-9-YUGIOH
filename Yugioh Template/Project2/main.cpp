@@ -1,6 +1,7 @@
 #include "Header.h"
 #include "MainMenu.h"
 #include "Object.h"
+
 #pragma warning(disable : 4996)
 int main(void) {
 
