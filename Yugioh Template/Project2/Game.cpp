@@ -105,7 +105,7 @@ void Game::Start() {
 	delayScreen(5);
 
 	//flip coin
-	firstPlayer = rand() % 2 + 1;
+	firstPlayer = rand() % 2;
 	for (int i = 0; i < 10; i++) {
 		windowPtr->clear();
 		windowPtr->draw(background);
@@ -126,7 +126,7 @@ void Game::Start() {
 		delayScreen(.8);
 		windowPtr->clear();
 		windowPtr->draw(background);
-		windowPtr->draw(Second);
+		windowPtr->draw(First);
 	}
 	else {
 		windowPtr->draw(background);
@@ -243,109 +243,110 @@ void Game::playerSetPhase() {
 	//Create card
 	float positionx = 10, positiony = 330; 
 	player[0].hand.card(0, temp);
-
+	selection = -1;
 	int handSize = player[0].hand.size();
 
-	while (windowPtr->isOpen()) {
+	while (windowPtr->isOpen() && selection == -1) {
 		while ((windowPtr->pollEvent(event))) {
 			if (event.type == sf::Event::Closed) {
 				windowPtr->close();
 			}
 		}
 		positionx = 10, positiony = 330;
-		selection = 0;
+		selection = -1;
 		windowPtr->clear();
 		windowPtr->draw(background);
 		windowPtr->draw(Choose);
 		windowPtr->draw(Stats);
-		windowPtr->draw(temp);
-		sf::Sprite x;
+		sf::Sprite cardSprite;
+		sf::Texture texture;
 		for (int i = 0; i < 5; i++) {
 			player[0].hand.card(i, temp);
-			temp.setPosition(positionx, positiony);
-			temp.setDimensions((float)150, (float)225);
-			windowPtr->draw(temp);
+			texture.loadFromFile(temp.getFrontPath());
+			cardSprite.setTexture(texture);
+			cardSprite.setPosition(positionx, positiony);
+			float x = 150;
+			float y = 225;
+			sf::Vector2f targetSize(x, y);
+			cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+			windowPtr->draw(cardSprite);
 			positionx += 160;
 
 		}
 		windowPtr->display();
-
-
 		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
 			selection = 0;
-			windowPtr->close();
 		}
 		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
 			selection = 1;
-			windowPtr->close();
 		}
 		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
 			selection = 2;
-			windowPtr->close();
 		}
 		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
 			selection = 3;
-			windowPtr->close();
 		}
 		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
 			selection = 4;
-			windowPtr->close();
 		}
 	}
 		
-	player[0].hand.removeCard(selection-1+1, temp);
+	player[0].hand.removeCard(selection, temp);
 	player[0].attackQueue.enqueue(temp);
 
 	//render window
-	windowPtr->setFramerateLimit(30);
 	sf::Event event1;
+	selection = -1;
 	handSize--;
 	Choose.setString("Choose A Card For Defending:");
-	selection = 0;
 	positionx = 10;
-	windowPtr->clear();
-	windowPtr->draw(background);
-	windowPtr->draw(Choose);
-	windowPtr->draw(Stats);
-	windowPtr->draw(temp);
-	for (int i = 0; i < 5; i++) {
-		player[0].hand.card(i, temp);
-		temp.setPosition(positionx, positiony);
-		temp.setDimensions((float)200, (float)300);
-		windowPtr->draw(temp);
-		positionx += 210;
-	}
-	windowPtr->display();
-	while (windowPtr->isOpen()) {
+	while (windowPtr->isOpen() && selection == -1) {
 		while ((windowPtr->pollEvent(event1))) {
 			if (event1.type == sf::Event::Closed) {
 				windowPtr->close();
 			}
+			positionx = 10;
+			selection = -1;
+			windowPtr->clear();
+			windowPtr->draw(background);
+			windowPtr->draw(Choose);
+			windowPtr->draw(Stats);
+			sf::Sprite cardSprite;
+			sf::Texture texture;
+			for (int i = 0; i < 4; i++) {
+				player[0].hand.card(i, temp);
+				texture.loadFromFile(temp.getFrontPath());
+				cardSprite.setTexture(texture);
+				cardSprite.setPosition(positionx, positiony);
+				float x = 150;
+				float y = 225;
+				sf::Vector2f targetSize(x, y);
+				cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+				windowPtr->draw(cardSprite);
+				positionx += 160;
+
+			}
+			windowPtr->display();
 			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
 				selection = 0;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
 				selection = 1;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
 				selection = 2;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
 				selection = 3;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
 				selection = 4;
-				windowPtr->close();
 			}
 		}
 
 	}
 
-	player[0].hand.removeCard(selection-1, temp);
+	player[0].hand.removeCard(selection, temp);
 	player[0].defenseQueue.enqueue(temp);
 }
 

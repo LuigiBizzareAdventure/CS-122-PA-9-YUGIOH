@@ -45,7 +45,7 @@ public:
 			//cout << frontPath << " could not be found.\n";
 		}
 		else {
-			//cout << frontPath << " has loaded succesfully.\n";
+			//setTexture(frontTexture, true);
 		}
 	}
 	void setBackTexture(string path) {
@@ -55,7 +55,6 @@ public:
 			//cout << backPath << " could not be found.\n";
 		}
 		else {
-			//cout << backPath << " has loaded succesfully.\n";
 		}
 		//default card size
 		float x = 150;
