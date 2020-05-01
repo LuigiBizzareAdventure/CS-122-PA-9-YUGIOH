@@ -8,7 +8,7 @@ void Game::swapTurn(int& player) {
 }
 
 void Game::display(void) {
-	Card temp;
+	YCard temp;
 	cout << "---------------------------------------------------------------------\n";
 	cout << "Enemy Side\n";
 	if (player[1].atkQueueActivation) {
@@ -42,7 +42,7 @@ void Game::Start(void) {
 	player[0].setLife();
 	player[1].setLife();
 	int firstPlayer;
-	Card temp; //used for functions
+	YCard temp; //used for functions
 	//coin flip
 	int guess = 0;
 	do {
@@ -139,14 +139,14 @@ int Game::winnerCheck(void) {
 
 
 void Game::playerSetPhase() {
-	Card temp;
+	YCard temp;
 	int selection = 0;
 	int handSize = player[0].hand.size();
 	do {
 		selection = 0;
 		display();
 		cout << "Hand:\n";
-		/////prints out top label information for the hand
+		//prints out top label information for the hand
 		cout.ios_base::setf(ios_base::left, ios_base::adjustfield);
 		cout << "#  " << setw(38) << "Monster Name";
 		cout << setw(4) << "ATK";
@@ -156,7 +156,7 @@ void Game::playerSetPhase() {
 		
 		for (int i = 0; i < handSize; i++) {
 			player[0].hand.card(i, temp);
-			cout << i + 1 << ". " << temp << "(+"<< temp.getBoost() << "ATK)\n";
+			cout << i + 1 << ". " << temp << "(+"<< temp.getBoost() << "ATK)\n";//////////////////////////////////////////
 
 		}
 		cout << "Select which monster that you would like to send to the ATK Queue: \n";
@@ -192,7 +192,7 @@ void Game::playerSetPhase() {
 
 
 			
-			cout << i + 1 << ". " << temp << endl;
+			cout << i + 1 << ". " << temp << endl;///////////////////////////////////////////////////////////////
 
 		}
 		cout << "Select which monster that you would like to send to the DEF Queue: \n";
@@ -211,7 +211,7 @@ void Game::playerSetPhase() {
 }
 
 void Game::compSetPhase() {
-	Card temp;
+	YCard temp;
 	int randPick;
 	//attack Queue
 	display();
@@ -264,7 +264,7 @@ void Game::playerBattlePhase() {
 }
 
 void Game::compBattlePhase() {
-	Card temp;
+	YCard temp;
 	int randPick;
 	//attack Queue
 	randPick = rand() % 2;
@@ -287,7 +287,7 @@ void Game::damageCalculation() {
 	cout << "Calculation:\n\n";
 	display();
 	cout << "\n";
-	Card monster[2];
+	YCard monster[2];
 	int playerBattlePoints;
 	int compBattlePoints;
 
@@ -332,7 +332,7 @@ void Game::damageCalculation() {
 			player[0].subLife(abs(difference));
 		}
 		else {
-			cout << "Computer has taken " << abs(difference) << "damage!\n";
+		cout << "Computer has taken " << abs(difference) << "damage!\n";
 			player[1].subLife(abs(difference));
 		}
 	}

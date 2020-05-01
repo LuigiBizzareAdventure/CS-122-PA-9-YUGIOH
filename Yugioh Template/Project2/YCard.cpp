@@ -1,16 +1,17 @@
-#include "Card.h"
+#include "YCard.h"
 
+#include <SFML/Graphics.hpp>
 
-void Card::setName(string newName) {
+void YCard::setName(string newName) {
 	name = newName;
 }
-void Card::setAtk(int newAtk){
+void YCard::setAtk(int newAtk) {
 	atkPoints = newAtk;
 }
-void Card::setDef(int newDef) {
+void YCard::setDef(int newDef) {
 	defPoints = newDef;
 }
-void Card::setType(string x) {
+void YCard::setType(string x) {
 	typeName = x;
 	if (x.compare("initial") == 0)//Why aren't there string to enum conversions!!!!!!
 		type = Type::initial;
@@ -60,43 +61,43 @@ void Card::setType(string x) {
 		typeName = "initial";
 	}
 }
-string Card::getName(void) {
+string YCard::getName(void) {
 	return name;
 }
-int	Card::getAtk(void) {
+int	YCard::getAtk(void) {
 	return atkPoints;
 }
-int	Card::getDef(void){
+int	YCard::getDef(void) {
 	return defPoints;
 }
 
-Type Card::getType(void) {
+Type YCard::getType(void) {
 	return type;
 }
 
-string Card::getTypeName(void){
+string YCard::getTypeName(void) {
 	return typeName;
 }
-int Card::getBoost(void) {
+int YCard::getBoost(void) {
 	int boost = 0;
 	switch (type)
 	{
-	case Type::initial:		boost = 0;break;
-	case Type::Fodder:		boost = 1;break;
-	case Type::Fiend:		boost = 100;break;
-	case Type::Meme:		boost = 500;break;
-	case Type::Dragon:		boost = 400;break;
-	case Type::STAND:		boost = 1000;break;
-	case Type::SpellCaster:	boost = 300;break;
-	case Type::Helper:		boost = 500;break;
-	case Type::STAND_USER:	boost = 500;break;
-	case Type::GOD:			boost = 900;break;
-	case Type::Beast:		boost = 200;break;
+	case Type::initial:		boost = 0; break;
+	case Type::Fodder:		boost = 1; break;
+	case Type::Fiend:		boost = 100; break;
+	case Type::Meme:		boost = 500; break;
+	case Type::Dragon:		boost = 400; break;
+	case Type::STAND:		boost = 1000; break;
+	case Type::SpellCaster:	boost = 300; break;
+	case Type::Helper:		boost = 500; break;
+	case Type::STAND_USER:	boost = 500; break;
+	case Type::GOD:			boost = 900; break;
+	case Type::Beast:		boost = 200; break;
 	default: boost = 0;  break;
 	}
 	return boost;
 }
-void Card::reset(void) {
+void YCard::reset(void) {
 	name = "empty";
 	atkPoints = 0;
 	defPoints = 0;
@@ -104,11 +105,12 @@ void Card::reset(void) {
 	typeName = "Empty";
 }
 
-ostream& operator<<(ostream& os, Card& card) {
+ostream& operator<<(ostream& os, YCard& card) {
 	os.ios_base::setf(ios_base::left);//has all strings appear on the left by default
-	os <<  setw(38) << card.getName();
+	os << setw(38) << card.getName();
 	os << setw(4) << card.getAtk();
 	os << " " << setw(4) << card.getDef();
 	os << " " << card.getTypeName();
 	return os;
 }
+

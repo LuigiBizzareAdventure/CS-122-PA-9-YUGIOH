@@ -7,7 +7,7 @@ private:
 public:
 	Game(List preDeck0, List preDeck1) {
 		int count = 0;
-		Card temp;
+		YCard temp;
 		while (count != DECK_SIZE) {
 			preDeck0.card(count, temp);
 			player[0].insertCardtoDeck(temp);

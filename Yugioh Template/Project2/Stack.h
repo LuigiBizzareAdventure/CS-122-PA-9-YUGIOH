@@ -1,8 +1,8 @@
 #include "Header.h"
-#include "Card.h"
+#include "YCard.h"
 
 struct StackNode {//Node used for the stack class.
-	Card card;
+	YCard card;
 	StackNode* next;
 };
 
@@ -23,10 +23,10 @@ public:
 			}
 		}
 	};
-	void push(Card);//pushes new data onto the stack
-	bool pop(Card&);//pops data off of the stack and stores it in the parameter.
+	void push(YCard);//pushes new data onto the stack
+	bool pop(YCard&);//pops data off of the stack and stores it in the parameter.
 	bool pop();//pops data off the stack without storing.
 	int size();//returns the size of the stack.
-	bool card(int, Card&);//given an index position, checks the stack for a card. returns true if succesful.
+	bool card(int, YCard&);//given an index position, checks the stack for a card. returns true if succesful.
 
 };
