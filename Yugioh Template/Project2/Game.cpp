@@ -205,7 +205,7 @@ int Game::winnerCheck(void) {
 
 
 void Game::playerSetPhase() {
-	Card temp;
+	YCard temp;
 	int selection;
 	//render window
 	sf::RenderWindow window2(sf::VideoMode(800, 600), "Yugioh");
