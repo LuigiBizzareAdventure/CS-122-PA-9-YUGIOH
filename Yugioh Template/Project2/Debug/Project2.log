@@ -1,15 +1,6 @@
-﻿  Game.cpp
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(77,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(54,12): warning C4101: 'event': unreferenced local variable
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(230,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(242,26): warning C4305: 'argument': truncation from 'double' to 'float'
-  List.cpp
-  main.cpp
+﻿  main.cpp
 C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(44,25): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(52,63): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(65,25): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\List.cpp(94): warning C4715: 'List::removeCard': not all control paths return a value
-  LINK : C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Debug\Project2.exe not found or not built by the last incremental link; performing full link
   Project2.vcxproj -> C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Debug\Project2.exe

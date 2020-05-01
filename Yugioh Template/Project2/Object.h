@@ -42,8 +42,8 @@ public:
 		aTexture.loadFromFile(astring);
 		aSprite.setTexture(aTexture);
 	}
-	void drawObject(sf::RenderWindow& window) {
-		window.draw(aSprite);
+	void drawObject(sf::RenderWindow* windowPtr) {
+		windowPtr->draw(aSprite);
 	}
 	
 	void setObjectPosition(float x, float y) {
