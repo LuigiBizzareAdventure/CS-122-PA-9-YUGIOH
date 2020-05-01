@@ -1,10 +1,6 @@
-﻿  Game.cpp
-  main.cpp
+﻿  main.cpp
 C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(44,25): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(52,63): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(99,25): warning C4305: 'argument': truncation from 'double' to 'float'
-  MainMenu.cpp
-  Player.cpp
-  Generating Code...
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(65,25): warning C4305: 'argument': truncation from 'double' to 'float'
   Project2.vcxproj -> C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Debug\Project2.exe

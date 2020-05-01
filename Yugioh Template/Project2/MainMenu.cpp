@@ -1,5 +1,6 @@
 #include "MainMenu.h"
 
+
 int MainMenu::display(void) {
 	int selection = 0;
 	cout << "Yugioh Main Menu:\n\n";
@@ -290,14 +291,13 @@ void MainMenu::tradeCards(void) {
 	} while (selection1 != 0);
 	return;
 }
-void MainMenu::duel(int player) {
+void MainMenu::duel() {
 	if (deckPh[0].size() != DECK_SIZE || deckPh[1].size() != DECK_SIZE) {
 		cout << "Players must be created to use this feature.\n";
 		EnterKey();
 		return;
 	}
 		Game game(deckPh[0], deckPh[1]);//adds the decks as stacks to the game.
-		game.setFirstPlayer(player);
 		game.Start();
 }
 

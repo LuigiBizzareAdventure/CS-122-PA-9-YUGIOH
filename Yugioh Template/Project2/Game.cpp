@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Object.h"
 void Game::swapTurn(int& player) {
 	if (player == 1) {
 		player = 0;
@@ -42,31 +43,102 @@ void Game::Start() {
 	player[0].setLife();
 	player[1].setLife();
 	Card temp; //used for functions
-	//coin flip
-	//int guess = 0;
-	//do {
-	//	guess = 0;
-	//	//cout << "Let's flip a coin to determine who goes first!\n";
-	//	//cout << "Pick a side, 1 for Heads or 2 for Tails: ";
-	//	//cin >> guess;
-	//	//flushCin();
-	//	if (guess != 1 && guess != 2) {
-	//		guess = INVALID;
-	//		cout << "Invalid Input! What are you doing Ashlyn!\n";
-	//		EnterKey();
-	//	}
-	//} while (guess != 1 && guess != 2);
-	/*int coin = rand() % 2 + 1;
-	if (coin == 1) {
-		firstPlayer = 1;
-	}
-	else
-		firstPlayer = 2;*/
-	//cout << "The coin landed on " << ((coin == 1) ? "Heads" : "Tails") << ", Player " << firstPlayer << " will go first.\n";
-	//EnterKey();
-	//
-	//firstPlayer = firstPlayer - 1;
 
+	//Create Yugioh Font 
+	sf::Font yugioh;
+	yugioh.loadFromFile("squealer embossed.ttf");
+
+	//render window
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Yugioh");
+	window.setFramerateLimit(30);
+	sf::Event event;
+
+	//Create a background
+	sf::RectangleShape background(sf::Vector2f(800, 800));
+	background.setFillColor(sf::Color::Black);
+	background.setPosition(0, 0);
+
+	//Create Regular Font 
+	sf::Font regular;
+	regular.loadFromFile("Bebas-Regular.ttf");
+
+	// create front of coin
+	Object Coin("coin.png", 275, 150, 0.5, 0.5);
+
+	//create back of coin
+	Object PokeCoin("Pokecoin.png", 275, 150, 1, 1);
+
+	// create text for coin flip
+	sf::Text Flip("We will flip a coin to see who goes first.\n              The Yugioh coin is you.\n          The Pokemon coin is the bot.", regular);
+	Flip.setCharacterSize(35);
+	Flip.setStyle(sf::Text::Bold);
+	Flip.setFillColor(sf::Color::White);
+	Flip.setPosition(130, 350);
+
+	//DUEL
+	sf::Text Duel("Welcome to the\n      BATTLE!", yugioh);
+	Duel.setCharacterSize(100);
+	Duel.setStyle(sf::Text::Bold);
+	Duel.setFillColor(sf::Color::Red);
+	Duel.setPosition(120, 30);
+
+	//Player 1 goes first
+	sf::Text First("You're going\nfirst", regular);
+	First.setCharacterSize(150);
+	First.setStyle(sf::Text::Bold);
+	First.setFillColor(sf::Color::Red);
+	First.setPosition(120, 30);
+
+	//Player 2 goes first
+	sf::Text Second("The bot is\ngoing first", regular);
+	Second.setCharacterSize(150);
+	Second.setStyle(sf::Text::Bold);
+	Second.setFillColor(sf::Color::Red);
+	Second.setPosition(120, 30);
+
+	window.clear();
+	window.draw(background);
+	window.draw(Duel);
+	window.draw(Flip);
+	window.display();
+	delayScreen(5);
+
+	//flip coin
+	firstPlayer = rand() % 2 + 1;
+	for (int i = 0; i < 10; i++) {
+		window.clear();
+		window.draw(background);
+		Coin.drawObject(window);
+		window.display();
+		delayScreen(.2);
+		window.clear();
+		window.draw(background);
+		PokeCoin.drawObject(window);
+		window.display();
+		delayScreen(.2);
+		window.clear();
+	}
+	if (firstPlayer == 0) {
+		window.draw(background);
+		Coin.drawObject(window);
+		window.display();
+		delayScreen(.8);
+		window.clear();
+		window.draw(background);
+		window.draw(Second);
+	}
+	else {
+		window.draw(background);
+		PokeCoin.drawObject(window);
+		window.display();
+		delayScreen(.8);
+		window.clear();
+		window.draw(background);
+		window.draw(Second);
+	}
+	window.display();
+	delayScreen(2);
+	window.clear();
 	do{
 		//draw
 		while (player[0].hand.size() != 5 && player[0].getDeckSize() != 0) {
