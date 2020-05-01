@@ -1,6 +1,5 @@
 #include "Header.h"
 #include "Player.h"
-#include "Object.h"
 class Game {
 private:
 	int firstPlayer;
@@ -30,9 +29,6 @@ public:
 
 	void compBattlePhase();
 	void playerBattlePhase();
-	void setFirstPlayer(int aPlayer) {
-		firstPlayer = aPlayer;
-	}
 	void damageCalculation();
 
 
