@@ -42,7 +42,7 @@ void Game::display(void) {
 void Game::Start() {
 	player[0].setLife();
 	player[1].setLife();
-	Card temp; //used for functions
+	YCard temp; //used for functions
 
 	//Create Yugioh Font 
 	sf::Font yugioh;
