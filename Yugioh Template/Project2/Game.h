@@ -26,7 +26,7 @@ public:
 	void swapTurn(int&);
 	void compSetPhase();
 	void playerSetPhase();
-
+	//comment
 	void compBattlePhase();
 	void playerBattlePhase();
 	void damageCalculation();
