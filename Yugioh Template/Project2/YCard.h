@@ -25,14 +25,14 @@ public:
 		frontPath = "cardTextures/Mysterious Error.png";
 		backPath = "cardTextures/YuGiOh Card Back.png";
 		//load textures
-		if (!frontTexture.loadFromFile(frontPath))
+		/*if (!frontTexture.loadFromFile(frontPath))
 		{
 			cout << frontPath << " could not be found.\n";
-		}
-		if (!backTexture.loadFromFile(backPath))
+		}*/
+		/*if (!backTexture.loadFromFile(backPath))
 		{
 			cout << backPath << " could not be found.\n";
-		}
+		}*/
 		setPosition(0, 0);
 		setDimensions((float)200, (float)300);
 	}
