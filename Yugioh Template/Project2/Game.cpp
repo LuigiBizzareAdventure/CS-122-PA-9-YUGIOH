@@ -241,10 +241,10 @@ void Game::playerSetPhase() {
 	Stats.setLineSpacing(1.3);
 
 	//Create card
-	float positionx= 10, positiony= 330; 
+	float positionx = 10, positiony = 330; 
 	player[0].hand.card(0, temp);
-	Object cardObject(temp.getName()+".png", positionx, positiony);
-	cardObject.setDimensions((float)150, (float)225);
+	Object cardSprite(temp.getName()+".png", positionx, positiony);
+	cardSprite.setDimensions((float)150, (float)225);
 
 	int handSize = player[0].hand.size();
 	selection = 0;
@@ -253,14 +253,14 @@ void Game::playerSetPhase() {
 	windowPtr->draw(background);
 	windowPtr->draw(Choose);
 	windowPtr->draw(Stats);
-	cardObject.drawObject(windowPtr);
+	cardSprite.drawObject(windowPtr);
 	for (int i = 1; i < 5; i++) {
 		positionx += 160;
 		player[0].hand.card(i, temp);
-		cardObject.setString(temp.getName() + ".png");
-		cardObject.setObjectPosition(positionx, positiony);
-		cardObject.setDimensions((float)150, (float)225);
-		cardObject.drawObject(windowPtr);
+		cardSprite.changeTexture("tex/"+temp.getName() + ".png");
+		cardSprite.setObjectPosition(positionx, positiony);
+		cardSprite.setDimensions((float)150, (float)225);
+		cardSprite.drawObject(windowPtr);
 	}
 	windowPtr->display();
 	while (windowPtr->isOpen()) {
@@ -305,13 +305,13 @@ void Game::playerSetPhase() {
 	windowPtr->draw(background);
 	windowPtr->draw(Choose);
 	windowPtr->draw(Stats);
-	cardObject.drawObject(windowPtr);
+	cardSprite.drawObject(windowPtr);
 	for (int i = 0; i < 4; i++) {
 		player[0].hand.card(i, temp);
-		cardObject.setString(temp.getName() + ".png");
-		cardObject.setObjectPosition(positionx, positiony);
-		cardObject.setDimensions((float)200, (float)300);
-		cardObject.drawObject(windowPtr);
+		cardSprite.changeTexture(temp.getName() + ".png");
+		cardSprite.setObjectPosition(positionx, positiony);
+		cardSprite.setDimensions((float)200, (float)300);
+		cardSprite.drawObject(windowPtr);
 		positionx += 210;
 	}
 	windowPtr->display();

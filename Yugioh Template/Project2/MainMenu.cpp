@@ -85,6 +85,7 @@ bool MainMenu::loadTrunk(void) {
 		
 		data = strtok(NULL, ",");//the moster type is read from record and stored in data.
 		temp.setType(data);//temp type is set to data.
+		temp.setFrontTexture("cardTextures/" + temp.getName() + ".png");
 		trunk.addCard(temp);//temp is stored.
 		temp.reset();//resets the temps default settings.
 
