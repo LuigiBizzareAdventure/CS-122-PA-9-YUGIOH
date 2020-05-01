@@ -9,7 +9,7 @@ void Game::swapTurn(int& player) {
 }
 
 void Game::display(void) {
-	Card temp;
+	YCard temp;
 	cout << "---------------------------------------------------------------------\n";
 	cout << "Enemy Side\n";
 	if (player[1].atkQueueActivation) {
@@ -351,7 +351,7 @@ void Game::playerSetPhase() {
 }
 
 void Game::compSetPhase() {
-	Card temp;
+	YCard temp;
 	int randPick;
 	//attack Queue
 //	display();
@@ -404,7 +404,7 @@ void Game::playerBattlePhase() {
 }
 
 void Game::compBattlePhase() {
-	Card temp;
+	YCard temp;
 	int randPick;
 	//attack Queue
 	randPick = rand() % 2;
@@ -427,7 +427,7 @@ void Game::damageCalculation() {
 	//cout << "Calculation:\n\n";
 	//display();
 	//cout << "\n";
-	Card monster[2];
+	YCard monster[2];
 	int playerBattlePoints;
 	int compBattlePoints;
 

@@ -25,7 +25,7 @@ public:
 	void fillDeck(int);//fills a selected players deck with random cards until the deck is full.
 	void displayTrunk();
 	void displayDeck(int);
-	void displayCardInfo(Card);
+	void displayCardInfo(YCard);
 
 
 	//Edit Options

@@ -1,27 +1,25 @@
-
-#ifndef CARD_GUARD
-#define CARD_GUARD
+#ifndef YCARD_GUARD
+#define YCARD_GUARD
 #include "Header.h"
-
-
-
-class Card {
+class YCard {
 private:
 	string name;
 	int atkPoints;
 	int defPoints;
 	Type type;
 	string typeName;
-	
+	string frontTexture;
+	string backTexture;
 public:
-	Card() {
+	YCard() {
 		name = "empty";
 		atkPoints = 0;
 		defPoints = 0;
 		type = Type::initial;
 		typeName = "Empty";
+
 	}
-	friend ostream& operator<<(ostream&, Card&);//used to output card information.
+	friend ostream& operator<<(ostream&, YCard&);//used to output card information.
 	
 	void setName(string);
 	void setAtk(int);
@@ -36,4 +34,4 @@ public:
 	int getBoost(void);//returns the boost recieved from the card's type.
 	void reset(void);//card is reset to it's default state.
 };
-#endif CARD_GUARD
+#endif YCARD_GUARD

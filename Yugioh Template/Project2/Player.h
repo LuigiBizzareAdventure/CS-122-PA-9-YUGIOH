@@ -7,7 +7,7 @@ class Player {
 private:
 	int lifePoints;
 	Stack deck;
-	Card temp;//card used to store, and check card values.
+	YCard temp;//card used to store, and check card values.
 public:
 	Player() {
 		lifePoints = DEFAULT_LIFEPOINTS;
@@ -25,13 +25,13 @@ public:
 	void setLife();//sets a players lifepoints to the default of 8000.
 	int getLife();
 	
-	bool card(int, Card&);
-	void insertCardtoDeck(Card);//pushes a card to the players deck
+	bool card(int, YCard&);
+	void insertCardtoDeck(YCard);//pushes a card to the players deck
 	bool drawCard();//draws a card from the deck and adds it to the hand, returns false if a card could not be drawn.
 	int getDeckSize(void);
-	void addCard(Card);
+	void addCard(YCard);
 	int size(void);
-	bool removeCard(int, Card&);
+	bool removeCard(int, YCard&);
 	bool removeCard(int);
 	void setHand(List aHand) {
 		hand = aHand;
