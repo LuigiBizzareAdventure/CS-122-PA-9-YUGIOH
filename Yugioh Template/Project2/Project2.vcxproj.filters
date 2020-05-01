@@ -15,7 +15,7 @@
     <Filter Include="Resource Files\CardPngs">
       <UniqueIdentifier>{6da02118-16d6-4cbd-a652-3e88579d78d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\MicsResources">
+    <Filter Include="Resource Files\MiscResources">
       <UniqueIdentifier>{455b9756-cd8c-44ec-b2ca-a5fc2ebb41e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -79,13 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="squealer embossed.ttf">
-      <Filter>Resource Files\MicsResources</Filter>
+      <Filter>Resource Files\MiscResources</Filter>
     </Font>
     <Font Include="..\..\..\PA9\monsterama\monsterama.ttf">
-      <Filter>Resource Files\MicsResources</Filter>
+      <Filter>Resource Files\MiscResources</Filter>
     </Font>
     <Font Include="Bebas-Regular.ttf">
-      <Filter>Resource Files\MicsResources</Filter>
+      <Filter>Resource Files\MiscResources</Filter>
     </Font>
   </ItemGroup>
   <ItemGroup>
@@ -501,13 +501,16 @@
       <Filter>Resource Files\CardPngs</Filter>
     </Image>
     <Image Include="Pokecoin.png">
-      <Filter>Resource Files\MicsResources</Filter>
+      <Filter>Resource Files\MiscResources</Filter>
     </Image>
     <Image Include="coin.png">
-      <Filter>Resource Files\MicsResources</Filter>
+      <Filter>Resource Files\MiscResources</Filter>
     </Image>
     <Image Include="BlizzardDragon.png">
-      <Filter>Resource Files\MicsResources</Filter>
+      <Filter>Resource Files\MiscResources</Filter>
+    </Image>
+    <Image Include="Mysterious Error.png">
+      <Filter>Resource Files\CardPngs</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

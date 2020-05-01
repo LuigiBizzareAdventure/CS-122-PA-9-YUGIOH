@@ -12,7 +12,8 @@ private:
 	int defPoints;
 	Type type;
 	string typeName;
-	
+	string frontTexture;
+	string backTexture;
 public:
 	Card() {
 		name = "empty";
@@ -20,6 +21,7 @@ public:
 		defPoints = 0;
 		type = Type::initial;
 		typeName = "Empty";
+
 	}
 	friend ostream& operator<<(ostream&, Card&);//used to output card information.
 	
