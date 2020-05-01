@@ -1,17 +1,3 @@
-﻿  Card.cpp
-  Functions.cpp
-  Game.cpp
-  List.cpp
-  main.cpp
-C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(8,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(44,25): warning C4305:  'argument': truncation from 'double' to 'float'
-C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(52,63): warning C4305:  'argument': truncation from 'double' to 'float'
-  MainMenu.cpp
-  Player.cpp
-  Queue.cpp
-C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(99,25): warning C4305:  'argument': truncation from 'double' to 'float'
-  Stack.cpp
-C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Queue.cpp(8,13): warning C4101:  'temp': unreferenced local variable
-  Generating code
+﻿  Generating code
 LINK : fatal error C1354: error accessing previous object file C:\Users\john_\Source\Repos\CS-122-PA-9-YUGIOH\Yugioh Template\Release\Project2.iobj (corrupted symbol table)
 LINK : fatal error LNK1257: code generation failed
