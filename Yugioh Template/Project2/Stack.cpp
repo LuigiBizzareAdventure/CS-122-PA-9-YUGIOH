@@ -2,7 +2,7 @@
 
 
 
-void Stack::push(Card newCard) {
+void Stack::push(YCard newCard) {
 	StackNode* newNode = new StackNode;
 	newNode->card = newCard;
 	newNode->next = nullptr;
@@ -16,7 +16,7 @@ void Stack::push(Card newCard) {
 	}
 }
 
-bool Stack::pop(Card& store) {
+bool Stack::pop(YCard& store) {
 	StackNode* temp = top;
 	if (top == nullptr) {
 		cout << "There is nothing left to pop." << endl;
@@ -51,7 +51,7 @@ int Stack::size(void) {
 	}
 	return count;
 }
-bool Stack::card(int x, Card& card) {
+bool Stack::card(int x, YCard& card) {
 	int count = 0;
 	StackNode* current = top;
 	while (current != nullptr && count != x) {//loop which checks if the nodepointer contains a value or if the count has been reached.

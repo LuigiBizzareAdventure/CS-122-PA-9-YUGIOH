@@ -2,12 +2,16 @@
 #include "Player.h"
 class Game {
 private:
+	int firstPlayer;
 	int round;
 	Player player[2];
+	sf::RenderWindow *windowPtr;
 public:
-	Game(List preDeck0, List preDeck1) {
+	Game(List preDeck0, List preDeck1,sf::RenderWindow *window) {
+		windowPtr = window;
+		firstPlayer = -1;
 		int count = 0;
-		Card temp;
+		YCard temp;
 		while (count != DECK_SIZE) {
 			preDeck0.card(count, temp);
 			player[0].insertCardtoDeck(temp);
@@ -24,13 +28,10 @@ public:
 	void swapTurn(int&);
 	void compSetPhase();
 	void playerSetPhase();
-
+	//comment
 	void compBattlePhase();
 	void playerBattlePhase();
-
 	void damageCalculation();
-
-
 
 
 	void display();
