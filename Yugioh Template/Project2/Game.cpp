@@ -243,54 +243,56 @@ void Game::playerSetPhase() {
 	//Create card
 	float positionx = 10, positiony = 330; 
 	player[0].hand.card(0, temp);
-	Object cardSprite(temp.getName()+".png", positionx, positiony);
-	cardSprite.setDimensions((float)150, (float)225);
 
 	int handSize = player[0].hand.size();
-	selection = 0;
 
-	windowPtr->clear();
-	windowPtr->draw(background);
-	windowPtr->draw(Choose);
-	windowPtr->draw(Stats);
-	cardSprite.drawObject(windowPtr);
-	for (int i = 1; i < 5; i++) {
-		positionx += 160;
-		player[0].hand.card(i, temp);
-		cardSprite.changeTexture("tex/"+temp.getName() + ".png");
-		cardSprite.setObjectPosition(positionx, positiony);
-		cardSprite.setDimensions((float)150, (float)225);
-		cardSprite.drawObject(windowPtr);
-	}
-	windowPtr->display();
 	while (windowPtr->isOpen()) {
 		while ((windowPtr->pollEvent(event))) {
 			if (event.type == sf::Event::Closed) {
 				windowPtr->close();
 			}
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
-				selection = 0;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
-				selection = 1;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
-				selection = 2;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
-				selection = 3;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-				selection = 4;
-				windowPtr->close();
-			}
 		}
-		
+		positionx = 10, positiony = 330;
+		selection = 0;
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(Choose);
+		windowPtr->draw(Stats);
+		windowPtr->draw(temp);
+		sf::Sprite x;
+		for (int i = 0; i < 5; i++) {
+			player[0].hand.card(i, temp);
+			temp.setPosition(positionx, positiony);
+			temp.setDimensions((float)150, (float)225);
+			windowPtr->draw(temp);
+			positionx += 160;
+
+		}
+		windowPtr->display();
+
+
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
+			selection = 0;
+			windowPtr->close();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+			selection = 1;
+			windowPtr->close();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+			selection = 2;
+			windowPtr->close();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+			selection = 3;
+			windowPtr->close();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+			selection = 4;
+			windowPtr->close();
+		}
 	}
+		
 	player[0].hand.removeCard(selection-1+1, temp);
 	player[0].attackQueue.enqueue(temp);
 
@@ -305,13 +307,12 @@ void Game::playerSetPhase() {
 	windowPtr->draw(background);
 	windowPtr->draw(Choose);
 	windowPtr->draw(Stats);
-	cardSprite.drawObject(windowPtr);
-	for (int i = 0; i < 4; i++) {
+	windowPtr->draw(temp);
+	for (int i = 0; i < 5; i++) {
 		player[0].hand.card(i, temp);
-		cardSprite.changeTexture(temp.getName() + ".png");
-		cardSprite.setObjectPosition(positionx, positiony);
-		cardSprite.setDimensions((float)200, (float)300);
-		cardSprite.drawObject(windowPtr);
+		temp.setPosition(positionx, positiony);
+		temp.setDimensions((float)200, (float)300);
+		windowPtr->draw(temp);
 		positionx += 210;
 	}
 	windowPtr->display();
