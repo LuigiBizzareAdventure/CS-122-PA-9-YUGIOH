@@ -24,12 +24,12 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\.vs\Yugioh Template\v16\.suo" />
     <None Include="Trunk.csv" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +92,7 @@
     <Image Include="Celtic Guardian.png" />
     <Image Include="Chaos Emperor Dragon - Envoy of the End.png" />
     <Image Include="Chimera the Flying Mythical Beast.png" />
+    <Image Include="coin.png" />
     <Image Include="Copy Cat.png" />
     <Image Include="Curse of Dragon.png" />
     <Image Include="Cyber End Dragon.png" />
@@ -163,6 +164,7 @@
     <Image Include="Parasite Paracide.png" />
     <Image Include="Peten the Dark Clown.png" />
     <Image Include="Pitch-Dark Dragon.png" />
+    <Image Include="Pokecoin.png" />
     <Image Include="Queen%27s Knight.png" />
     <Image Include="Red-Eyes Black Dragon.png" />
     <Image Include="Rocket Warrior.png" />
@@ -286,10 +288,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>c:\sfml-2.5.1\lib</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -319,12 +325,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>c:\sfml-2.5.1\lib</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

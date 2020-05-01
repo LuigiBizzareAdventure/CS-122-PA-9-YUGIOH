@@ -90,7 +90,7 @@ void Game::Start(void) {
 			playerBattlePhase();
 			compBattlePhase();
 		}
-		if (firstPlayer == 1) {//goes first
+		if (firstPlayer == 1) {//computer goes first
 			//Monster setting phase
 			compSetPhase();
 			playerSetPhase();

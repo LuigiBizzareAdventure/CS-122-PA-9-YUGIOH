@@ -73,7 +73,7 @@ bool MainMenu::loadTrunk(void) {
 		if (record[recordLength - 1] == '\n') {//gets rid of the newline character if found in the record.
 			record[recordLength - 1] = '\0';
 		}
-		data = strtok(record, ",");//them monster name is read from record and stored in data.
+		data = strtok(record, ",");//the monster name is read from record and stored in data.
 		temp.setName(data);//temp name is set to data
 		
 		data = strtok(NULL, ",");//the attack points are read from record and stored in data.
@@ -83,7 +83,7 @@ bool MainMenu::loadTrunk(void) {
 		temp.setDef(std::stoi(data));//temp def set to data
 		
 		data = strtok(NULL, ",");//the moster type is read from record and stored in data.
-		temp.setType(data);//tempp type is set to data.
+		temp.setType(data);//temp type is set to data.
 		trunk.addCard(temp);//temp is stored.
 		temp.reset();//resets the temps default settings.
 
@@ -214,9 +214,9 @@ void MainMenu::addCards(void) {
 void MainMenu::removeCards(void) {
 	int selection = 0;
 	do {
-		if (deckPh[0].size() == 0) {
+		if (deckPh[0].size() == 0)
 			cout << "There are no more cards in the deck. You must add some cards before you can continue\n";
-			EnterKey();
+			EnterKey(); {
 			return;
 		}
 		Card temp;
