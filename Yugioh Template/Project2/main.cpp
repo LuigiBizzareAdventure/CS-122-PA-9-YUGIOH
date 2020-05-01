@@ -72,40 +72,29 @@ int main(void) {
 	window.draw(welcome);
 	window.draw(text);
 	window.display();
+	delayScreen(1.5);
+	window.clear();
 	while (window.isOpen()) {
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				window.close();
 			}
-		}
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))){
 
-				
-				//delay screen
-				delayScreen(1.5);
-				//old screen
-				window.clear();
-				window.draw(background);
-				window.draw(menu1);
-				spriteDragon.drawObject(window);
-				window.draw(welcome);
-				window.draw(text);
-				window.display();
-				delayScreen(1.5);
-				window.clear();
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
 				menu.duel();
-		}
-		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
-			//new screen
+			}
+			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+				//new screen
 				window.clear();
 				window.draw(background);
 				window.draw(Exit);
 				window.display();
 				//delay screen
 				delayScreen(1.5);
-			//exit
+				//exit
 				window.clear();
 				window.close();
+			}
 		}
 		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
 		//	//new screen

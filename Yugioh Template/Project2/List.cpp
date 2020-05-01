@@ -58,6 +58,7 @@ bool List::card(int x, Card& card) {
 	}
 }
 
+
 bool List::removeCard(int x, Card& store) {
 	int count = 0;
 	ListNode* current = top;
