@@ -184,14 +184,6 @@ void Game::Start() {
 	int winner = winnerCheck();
 	
 
-	//Create Yugioh Font 
-	sf::Font yugioh;
-	yugioh.loadFromFile("squealer embossed.ttf");
-
-	//Create Regular Font 
-	sf::Font regular;
-	regular.loadFromFile("Bebas-Regular.ttf");
-
 	//first player win text
 	sf::Text winner1("Congratulations!\n   You have won!", yugioh);
 	winner1.setCharacterSize(120);
