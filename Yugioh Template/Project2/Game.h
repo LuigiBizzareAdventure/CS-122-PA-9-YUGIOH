@@ -5,8 +5,10 @@ private:
 	int firstPlayer;
 	int round;
 	Player player[2];
+	sf::RenderWindow *windowPtr;
 public:
-	Game(List preDeck0, List preDeck1) {
+	Game(List preDeck0, List preDeck1,sf::RenderWindow *window) {
+		windowPtr = window;
 		firstPlayer = -1;
 		int count = 0;
 		YCard temp;

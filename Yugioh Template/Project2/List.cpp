@@ -57,6 +57,23 @@ bool List::card(int x, YCard& card) {
 		return true;
 	}
 }
+bool List::cardPtr(int x, YCard** cardPtr) {
+	int count = 0;
+	ListNode* current = top;
+	while (current != nullptr && count != x) {
+		count++;
+		current = current->next;
+	}
+	if (current == nullptr) {
+		cout << "You tried accessing a card that is out of bounds." << endl;
+		EnterKey();
+		return false;
+	}
+	else {
+		**cardPtr = current->card;
+		return true;
+	}
+}
 
 bool List::removeCard(int x, YCard& store) {
 	int count = 0;

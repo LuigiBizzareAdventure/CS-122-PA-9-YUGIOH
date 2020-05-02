@@ -7,15 +7,15 @@ int main(void) {
 
 	srand(time(NULL));//generates a seed for random numbers
 
-	MainMenu menu;
-	menu.loadTrunk();//loads cards from the csv file
-	menu.createPlayers();
-	int firstPlayer = 0;
-
 	//render window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Yugioh");
 	window.setFramerateLimit(30);
 	sf::Event event;
+
+	MainMenu menu(&window);
+	menu.loadTrunk();//loads cards from the csv file
+	menu.createPlayers();
+	int firstPlayer = 0;
 
 	//Create Yugioh Font 
 	sf::Font yugioh;
@@ -64,93 +64,42 @@ int main(void) {
 	Exit.setPosition(250, 160);
 	Exit.setLineSpacing(1.3);
 
-	//Render
-	window.clear();
-	window.draw(background);
-	window.draw(menu1);
-	spriteDragon.drawObject(window);
-	window.draw(welcome);
-	window.draw(text);
-	window.display();
-	delayScreen(1.5);
-	window.clear();
+	int pressed = 0;
 	while (window.isOpen()) {
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				window.close();
 			}
-
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
-				menu.duel();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
-				//new screen
-				window.clear();
-				window.draw(background);
-				window.draw(Exit);
-				window.display();
-				//delay screen
-				delayScreen(1.5);
-				//exit
-				window.clear();
-				window.close();
-			}
 		}
-		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
-		//	//new screen
-		//		window.clear();
-		//		window.draw(background);
-		//		window.draw(Trade);
-		//		window.display();
-		//		//delay screen
-		//		delayScreen(3);
-		//	//old screen
-		//		window.clear();
-		//		window.draw(background);
-		//		window.draw(menu1);
-		//		window.draw(spriteDragon);
-		//		window.draw(welcome);
-		//		window.draw(text);
-		//		window.display();
-		//}
-		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
-		//	//new screen
-		//		window.clear();
-		//		window.draw(background);
-		//		window.draw(Duel);
-		//		window.display();
-		//		//delay screen
-		//		delayScreen(3);
-		//	//old screen
-		//		window.clear();
-		//		window.draw(background);
-		//		window.draw(menu1);
-		//		window.draw(spriteDragon);
-		//		window.draw(welcome);
-		//		window.draw(text);
-		//		window.display();
-		//}
-		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-		//	//new screen
-		//		window.clear();
-		//		window.draw(background);
-		//		window.draw(loadTrunk);
-		//		window.display();
-		//		//delay screen
-		//		delayScreen(3);
-		//	//old screen
-		//		window.clear();
-		//		window.draw(background);
-		//		window.draw(menu1);
-		//		window.draw(spriteDragon);
-		//		window.draw(welcome);
-		//		window.draw(text);
-		//		window.display();
-		//}
-		//else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num6)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad6))) {
-		//	window.clear();
-		//	window.close();
-		//}
-	}
+		//Render
+		window.clear();
+		window.draw(background);
+		window.draw(menu1);
+		spriteDragon.drawObject(&window);
+		window.draw(welcome);
+		window.draw(text);
+		window.display();
+		//delayScreen(1.5);
+		window.clear();
+
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
+			cout << "Button pressed";
+			pressed = 1;
+			window.clear();
+			menu.duel();
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+			//new screen
+			window.clear();
+			window.draw(background);
+			window.draw(Exit);
+			window.display();
+			//delay screen
+			delayScreen(1.5);
+			//exit
+			window.clear();
+			window.close();
+		}
+		}
 	return 0;
 }
