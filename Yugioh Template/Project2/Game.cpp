@@ -804,6 +804,8 @@ void Game::damageCalculation() {
 		windowPtr->draw(DEFVAL);
 	}
 
+	windowPtr->display();
+
 	delayScreen(2);
 
 
@@ -872,6 +874,8 @@ void Game::damageCalculation() {
 
 		intro++;
 
+		windowPtr->display();
+
 	}
 
 
@@ -929,6 +933,8 @@ void Game::damageCalculation() {
 
 		battle1 += 1;
 
+		windowPtr->display();
+
 	}
 
 	battle1 = 0;
@@ -982,6 +988,8 @@ void Game::damageCalculation() {
 
 		battle1 += 1;
 
+		windowPtr->display();
+
 	}
 
 	battle1 = 0;
@@ -991,6 +999,9 @@ void Game::damageCalculation() {
 		background.setFillColor(sf::Color::Black);
 		windowPtr->draw(background);
 		battle1 += 1;
+
+		windowPtr->display();
+
 	}
 
 	while (comp_positionx != 550 && player_positionx != 50) {
@@ -1042,6 +1053,8 @@ void Game::damageCalculation() {
 
 		player_positionx -= 1;
 		comp_positionx += 1;
+
+		windowPtr->display();
 
 	}
 	//End battle sequence
@@ -1121,6 +1134,8 @@ void Game::damageCalculation() {
 		windowPtr->draw(Defense);
 		windowPtr->draw(DEFVAL);
 	}
+
+	windowPtr->display();
 
 	delayScreen(5);
 
