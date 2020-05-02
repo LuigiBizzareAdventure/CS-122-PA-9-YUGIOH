@@ -491,9 +491,6 @@
     <Image Include="Y-Dragon Head.png">
       <Filter>Resource Files\CardPngs</Filter>
     </Image>
-    <Image Include="YuGiOh Card Back.png">
-      <Filter>Resource Files\CardPngs</Filter>
-    </Image>
     <Image Include="ZA WARUDO.png">
       <Filter>Resource Files\CardPngs</Filter>
     </Image>
@@ -510,6 +507,9 @@
       <Filter>Resource Files\MiscResources</Filter>
     </Image>
     <Image Include="Mysterious Error.png">
+      <Filter>Resource Files\CardPngs</Filter>
+    </Image>
+    <Image Include="YuGiOh Card Back.png">
       <Filter>Resource Files\CardPngs</Filter>
     </Image>
   </ItemGroup>

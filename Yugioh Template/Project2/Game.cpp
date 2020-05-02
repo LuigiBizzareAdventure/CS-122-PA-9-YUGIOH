@@ -1,5 +1,7 @@
 #include "Game.h"
 #include "Object.h"
+
+
 void Game::swapTurn(int& player) {
 	if (player == 1) {
 		player = 0;
@@ -370,22 +372,130 @@ void Game::compSetPhase() {
 
 
 void Game::playerBattlePhase() {
-	int selection = 0;
+	
+	YCard temp1;
+	YCard temp2;
+
+	player[0].attackQueue.peek(temp1);
+	player[0].defenseQueue.peek(temp2);
+
+
+
+	windowPtr->create(sf::VideoMode(800, 600), "Battle Phase!");
+	windowPtr->setFramerateLimit(30);
+	sf::Event event;
+
+	//Create a background
+	sf::RectangleShape background(sf::Vector2f(800, 800));
+	background.setFillColor(sf::Color::Black);
+	background.setPosition(0, 0);
+
+	//Create Regular Font 
+	sf::Font regular;
+	regular.loadFromFile("Bebas-Regular.ttf");
+
+	//Text for the Screen
+	sf::Text Battle("Battle Phase! Select which queue you would like to activate.", regular);
+	Battle.setCharacterSize(25);
+	Battle.setStyle(sf::Text::Bold);
+	Battle.setFillColor(sf::Color::Red);
+	Battle.setPosition(50, 50);
+	Battle.setLineSpacing(1.1);
+
+
+	//Shows attack value and defense value of hidden cards
+
+	sf::Text Attack("1)ATK: " + temp1.getAtk(), regular);
+	Attack.setCharacterSize(25);
+	Attack.setStyle(sf::Text::Bold);
+	Attack.setFillColor(sf::Color::Red);
+	Attack.setPosition(100, 250);
+	Attack.setLineSpacing(1.1);
+
+	sf::Text Defend("2)DEF: " + temp2.getDef(), regular);
+	Defend.setCharacterSize(25);
+	Defend.setStyle(sf::Text::Bold);
+	Defend.setFillColor(sf::Color::Red);
+	Defend.setPosition(500, 250);
+	Defend.setLineSpacing(1.1);
+
+
+
+
+
+
+	//Loading up the sprites
+
+	Object cardSprite2("YuGiOh Card Back.png", 500, 300);
+	cardSprite2.setDimensions((float)150, (float)225);
+
+	Object cardSprite1("YuGiOh Card Back.png", 100, 300);
+	cardSprite1.setDimensions((float)150, (float)225);
+	
+
+	
+	//Printing to the screen
+	
+	
+	windowPtr->clear();
+	windowPtr->draw(background);
+	windowPtr->draw(Battle);
+	windowPtr->draw(Attack);
+	windowPtr->draw(Defend);
+	cardSprite1.drawObject(windowPtr);
+	cardSprite2.drawObject(windowPtr);
+
+
+
+	windowPtr->display();
+
+	int selection = 0;					//Int selection moved outside of while looop
+
+
+	while (windowPtr->isOpen()) {
+		while (windowPtr->pollEvent(event)) {
+
+
+
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
+				selection = 1;
+				windowPtr->close();
+			}
+																																					//While loop here used to determine Attack or Defence by Selection int
+
+			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+				selection = 2;
+				windowPtr->close();
+			}
+
+
+
+
+		}
+	}
+
+
+
+
+
+
+	//Half of this has been comment-ed out as it wasn't needed anymore. Still works though to look and make sure the right cards show and attack values show.
+	
 	do {
-		selection = 0;
+		//selection = 0;
 		display();
 		cout << "Battle Phase:\n";
 		cout << "Which Queue would you like to activate?\n";
 		cout << "   1.Attack Queue\n";
 		cout << "   2.Defense Queue\n";
 		cout << "Make a selection: ";
-		cin >> selection;
+		//cin >> selection;
 		flushCin();
-		if (selection != 1 && selection != 2) {
+	/*	if (selection != 1 && selection != 2) {
 			selection = INVALID;
 			cout << "\nPlease make a valid selection.\n";
 			EnterKey();
-		}
+		}*/
 	} while (selection == INVALID);
 	
 	cout << "Player activates the " << ((selection == 1) ? "Attack Queue" : "Defense Queue" )<< endl;
@@ -397,7 +507,86 @@ void Game::playerBattlePhase() {
 		player[0].atkQueueActivation = 0;
 		player[0].defQueueActivation = 1;
 	}
-	EnterKey();
+
+
+
+	//Creating text to continue, show attack value, and show defense value.
+
+	sf::Text Continue("Press Enter to Continue", regular);
+	Continue.setCharacterSize(30);
+	Continue.setStyle(sf::Text::Bold);
+	Continue.setFillColor(sf::Color::Red);
+	Continue.setPosition(350, 250);
+	Continue.setLineSpacing(1.1);
+	
+
+
+
+	
+	sf::Text Attacker("Attack Queue Activated!\nATK:" + temp1.getAtk(), regular);
+	Attacker.setCharacterSize(30);
+	Attacker.setStyle(sf::Text::Bold);
+	Attacker.setFillColor(sf::Color::Red);
+	Attacker.setPosition(350, 150);
+	Attacker.setLineSpacing(1.1);
+
+	sf::Text Defender("Defence Queue Activated!\nDEF:" + temp2.getDef(), regular);
+	Defender.setCharacterSize(30);
+	Defender.setStyle(sf::Text::Bold);
+	Defender.setFillColor(sf::Color::Red);
+	Defender.setPosition(350, 150);
+	Defender.setLineSpacing(1.1);
+
+	windowPtr->create(sf::VideoMode(800, 600), "Chosen Card!");							//creates another screen since I closed the last one.
+
+
+	if (player[0].atkQueueActivation = 1) {
+
+		Object cardSprite3(temp1.getName() + ".png", 100, 150);
+		cardSprite3.setDimensions((float)225, (float)337.5);
+
+		cardSprite3.drawObject(windowPtr);										//Checks whether attack or defense is used, then prints out the card, and its atk/def value.
+		windowPtr->draw(Attacker);
+		windowPtr->draw(Continue);
+		windowPtr->display();
+
+	}
+	else {
+
+		Object cardSprite3(temp2.getName() + ".png", 100, 150);
+		cardSprite3.setDimensions((float)225, (float)337.5);
+		
+		cardSprite3.drawObject(windowPtr);
+		windowPtr->draw(Defender);
+		windowPtr->draw(Continue);
+		windowPtr->display();
+		
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	while (windowPtr->isOpen()) {
+		while (windowPtr->pollEvent(event)) {
+
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))) {
+				windowPtr->close();
+			}
+
+		}
+	}
 
 }
 
