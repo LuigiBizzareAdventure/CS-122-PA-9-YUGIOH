@@ -19,11 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Card.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="YCard.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
@@ -32,7 +33,6 @@
     <None Include="Trunk.csv" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Card.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="List.cpp" />
@@ -40,7 +40,161 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="YCard.cpp" />
     <ClCompile Include="Stack.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\PA9\monsterama\monsterama.ttf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ExcludedFromBuild>
+    </Font>
+    <Font Include="Bebas-Regular.ttf" />
+    <Font Include="squealer embossed.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Alligator%27s Sword Dragon.png" />
+    <Image Include="Alligator%27s Sword.png" />
+    <Image Include="Alpha The Magnet Warrior.png" />
+    <Image Include="Arcana Knight Joker.png" />
+    <Image Include="Assault Wyvern.png" />
+    <Image Include="Axe Raider.png" />
+    <Image Include="Baby Dragon.png" />
+    <Image Include="Bakura.png" />
+    <Image Include="Battle Warrior.png" />
+    <Image Include="Beast of Gilfer.png" />
+    <Image Include="Beaver Warrior.png" />
+    <Image Include="Berfomet.png" />
+    <Image Include="Beta The Magnet Warrior.png" />
+    <Image Include="Big Shield Garnda.png" />
+    <Image Include="Black Luster Soldier.png" />
+    <Image Include="Black Skull Dragon.png" />
+    <Image Include="Blade Knight.png" />
+    <Image Include="BlizzardDragon.png" />
+    <Image Include="Blue-Eyes Alternative White Dragon.png" />
+    <Image Include="Blue-Eyes Chaos MAX Dragon.png" />
+    <Image Include="Blue-Eyes Ultimate Dragon.png" />
+    <Image Include="Blue-Eyes White Dragon.png" />
+    <Image Include="Brigadier of Landstar.png" />
+    <Image Include="Buster Blader.png" />
+    <Image Include="Catapult Turtle.png" />
+    <Image Include="Cave Dragon.png" />
+    <Image Include="Celtic Guardian.png" />
+    <Image Include="Chaos Emperor Dragon - Envoy of the End.png" />
+    <Image Include="Chimera the Flying Mythical Beast.png" />
+    <Image Include="coin.png" />
+    <Image Include="Copy Cat.png" />
+    <Image Include="Curse of Dragon.png" />
+    <Image Include="Cyber End Dragon.png" />
+    <Image Include="Cyber-Tech Alligator.png" />
+    <Image Include="Dark Magician Girl.png" />
+    <Image Include="Dark Magician.png" />
+    <Image Include="Dark Paladin.png" />
+    <Image Include="Dark Sage.png" />
+    <Image Include="Different Dimension Dragon.png" />
+    <Image Include="Electromagnetic Turtle.png" />
+    <Image Include="Familiar Knight.png" />
+    <Image Include="Feral Imp.png" />
+    <Image Include="Flame Swordsman.png" />
+    <Image Include="Gadget Soldier.png" />
+    <Image Include="Gaia The Fierce Knight.png" />
+    <Image Include="Gamme The Magnet Warrior.png" />
+    <Image Include="Gazelle the King of Mythical Beasts.png" />
+    <Image Include="Gearfried the Iron Knight.png" />
+    <Image Include="Gearfried the Swordmaster.png" />
+    <Image Include="Giant Germ.png" />
+    <Image Include="Giant Soldier of Stone.png" />
+    <Image Include="Gilford the Lightning.png" />
+    <Image Include="Giltia the Dark Knight.png" />
+    <Image Include="Goblin Attack Force.png" />
+    <Image Include="Grappler of Landstar.png" />
+    <Image Include="Hayabusa Knight.png" />
+    <Image Include="Hitotsu-Me Giant.png" />
+    <Image Include="Horn Imp.png" />
+    <Image Include="Insect Queen.png" />
+    <Image Include="Isabelle Best Girl.png" />
+    <Image Include="Jack%27s Knight.png" />
+    <Image Include="Jim Morrison.png" />
+    <Image Include="Jinzo.png" />
+    <Image Include="Joseph Joestar.png" />
+    <Image Include="Judge Man.png" />
+    <Image Include="Kaibaman.png" />
+    <Image Include="Kaiser Glider.png" />
+    <Image Include="Kaiser Sea Horse.png" />
+    <Image Include="Kakyoin.png" />
+    <Image Include="King Crimson.png" />
+    <Image Include="King%27s Knight.png" />
+    <Image Include="Knight of Dark Dragon.png" />
+    <Image Include="Knight of Landstar.png" />
+    <Image Include="Koumori Dragon.png" />
+    <Image Include="Kuriboh.png" />
+    <Image Include="Lava Battleguard.png" />
+    <Image Include="Little-Winguard.png" />
+    <Image Include="Lord of D..png" />
+    <Image Include="Lord of the Red.png" />
+    <Image Include="Luigi.png" />
+    <Image Include="Luster Dragon.png" />
+    <Image Include="Mad Sword Beast.png" />
+    <Image Include="Magician of Black Chaos.png" />
+    <Image Include="Magician%27s Valkyria.png" />
+    <Image Include="Malick Blishtar.png" />
+    <Image Include="Mammoth Graveyard.png" />
+    <Image Include="Marauding Captain.png" />
+    <Image Include="Mario.png" />
+    <Image Include="Marshmallon.png" />
+    <Image Include="Masaki the Legendary Swordsman.png" />
+    <Image Include="Mayosenju Daibak.png" />
+    <Image Include="Meteor Dragon.png" />
+    <Image Include="Mysterious Error.png" />
+    <Image Include="Mystical Elf.png" />
+    <Image Include="Obelisk the Tormentor.png" />
+    <Image Include="Padoru Padoru.png" />
+    <Image Include="Paladin of White Dragon.png" />
+    <Image Include="Pandemic Dragon.png" />
+    <Image Include="Panther Warrior.png" />
+    <Image Include="Parasite Paracide.png" />
+    <Image Include="Peten the Dark Clown.png" />
+    <Image Include="Pitch-Dark Dragon.png" />
+    <Image Include="Pokecoin.png" />
+    <Image Include="Queen%27s Knight.png" />
+    <Image Include="Red-Eyes Black Dragon.png" />
+    <Image Include="Rocket Warrior.png" />
+    <Image Include="Rude Kaiser.png" />
+    <Image Include="Ryu-Kishin.png" />
+    <Image Include="Saggi the Dark Clown.png" />
+    <Image Include="Sangan.png" />
+    <Image Include="Sasuke Samurai.png" />
+    <Image Include="Slate Warrior.png" />
+    <Image Include="Slifer the Sky Dragon.png" />
+    <Image Include="Sorcerer of Dark Magic.png" />
+    <Image Include="Spear Dragon.png" />
+    <Image Include="Spirit Ryu.png" />
+    <Image Include="STAR PLATINUM.png" />
+    <Image Include="Summoned Skull.png" />
+    <Image Include="Swamp Battleguard.png" />
+    <Image Include="Sword Hunter.png" />
+    <Image Include="Swordsman of Landstar.png" />
+    <Image Include="The Legendary Fisherman.png" />
+    <Image Include="The White Stone of Legend.png" />
+    <Image Include="Thousand Dragon.png" />
+    <Image Include="Thunder Dragon.png" />
+    <Image Include="Tiger Axe.png" />
+    <Image Include="Time Wizard.png" />
+    <Image Include="Tohru.png" />
+    <Image Include="Tour Guide from the Underworld.png" />
+    <Image Include="Twin-Headed Behemoth.png" />
+    <Image Include="Valkyrion the Magna Warrior.png" />
+    <Image Include="Versago the Destroyer.png" />
+    <Image Include="Viking Sasuke.png" />
+    <Image Include="Vinny Vinesauce.png" />
+    <Image Include="Vorse Raider.png" />
+    <Image Include="Watapon.png" />
+    <Image Include="Winged Dragon Guardian of the Fortress.png" />
+    <Image Include="Y-Dragon Head.png" />
+    <Image Include="YuGiOh Card Back.png" />
+    <Image Include="Z-Metal Tank.png" />
+    <Image Include="ZA WARUDO.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -111,10 +265,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>c:\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>c:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,10 +280,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>c:\sfml-2.5.1\lib</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -137,12 +298,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>c:\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>c:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,12 +317,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>c:\sfml-2.5.1\lib</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

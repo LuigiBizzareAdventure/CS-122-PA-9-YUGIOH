@@ -9,6 +9,7 @@
 #include <time.h>       /* time */
 #include <iomanip>
 #include <cstdlib>
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 #define clrscr() system("cls")//used to clear the screen
@@ -50,7 +51,20 @@ enum class Type{
 	Helper,
 	STAND_USER,
 	GOD,
-	Beast
+	Beast,
+
+	//Added 4/27/20. Incoorperates new cards from Cards.txt 
+	Rock,
+	Warrior,
+	Machine,
+	Divine,
+	Fairy,
+	SeaSerpent,
+	Thunder,
+	Dinosaur,
+	Insect,
+
+
 };
 
 
@@ -58,4 +72,6 @@ enum class Type{
 
 void EnterKey(void);//prompts the user to press enter, then clears the screen.
 
+//delay screen function
+void delayScreen(double);
 #endif

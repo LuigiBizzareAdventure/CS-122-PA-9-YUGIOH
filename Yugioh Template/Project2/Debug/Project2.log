@@ -1,1 +1,20 @@
-﻿  Project2.vcxproj -> C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Debug\Project2.exe
+﻿  Game.cpp
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(77,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(54,12): warning C4101: 'event': unreferenced local variable
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(229,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(241,26): warning C4305: 'argument': truncation from 'double' to 'float'
+  List.cpp
+  MainMenu.cpp
+  Player.cpp
+  Queue.cpp
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Queue.cpp(8,13): warning C4101: 'temp': unreferenced local variable
+  Stack.cpp
+  YCard.cpp
+  main.cpp
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(44,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(52,63): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(65,25): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\List.cpp(94): warning C4715: 'List::removeCard': not all control paths return a value
+  Project2.vcxproj -> C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Debug\Project2.exe
