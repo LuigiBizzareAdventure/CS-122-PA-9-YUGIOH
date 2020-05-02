@@ -1,0 +1,45 @@
+﻿  Functions.cpp
+  Game.cpp
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(77,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(112,25): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(112,19): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(117,29): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(117,23): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(124,25): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(124,19): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(133,29): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(133,23): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(230,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(242,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(257,32): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(257,25): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(261,24): error C2039: 'setString': is not a member of 'Object'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(7): message : see declaration of 'Object'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(264,33): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(264,26): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(310,32): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(310,25): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(313,24): error C2039: 'setString': is not a member of 'Object'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(7): message : see declaration of 'Object'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(316,33): error C2664: 'void Object::drawObject(sf::RenderWindow *)': cannot convert argument 1 from 'sf::RenderWindow' to 'sf::RenderWindow *'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(316,26): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Object.h(50,7): message : see declaration of 'Object::drawObject'
+  List.cpp
+  main.cpp
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(44,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(52,63): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\main.cpp(65,25): warning C4305: 'argument': truncation from 'double' to 'float'
+  MainMenu.cpp
+  Player.cpp
+  Queue.cpp
+C:\Users\john_\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Queue.cpp(8,13): warning C4101: 'temp': unreferenced local variable
+  YCard.cpp
+  Stack.cpp
