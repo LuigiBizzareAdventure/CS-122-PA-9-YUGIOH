@@ -395,9 +395,6 @@ void Game::playerSetPhase() {
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
 				selection = 3;
 			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-				selection = 4;
-			}
 		}
 
 	}
