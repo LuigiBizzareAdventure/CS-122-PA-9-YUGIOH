@@ -47,180 +47,180 @@ void Game::Start() {
 	player[1].setLife();
 	YCard temp; //used for functions
 
-	////Create Yugioh Font 
-	//sf::Font yugioh;
-	//yugioh.loadFromFile("squealer embossed.ttf");
+	//Create Yugioh Font 
+	sf::Font yugioh;
+	yugioh.loadFromFile("squealer embossed.ttf");
 
-	////render window
-	//windowPtr->clear();
-	//windowPtr->setFramerateLimit(30);
-	//sf::Event event;
+	//render window
+	windowPtr->clear();
+	windowPtr->setFramerateLimit(30);
+	sf::Event event;
 
-	////Create a background
-	//sf::RectangleShape background(sf::Vector2f(800, 800));
-	//background.setFillColor(sf::Color::Black);
-	//background.setPosition(0, 0);
+	//Create a background
+	sf::RectangleShape background(sf::Vector2f(800, 800));
+	background.setFillColor(sf::Color::Black);
+	background.setPosition(0, 0);
 
-	////Create Regular Font 
-	//sf::Font regular;
-	//regular.loadFromFile("Bebas-Regular.ttf");
+	//Create Regular Font 
+	sf::Font regular;
+	regular.loadFromFile("Bebas-Regular.ttf");
 
-	//// create front of coin
-	//Object Coin("coin.png", 275, 150, 0.5, 0.5);
+	// create front of coin
+	Object Coin("coin.png", 275, 150, 0.5, 0.5);
 
-	////create back of coin
-	//Object PokeCoin("Pokecoin.png", 275, 150, 1, 1);
+	//create back of coin
+	Object PokeCoin("Pokecoin.png", 275, 150, 1, 1);
 
-	//// create text for coin flip
-	//sf::Text Flip("We will flip a coin to see who goes first.\n              The Yugioh coin is you.\n          The Pokemon coin is the bot.", regular);
-	//Flip.setCharacterSize(35);
-	//Flip.setStyle(sf::Text::Bold);
-	//Flip.setFillColor(sf::Color::White);
-	//Flip.setPosition(130, 350);
-	//Flip.setLineSpacing(1.3);
+	// create text for coin flip
+	sf::Text Flip("We will flip a coin to see who goes first.\n              The Yugioh coin is you.\n          The Pokemon coin is the bot.", regular);
+	Flip.setCharacterSize(35);
+	Flip.setStyle(sf::Text::Bold);
+	Flip.setFillColor(sf::Color::White);
+	Flip.setPosition(130, 350);
+	Flip.setLineSpacing(1.3);
 
-	////DUEL
-	//sf::Text Duel("Welcome to the\n      BATTLE!", yugioh);
-	//Duel.setCharacterSize(100);
-	//Duel.setStyle(sf::Text::Bold);
-	//Duel.setFillColor(sf::Color::Red);
-	//Duel.setPosition(120, 30);
+	//DUEL
+	sf::Text Duel("Welcome to the\n      BATTLE!", yugioh);
+	Duel.setCharacterSize(100);
+	Duel.setStyle(sf::Text::Bold);
+	Duel.setFillColor(sf::Color::Red);
+	Duel.setPosition(120, 30);
 
-	////Player 1 goes first
-	//sf::Text First("You're going\n      first", regular);
-	//First.setCharacterSize(150);
-	//First.setStyle(sf::Text::Bold);
-	//First.setFillColor(sf::Color::Red);
-	//First.setPosition(80, 80);
+	//Player 1 goes first
+	sf::Text First("You're going\n      first", regular);
+	First.setCharacterSize(150);
+	First.setStyle(sf::Text::Bold);
+	First.setFillColor(sf::Color::Red);
+	First.setPosition(80, 80);
 
-	////Player 2 goes first
-	//sf::Text Second(" The bot is\ngoing first", regular);
-	//Second.setCharacterSize(150);
-	//Second.setStyle(sf::Text::Bold);
-	//Second.setFillColor(sf::Color::Red);
-	//Second.setPosition(110, 80);
+	//Player 2 goes first
+	sf::Text Second(" The bot is\ngoing first", regular);
+	Second.setCharacterSize(150);
+	Second.setStyle(sf::Text::Bold);
+	Second.setFillColor(sf::Color::Red);
+	Second.setPosition(110, 80);
 
-	//windowPtr->clear();
-	//windowPtr->draw(background);
-	//windowPtr->draw(Duel);
-	//windowPtr->draw(Flip);
-	//windowPtr->display();
-	//delayScreen(5);
+	windowPtr->clear();
+	windowPtr->draw(background);
+	windowPtr->draw(Duel);
+	windowPtr->draw(Flip);
+	windowPtr->display();
+	delayScreen(5);
 
-	////flip coin
-	//firstPlayer = rand() % 2;
-	//for (int i = 0; i < 10; i++) {
-	//	windowPtr->clear();
-	//	windowPtr->draw(background);
-	//	Coin.drawObject(windowPtr);
-	//	windowPtr->display();
-	//	delayScreen(.2);
-	//	windowPtr->clear();
-	//	windowPtr->draw(background);
-	//	PokeCoin.drawObject(windowPtr);
-	//	windowPtr->display();
-	//	delayScreen(.2);
-	//	windowPtr->clear();
-	//}
+	//flip coin
+	firstPlayer = rand() % 2;
+	for (int i = 0; i < 10; i++) {
+		windowPtr->clear();
+		windowPtr->draw(background);
+		Coin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.2);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		PokeCoin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.2);
+		windowPtr->clear();
+	}
 
-	//if (firstPlayer == 0) {
-	//	windowPtr->draw(background);
-	//	Coin.drawObject(windowPtr);
-	//	windowPtr->display();
-	//	delayScreen(.8);
-	//	windowPtr->clear();
-	//	windowPtr->draw(background);
-	//	windowPtr->draw(First);
-	//}
-	//else {
-	//	windowPtr->draw(background);
-	//	PokeCoin.drawObject(windowPtr);
-	//	windowPtr->display();
-	//	delayScreen(.8);
-	//	windowPtr->clear();
-	//	windowPtr->draw(background);
-	//	windowPtr->draw(Second);
-	//}
-	//windowPtr->display();
-	//delayScreen(2);
-	//windowPtr->clear();
-	//do {
-	//	//draw
-	//	while (player[0].hand.size() != 5 && player[0].getDeckSize() != 0) {
-	//		player[0].drawCard();
-	//	}
-	//	while (player[1].hand.size() != 5 && player[1].getDeckSize() != 0) {
-	//		player[1].drawCard();
-	//	}
-	//	//dislpay
-	//	player[0].atkQueueActivation = 0;
-	//	player[0].defQueueActivation = 0;
-	//	player[1].atkQueueActivation = 0;
-	//	player[1].defQueueActivation = 0;
+	if (firstPlayer == 0) {
+		windowPtr->draw(background);
+		Coin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.8);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(First);
+	}
+	else {
+		windowPtr->draw(background);
+		PokeCoin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.8);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(Second);
+	}
+	windowPtr->display();
+	delayScreen(2);
+	windowPtr->clear();
+	do {
+		//draw
+		while (player[0].hand.size() != 5 && player[0].getDeckSize() != 0) {
+			player[0].drawCard();
+		}
+		while (player[1].hand.size() != 5 && player[1].getDeckSize() != 0) {
+			player[1].drawCard();
+		}
+		//dislpay
+		player[0].atkQueueActivation = 0;
+		player[0].defQueueActivation = 0;
+		player[1].atkQueueActivation = 0;
+		player[1].defQueueActivation = 0;
 
-	//	if (firstPlayer == 0) {//player goes first
-	//		//Monster setting phase
-	//		playerSetPhase();
-	//		compSetPhase();
-	//		//Monster battling phase
-	//		playerBattlePhase();
-	//		compBattlePhase();
-	//	}
-	//	else if (firstPlayer == 1) {//computer goes first
-	//		//Monster setting phase
-	//		compSetPhase();
-	//		playerSetPhase();
+		if (firstPlayer == 0) {//player goes first
+			//Monster setting phase
+			playerSetPhase();
+			compSetPhase();
+			//Monster battling phase
+			playerBattlePhase();
+			compBattlePhase();
+		}
+		else if (firstPlayer == 1) {//computer goes first
+			//Monster setting phase
+			compSetPhase();
+			playerSetPhase();
 
-	//		//Monster battling phase
-	//		compBattlePhase();
-	//		playerBattlePhase();
-	//	}
-	//	//damage calculation
+			//Monster battling phase
+			compBattlePhase();
+			playerBattlePhase();
+		}
+		//damage calculation
 
-	//	damageCalculation();
-
-
-	//} while (winnerCheck() == 0);
-	////winning messages
-	//int winner = winnerCheck();
-	//
-
-	////first player win text
-	//sf::Text winner1("Congratulations!\n   You have won!", yugioh);
-	//winner1.setCharacterSize(120);
-	//winner1.setStyle(sf::Text::Bold);
-	//winner1.setFillColor(sf::Color::Red);
-	//winner1.setPosition(0, 100);
+		damageCalculation();
 
 
-	////second player win text
-	//sf::Text winner2("The Computer\n    has won!", yugioh);
-	//winner2.setCharacterSize(120);
-	//winner2.setStyle(sf::Text::Bold);
-	//winner2.setFillColor(sf::Color::Red);
-	//winner2.setPosition(75, 100);
+	} while (winnerCheck() == 0);
+	//winning messages
+	int winner = winnerCheck();
+	
 
-	//////Tie player win text
-	//sf::Text tieText("You TIED!", yugioh);
-	//tieText.setCharacterSize(180);
-	//tieText.setStyle(sf::Text::Bold);
-	//tieText.setFillColor(sf::Color::Red);
-	//tieText.setPosition(80, 150);
+	//first player win text
+	sf::Text winner1("Congratulations!\n   You have won!", yugioh);
+	winner1.setCharacterSize(120);
+	winner1.setStyle(sf::Text::Bold);
+	winner1.setFillColor(sf::Color::Red);
+	winner1.setPosition(0, 100);
 
-	//windowPtr->clear();
-	//windowPtr->draw(background);
 
-	//if (winner == 1) {//player 1 wins
-	//	windowPtr->draw(winner1);
-	//}
-	//else if (winner == 2) {//playeer 2 wins
-	//	windowPtr->draw(winner2);
-	//}
-	//else {//tie
-	//	windowPtr->draw(tieText);
-	//}
-	//windowPtr->display();
-	//delayScreen(2);
+	//second player win text
+	sf::Text winner2("The Computer\n    has won!", yugioh);
+	winner2.setCharacterSize(120);
+	winner2.setStyle(sf::Text::Bold);
+	winner2.setFillColor(sf::Color::Red);
+	winner2.setPosition(75, 100);
+
+	////Tie player win text
+	sf::Text tieText("You TIED!", yugioh);
+	tieText.setCharacterSize(180);
+	tieText.setStyle(sf::Text::Bold);
+	tieText.setFillColor(sf::Color::Red);
+	tieText.setPosition(80, 150);
+
+	windowPtr->clear();
+	windowPtr->draw(background);
+
+	if (winner == 1) {//player 1 wins
+		windowPtr->draw(winner1);
+	}
+	else if (winner == 2) {//playeer 2 wins
+		windowPtr->draw(winner2);
+	}
+	else {//tie
+		windowPtr->draw(tieText);
+	}
+	windowPtr->display();
+	delayScreen(2);
 	windowPtr->close();
 }
 
