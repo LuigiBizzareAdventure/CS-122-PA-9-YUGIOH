@@ -1,5 +1,6 @@
 #include "MainMenu.h"
 
+
 int MainMenu::display(void) {
 	int selection = 0;
 	cout << "Yugioh Main Menu:\n\n";
@@ -17,7 +18,7 @@ int MainMenu::display(void) {
 }
 void MainMenu::displayTrunk(void) {
 	int count = 1;
-	Card temp;
+	YCard temp;
 	cout << "Trunk Card List" << endl;
 	cout.ios_base::setf(ios_base::left, ios_base::adjustfield);
 	cout << "Player 1's Deck" << endl;
@@ -30,13 +31,13 @@ void MainMenu::displayTrunk(void) {
 		cout.ios_base::setf(ios_base::right, ios_base::adjustfield);
 		cout << setw(2) << count << ". ";//acceses the custom << operator from Card.h
 		cout.ios_base::setf(ios_base::left, ios_base::adjustfield);
-		cout << temp << endl;
+		cout << temp << endl;//////////////////////
 		count++;
 	}
 }
 void MainMenu::displayDeck(int player) {
 	int count = 1;
-	Card temp;
+	YCard temp;
 	cout.ios_base::setf(ios_base::left, ios_base::adjustfield);
 	cout << "Player" << player + 1 <<"'s Deck" << endl;
 	cout << " #  " << setw(38) << "Monster Name";
@@ -49,7 +50,7 @@ void MainMenu::displayDeck(int player) {
 		cout.ios_base::setf(ios_base::right, ios_base::adjustfield);
 		cout << setw(2) << count << ". ";//acceses the custom << operator from Card.h
 		cout.ios_base::setf(ios_base::left, ios_base::adjustfield);
-		cout << temp << endl;
+		cout << temp << endl;////////////////////////////////
 		count++;
 	}
 }
@@ -58,7 +59,7 @@ bool MainMenu::loadTrunk(void) {
 	char record[200];//buffer to get one line of information from the trunk.
 	int recordLength;
 	string data;//used to split data from the record up.
-	Card temp;//a temporary card to store data into.
+	YCard temp;//a temporary card to store data into.
 	trunkFile.open("Trunk.csv");
 	if (!trunkFile.is_open()) {
 		cout << "Trunk.csv could not be found or opened.\n";
@@ -96,8 +97,8 @@ bool MainMenu::loadTrunk(void) {
 		return false;
 	}
 	else {
-		cout << "Trunk.csv has been succesfully loaded\n";
-		EnterKey();
+		//cout << "Trunk.csv has been succesfully loaded\n";
+		//EnterKey();
 		return true;
 	}
 	trunkFile.close();
@@ -108,17 +109,18 @@ void MainMenu::createPlayers(void) {
 		return;
 	}
 	emptyDeck(0);
-	cout << "Emptied deck 0\n";
+	//cout << "Emptied deck 0\n";
 	emptyDeck(1);
-	cout << "Emptied deck 1\n";
+	//cout << "Emptied deck 1\n";
 	fillDeck(0);//fills player 1's deck with random cards
-	cout << "Filled deck 0\n";
+	//cout << "Filled deck 0\n";
 	fillDeck(1);//fills player 2's deck with random cards
-	cout << "Filled deck 1\n";
-	cout << "The deck of each player has been randomly generated.\n";
-	EnterKey();
+	//cout << "Filled deck 1\n";
+	//cout << "The deck of each player has been randomly generated.\n";
+	//EnterKey();
 	return;
 }
+
 void MainMenu::fillDeck(int player) {
 	
 	int count = deckPh[player].size();
@@ -126,7 +128,7 @@ void MainMenu::fillDeck(int player) {
 	while (count != DECK_SIZE) {//loop keeps going until the deck is full
 		int randPick = 0;
 		randPick = rand() % trunk.size();
-		Card randCard;
+		YCard randCard;
 		trunk.card(randPick, randCard);//picks a random card from the trunk
 		deckPh[player].addCard(randCard);//adds the card to the place holder deck.
 		count++;
@@ -193,7 +195,7 @@ void MainMenu::addCards(void) {
 			EnterKey();
 			return;
 		}
-		Card temp;
+		YCard temp;
 		displayTrunk();
 		cout << "\nWhich card would you like to add to the deck(enter the number, 0 to exit): ";
 		cin >> selection;
@@ -219,7 +221,7 @@ void MainMenu::removeCards(void) {
 			EnterKey(); {
 			return;
 		}
-		Card temp;
+		YCard temp;
 		displayDeck(0);
 		cout << "\nWhich card would you like to remove from the deck(enter the number, 0 to exit): ";
 		cin >> selection;
@@ -251,8 +253,8 @@ void MainMenu::tradeCards(void) {
 	}
 	int selection1 = 0;
 	int selection2 = 0;
-	Card temp1;
-	Card temp2;
+	YCard temp1;
+	YCard temp2;
 	do {
 		selection1 = 0;
 		selection2 = 0;
@@ -289,7 +291,7 @@ void MainMenu::tradeCards(void) {
 	} while (selection1 != 0);
 	return;
 }
-void MainMenu::duel(void) {
+void MainMenu::duel() {
 	if (deckPh[0].size() != DECK_SIZE || deckPh[1].size() != DECK_SIZE) {
 		cout << "Players must be created to use this feature.\n";
 		EnterKey();
@@ -298,3 +300,4 @@ void MainMenu::duel(void) {
 		Game game(deckPh[0], deckPh[1]);//adds the decks as stacks to the game.
 		game.Start();
 }
+

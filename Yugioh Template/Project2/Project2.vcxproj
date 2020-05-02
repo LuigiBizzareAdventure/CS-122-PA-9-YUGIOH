@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Card.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="YCard.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Object.h" />
@@ -33,16 +33,6 @@
     <None Include="Trunk.csv" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Card.cpp">
-      <AdditionalUsingDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalUsingDirectories>
-      <AdditionalUsingDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalUsingDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalIncludeDirectories>
-    </ClCompile>
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="List.cpp" />
@@ -50,6 +40,7 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="YCard.cpp" />
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +146,7 @@
     <Image Include="Masaki the Legendary Swordsman.png" />
     <Image Include="Mayosenju Daibak.png" />
     <Image Include="Meteor Dragon.png" />
+    <Image Include="Mysterious Error.png" />
     <Image Include="Mystical Elf.png" />
     <Image Include="Obelisk the Tormentor.png" />
     <Image Include="Padoru Padoru.png" />
