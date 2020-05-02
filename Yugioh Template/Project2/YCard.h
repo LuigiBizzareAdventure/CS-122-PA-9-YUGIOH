@@ -45,6 +45,7 @@ public:
 			//cout << frontPath << " could not be found.\n";
 		}
 		else {
+			cout << frontPath + " Has loaded succesfully\n";
 			//setTexture(frontTexture, true);
 		}
 	}
