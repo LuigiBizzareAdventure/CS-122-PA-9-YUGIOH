@@ -1,7 +1,7 @@
 #ifndef YCARD_GUARD
 #define YCARD_GUARD
 #include "Header.h"
-class YCard : sf::Sprite{//Card class inherits from sprite
+class YCard : public sf::Sprite{//Card class inherits from sprite
 private:
 	string name;
 	int atkPoints;
@@ -45,7 +45,8 @@ public:
 			//cout << frontPath << " could not be found.\n";
 		}
 		else {
-			//cout << frontPath << " has loaded succesfully.\n";
+			cout << frontPath + " Has loaded succesfully\n";
+			//setTexture(frontTexture, true);
 		}
 	}
 	void setBackTexture(string path) {
@@ -55,11 +56,10 @@ public:
 			//cout << backPath << " could not be found.\n";
 		}
 		else {
-			//cout << backPath << " has loaded succesfully.\n";
 		}
 		//default card size
-		float x = 200;
-		float y = 300;
+		float x = 150;
+		float y = 225;
 		sf::Vector2f targetSize(x, y);
 		setScale(targetSize.x / getLocalBounds().width, targetSize.y / getLocalBounds().height);
 	}
@@ -80,6 +80,7 @@ public:
 		sf::Vector2f targetSize(x, y);
 		setScale(targetSize.x / getLocalBounds().width, targetSize.y / getLocalBounds().height);
 	}
+
 	void setName(string);
 	void setAtk(int);
 	void setDef(int);

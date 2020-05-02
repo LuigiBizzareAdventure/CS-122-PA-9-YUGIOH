@@ -107,7 +107,7 @@ void Game::Start() {
 	delayScreen(5);
 
 	//flip coin
-	firstPlayer = rand() % 2 + 1;
+	firstPlayer = rand() % 2;
 	for (int i = 0; i < 10; i++) {
 		windowPtr->clear();
 		windowPtr->draw(background);
@@ -128,7 +128,7 @@ void Game::Start() {
 		delayScreen(.8);
 		windowPtr->clear();
 		windowPtr->draw(background);
-		windowPtr->draw(Second);
+		windowPtr->draw(First);
 	}
 	else {
 		windowPtr->draw(background);
@@ -179,13 +179,67 @@ void Game::Start() {
 
 
 	} while (winnerCheck() == 0);
+	//winning messages
 	int winner = winnerCheck();
-	if (winner == 1) {
+
+
+	//Create Yugioh Font 
+	sf::Font yugioh;
+	yugioh.loadFromFile("squealer embossed.ttf");
+
+	//Create Regular Font 
+	sf::Font regular;
+	regular.loadFromFile("Bebas-Regular.ttf");
+
+	//first player win text
+	sf::Text winner1("Congratulations You have won", yugioh);
+	winner1.setCharacterSize(65);
+	winner1.setStyle(sf::Text::Bold);
+	winner1.setFillColor(sf::Color::Black);
+	winner1.setPosition(125, 20);
+	winner1.setOutlineThickness(1.5);
+	winner1.setOutlineColor(sf::Color::Color(150, 150, 150, 255));
+
+	//second player win text
+	sf::Text winner2("The Computer has won!", yugioh);
+	winner2.setCharacterSize(65);
+	winner2.setStyle(sf::Text::Bold);
+	winner2.setFillColor(sf::Color::Black);
+	winner2.setPosition(125, 20);
+	winner2.setOutlineThickness(1.5);
+	winner2.setOutlineColor(sf::Color::Color(150, 150, 150, 255));
+
+	////Tie player win text
+	sf::Text tieText("The Computer has won!", yugioh);
+	tieText.setCharacterSize(65);
+	tieText.setStyle(sf::Text::Bold);
+	tieText.setFillColor(sf::Color::Black);
+	tieText.setPosition(125, 20);
+	tieText.setOutlineThickness(1.5);
+	tieText.setOutlineColor(sf::Color::Color(150, 150, 150, 255));
+
+	//Create a background
+	sf::RectangleShape background(sf::Vector2f(800, 800));
+	background.setFillColor(sf::Color::Black);
+	background.setPosition(0, 0);
+
+	if (winner == 1) {//player 1 wins
+
+
+
+
 	}
-	else if (winner == 2) {
+	else if (winner == 2) {//playeer 2 wins
+	}
+	else {//tie
+
 	}
 	windowPtr->close();
 }
+
+
+
+
 
 
 int Game::winnerCheck(void) {
@@ -245,108 +299,110 @@ void Game::playerSetPhase() {
 	//Create card
 	float positionx = 10, positiony = 330; 
 	player[0].hand.card(0, temp);
-	Object cardSprite(temp.getName()+".png", positionx, positiony);
-	cardSprite.setDimensions((float)150, (float)225);
-
+	selection = -1;
 	int handSize = player[0].hand.size();
-	selection = 0;
 
-	windowPtr->clear();
-	windowPtr->draw(background);
-	windowPtr->draw(Choose);
-	windowPtr->draw(Stats);
-	cardSprite.drawObject(windowPtr);
-	for (int i = 1; i < 5; i++) {
-		positionx += 160;
-		player[0].hand.card(i, temp);
-		cardSprite.changeTexture("tex/"+temp.getName() + ".png");
-		cardSprite.setObjectPosition(positionx, positiony);
-		cardSprite.setDimensions((float)150, (float)225);
-		cardSprite.drawObject(windowPtr);
-	}
-	windowPtr->display();
-	while (windowPtr->isOpen()) {
+	while (windowPtr->isOpen() && selection == -1) {
 		while ((windowPtr->pollEvent(event))) {
 			if (event.type == sf::Event::Closed) {
 				windowPtr->close();
 			}
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
-				selection = 0;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
-				selection = 1;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
-				selection = 2;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
-				selection = 3;
-				windowPtr->close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-				selection = 4;
-				windowPtr->close();
-			}
 		}
-		
+		positionx = 10, positiony = 330;
+		selection = -1;
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(Choose);
+		windowPtr->draw(Stats);
+		sf::Sprite cardSprite;
+		sf::Texture texture;
+		for (int i = 0; i < 5; i++) {
+			player[0].hand.card(i, temp);
+			texture.loadFromFile(temp.getFrontPath());
+			cardSprite.setTexture(texture);
+			cardSprite.setPosition(positionx, positiony);
+			float x = 150;
+			float y = 225;
+			sf::Vector2f targetSize(x, y);
+			cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+			windowPtr->draw(cardSprite);
+			positionx += 160;
+
+		}
+		windowPtr->display();
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
+			selection = 0;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+			selection = 1;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+			selection = 2;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+			selection = 3;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+			selection = 4;
+		}
 	}
-	player[0].hand.removeCard(selection-1+1, temp);
+		
+	player[0].hand.removeCard(selection, temp);
 	player[0].attackQueue.enqueue(temp);
 
 	//render window
-	windowPtr->setFramerateLimit(30);
 	sf::Event event1;
+	selection = -1;
 	handSize--;
 	Choose.setString("Choose A Card For Defending:");
-	selection = 0;
 	positionx = 10;
-	windowPtr->clear();
-	windowPtr->draw(background);
-	windowPtr->draw(Choose);
-	windowPtr->draw(Stats);
-	cardSprite.drawObject(windowPtr);
-	for (int i = 0; i < 4; i++) {
-		player[0].hand.card(i, temp);
-		cardSprite.changeTexture(temp.getName() + ".png");
-		cardSprite.setObjectPosition(positionx, positiony);
-		cardSprite.setDimensions((float)200, (float)300);
-		cardSprite.drawObject(windowPtr);
-		positionx += 210;
-	}
-	windowPtr->display();
-	while (windowPtr->isOpen()) {
+	while (windowPtr->isOpen() && selection == -1) {
 		while ((windowPtr->pollEvent(event1))) {
 			if (event1.type == sf::Event::Closed) {
 				windowPtr->close();
 			}
+			positionx = 10;
+			selection = -1;
+			windowPtr->clear();
+			windowPtr->draw(background);
+			windowPtr->draw(Choose);
+			windowPtr->draw(Stats);
+			sf::Sprite cardSprite;
+			sf::Texture texture;
+			for (int i = 0; i < 4; i++) {
+				player[0].hand.card(i, temp);
+				texture.loadFromFile(temp.getFrontPath());
+				cardSprite.setTexture(texture);
+				cardSprite.setPosition(positionx, positiony);
+				float x = 150;
+				float y = 225;
+				sf::Vector2f targetSize(x, y);
+				cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+				windowPtr->draw(cardSprite);
+				positionx += 160;
+
+			}
+			windowPtr->display();
 			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
 				selection = 0;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
 				selection = 1;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
 				selection = 2;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
 				selection = 3;
-				windowPtr->close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
 				selection = 4;
-				windowPtr->close();
 			}
 		}
 
 	}
 
-	player[0].hand.removeCard(selection-1, temp);
+	player[0].hand.removeCard(selection, temp);
 	player[0].defenseQueue.enqueue(temp);
 }
 
