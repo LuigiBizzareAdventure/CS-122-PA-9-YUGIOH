@@ -2,6 +2,7 @@
 #include "Object.h"
 
 
+
 void Game::swapTurn(int& player) {
 	if (player == 1) {
 		player = 0;
@@ -459,23 +460,27 @@ void Game::playerBattlePhase() {
 
 	//Shows attack value and defense value of hidden cards
 	string bug;
+	string attack = "\nATK:" + to_string(temp1.getAtk()) + "\nEnter 1 To Select Attack Queue";
+	string defend = "\nDEF:" + to_string(temp2.getDef()) + "\nEnter 2 To Select Defend Queue";
 
-	sf::Text Attack("1)ATK: " + temp1.getAtk(), regular);
+	
+
+	sf::Text Attack(temp1.getName() + attack, regular);
 	bug = "1)ATK: " + temp1.getAtk();
 	cout << bug << endl;
 	Attack.setCharacterSize(25);
 	Attack.setStyle(sf::Text::Bold);
 	Attack.setFillColor(sf::Color::Red);
-	Attack.setPosition(100, 250);
+	Attack.setPosition(50, 190);
 	Attack.setLineSpacing(1.1);
 
-	sf::Text Defend("2)DEF: " + temp2.getDef(), regular);
+	sf::Text Defend(temp2.getName() + defend, regular);
 	bug = "2)DEF: " + temp2.getDef();
 	cout << bug << endl;
 	Defend.setCharacterSize(25);
 	Defend.setStyle(sf::Text::Bold);
 	Defend.setFillColor(sf::Color::Red);
-	Defend.setPosition(500, 250);
+	Defend.setPosition(450, 190);
 	Defend.setLineSpacing(1.1);
 
 
@@ -485,10 +490,10 @@ void Game::playerBattlePhase() {
 
 	//Loading up the sprites
 
-	Object cardSprite1(temp1.getFrontPath(), 500, 300);
+	Object cardSprite1(temp1.getFrontPath(), 50, 300);
 	cardSprite1.setDimensions((float)150, (float)225);
 
-	Object cardSprite2(temp2.getFrontPath(), 100, 300);
+	Object cardSprite2(temp2.getFrontPath(), 450, 300);
 	cardSprite2.setDimensions((float)150, (float)225);
 	
 
@@ -575,21 +580,21 @@ void Game::playerBattlePhase() {
 	Continue.setCharacterSize(30);
 	Continue.setStyle(sf::Text::Bold);
 	Continue.setFillColor(sf::Color::Red);
-	Continue.setPosition(350, 250);
+	Continue.setPosition(350, 300);
 	Continue.setLineSpacing(1.1);
 	
 
 
 
 	
-	sf::Text Attacker("Attack Queue Activated!\nATK:" + temp1.getAtk(), regular);
+	sf::Text Attacker("Attack Queue Activated!\nATK:" + to_string(temp1.getAtk()), regular);
 	Attacker.setCharacterSize(30);
 	Attacker.setStyle(sf::Text::Bold);
 	Attacker.setFillColor(sf::Color::Red);
 	Attacker.setPosition(350, 150);
 	Attacker.setLineSpacing(1.1);
 
-	sf::Text Defender("Defence Queue Activated!\nDEF:" + temp2.getDef(), regular);
+	sf::Text Defender("Defence Queue Activated!\nDEF:" + to_string(temp2.getDef()), regular);
 	Defender.setCharacterSize(30);
 	Defender.setStyle(sf::Text::Bold);
 	Defender.setFillColor(sf::Color::Red);
