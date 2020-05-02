@@ -350,7 +350,7 @@ void Game::playerSetPhase() {
 	player[0].hand.removeCard(selection, temp);
 	player[0].attackQueue.enqueue(temp);
 
-	//defense
+	//render window
 	sf::Event event1;
 	selection = -1;
 	handSize--;
