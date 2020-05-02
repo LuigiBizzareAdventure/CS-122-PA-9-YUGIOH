@@ -49,8 +49,8 @@ void Game::Start() {
 	yugioh.loadFromFile("squealer embossed.ttf");
 
 	//render window
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Yugioh");
-	window.setFramerateLimit(30);
+	windowPtr->clear();
+	windowPtr->setFramerateLimit(30);
 	sf::Event event;
 
 	//Create a background
@@ -97,49 +97,49 @@ void Game::Start() {
 	Second.setFillColor(sf::Color::Red);
 	Second.setPosition(110, 80);
 
-	window.clear();
-	window.draw(background);
-	window.draw(Duel);
-	window.draw(Flip);
-	window.display();
+	windowPtr->clear();
+	windowPtr->draw(background);
+	windowPtr->draw(Duel);
+	windowPtr->draw(Flip);
+	windowPtr->display();
 	delayScreen(5);
 
 	//flip coin
-	firstPlayer = rand() % 2 + 1;
+	firstPlayer = rand() % 2;
 	for (int i = 0; i < 10; i++) {
-		window.clear();
-		window.draw(background);
-		Coin.drawObject(window);
-		window.display();
+		windowPtr->clear();
+		windowPtr->draw(background);
+		Coin.drawObject(windowPtr);
+		windowPtr->display();
 		delayScreen(.2);
-		window.clear();
-		window.draw(background);
-		PokeCoin.drawObject(window);
-		window.display();
+		windowPtr->clear();
+		windowPtr->draw(background);
+		PokeCoin.drawObject(windowPtr);
+		windowPtr->display();
 		delayScreen(.2);
-		window.clear();
+		windowPtr->clear();
 	}
 	if (firstPlayer == 0) {
-		window.draw(background);
-		Coin.drawObject(window);
-		window.display();
+		windowPtr->draw(background);
+		Coin.drawObject(windowPtr);
+		windowPtr->display();
 		delayScreen(.8);
-		window.clear();
-		window.draw(background);
-		window.draw(Second);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(First);
 	}
 	else {
-		window.draw(background);
-		PokeCoin.drawObject(window);
-		window.display();
+		windowPtr->draw(background);
+		PokeCoin.drawObject(windowPtr);
+		windowPtr->display();
 		delayScreen(.8);
-		window.clear();
-		window.draw(background);
-		window.draw(Second);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(Second);
 	}
-	window.display();
+	windowPtr->display();
 	delayScreen(2);
-	window.clear();
+	windowPtr->clear();
 	do {
 		//draw
 		while (player[0].hand.size() != 5 && player[0].getDeckSize() != 0) {
@@ -182,7 +182,7 @@ void Game::Start() {
 	}
 	else if (winner == 2) {
 	}
-	window.close();
+	windowPtr->close();
 }
 
 
@@ -195,7 +195,7 @@ int Game::winnerCheck(void) {
 		winner = 2;
 	}
 	else if (player[0].getDeckSize() == 0 || player[1].getDeckSize() == 0) {
-		winner = 3; //game is a draw if either player has no YCards in their deck.
+		winner = 3; //game is a draw if either player has no cards in their deck.
 	}
 	else {
 		winner = 0;
@@ -208,8 +208,7 @@ void Game::playerSetPhase() {
 	YCard temp;
 	int selection;
 	//render window
-	sf::RenderWindow window2(sf::VideoMode(800, 600), "Yugioh");
-	window2.setFramerateLimit(30);
+	windowPtr->setFramerateLimit(30);
 	sf::Event event;
 
 	//Create a background
@@ -221,8 +220,8 @@ void Game::playerSetPhase() {
 	sf::Font regular;
 	regular.loadFromFile("Bebas-Regular.ttf");
 
-	//Choose YCard for attacking
-	sf::Text Choose("Choose A YCard For Attacking(1-5):", regular);
+	//Choose card for attacking
+	sf::Text Choose("Choose A Card For Attacking(1-5):", regular);
 	Choose.setCharacterSize(50);
 	Choose.setStyle(sf::Text::Bold);
 	Choose.setFillColor(sf::Color::Red);
@@ -241,112 +240,113 @@ void Game::playerSetPhase() {
 	Stats.setPosition(0, 0);
 	Stats.setLineSpacing(1.3);
 
-	//Create YCard
-	float positionx= 10, positiony= 330; 
+	//Create card
+	float positionx = 10, positiony = 330; 
 	player[0].hand.card(0, temp);
-	Object YCardObject(temp.getName()+".png", positionx, positiony);
-	YCardObject.setDimensions((float)150, (float)225);
-
+	selection = -1;
 	int handSize = player[0].hand.size();
-	selection = 0;
 
-	window2.clear();
-	window2.draw(background);
-	window2.draw(Choose);
-	window2.draw(Stats);
-	YCardObject.drawObject(window2);
-	for (int i = 1; i < 5; i++) {
-		positionx += 160;
-		player[0].hand.card(i, temp);
-		YCardObject.setString(temp.getName() + ".png");
-		YCardObject.setObjectPosition(positionx, positiony);
-		YCardObject.setDimensions((float)150, (float)225);
-		YCardObject.drawObject(window2);
-	}
-	window2.display();
-	while (window2.isOpen()) {
-		while ((window2.pollEvent(event))) {
+	while (windowPtr->isOpen() && selection == -1) {
+		while ((windowPtr->pollEvent(event))) {
 			if (event.type == sf::Event::Closed) {
-				window2.close();
-			}
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
-				selection = 0;
-				window2.close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
-				selection = 1;
-				window2.close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
-				selection = 2;
-				window2.close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
-				selection = 3;
-				window2.close();
-			}
-			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
-				selection = 4;
-				window2.close();
+				windowPtr->close();
 			}
 		}
-		
+		positionx = 10, positiony = 330;
+		selection = -1;
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(Choose);
+		windowPtr->draw(Stats);
+		sf::Sprite cardSprite;
+		sf::Texture texture;
+		for (int i = 0; i < 5; i++) {
+			player[0].hand.card(i, temp);
+			texture.loadFromFile(temp.getFrontPath());
+			cardSprite.setTexture(texture);
+			cardSprite.setPosition(positionx, positiony);
+			float x = 150;
+			float y = 225;
+			sf::Vector2f targetSize(x, y);
+			cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+			windowPtr->draw(cardSprite);
+			positionx += 160;
+
+		}
+		windowPtr->display();
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
+			selection = 0;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+			selection = 1;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+			selection = 2;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+			selection = 3;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+			selection = 4;
+		}
 	}
-	player[0].hand.removeCard(selection-1+1, temp);
+		
+	player[0].hand.removeCard(selection, temp);
 	player[0].attackQueue.enqueue(temp);
 
 	//render window
-	sf::RenderWindow window3(sf::VideoMode(800, 600), "Yugioh");
-	window3.setFramerateLimit(30);
 	sf::Event event1;
+	selection = -1;
 	handSize--;
 	Choose.setString("Choose A Card For Defending:");
-	selection = 0;
 	positionx = 10;
-	window3.clear();
-	window3.draw(background);
-	window3.draw(Choose);
-	window3.draw(Stats);
-	YCardObject.drawObject(window3);
-	for (int i = 0; i < 4; i++) {
-		player[0].hand.card(i, temp);
-		YCardObject.setString(temp.getName() + ".png");
-		YCardObject.setObjectPosition(positionx, positiony);
-		YCardObject.setDimensions((float)200, (float)300);
-		YCardObject.drawObject(window3);
-		positionx += 210;
-	}
-	window3.display();
-	while (window3.isOpen()) {
-		while ((window3.pollEvent(event1))) {
+	while (windowPtr->isOpen() && selection == -1) {
+		while ((windowPtr->pollEvent(event1))) {
 			if (event1.type == sf::Event::Closed) {
-				window3.close();
+				windowPtr->close();
 			}
+			positionx = 10;
+			selection = -1;
+			windowPtr->clear();
+			windowPtr->draw(background);
+			windowPtr->draw(Choose);
+			windowPtr->draw(Stats);
+			sf::Sprite cardSprite;
+			sf::Texture texture;
+			for (int i = 0; i < 4; i++) {
+				player[0].hand.card(i, temp);
+				texture.loadFromFile(temp.getFrontPath());
+				cardSprite.setTexture(texture);
+				cardSprite.setPosition(positionx, positiony);
+				float x = 150;
+				float y = 225;
+				sf::Vector2f targetSize(x, y);
+				cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+				windowPtr->draw(cardSprite);
+				positionx += 160;
+
+			}
+			windowPtr->display();
 			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
 				selection = 0;
-				window3.close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
 				selection = 1;
-				window3.close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
 				selection = 2;
-				window3.close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
 				selection = 3;
-				window3.close();
 			}
 			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
 				selection = 4;
-				window3.close();
 			}
 		}
 
 	}
 
-	player[0].hand.removeCard(selection-1, temp);
+	player[0].hand.removeCard(selection, temp);
 	player[0].defenseQueue.enqueue(temp);
 }
 

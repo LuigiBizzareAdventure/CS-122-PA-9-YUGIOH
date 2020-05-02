@@ -67,6 +67,7 @@
     <Image Include="tex\Bakura.png" />
     <Image Include="tex\Battle Warrior.png" />
     <Image Include="tex\Beast of Gilfer.png" />
+    <Image Include="tex\Beaver Warrior.png" />
     <Image Include="tex\Berfomet.png" />
     <Image Include="tex\Beta The Magnet Warrior.png" />
     <Image Include="tex\Big Shield Garnda.png" />
@@ -99,7 +100,7 @@
     <Image Include="tex\Flame Swordsman.png" />
     <Image Include="tex\Gadget Soldier.png" />
     <Image Include="tex\Gaia The Fierce Knight.png" />
-    <Image Include="tex\Gamme The Magnet Warrior.png" />
+    <Image Include="tex\Gamma The Magnet Warrior.png" />
     <Image Include="tex\Gazelle the King of Mythical Beasts.png" />
     <Image Include="tex\Gearfried the Iron Knight.png" />
     <Image Include="tex\Gearfried the Swordmaster.png" />

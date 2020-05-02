@@ -8,6 +8,7 @@ class Object {
 private:
 	sf::Texture aTexture;
 	sf::Sprite aSprite;
+	string path;
 public:
 	Object() {
 		//Default
@@ -17,6 +18,7 @@ public:
 		if (!aTexture.loadFromFile(imgDirectory)) {
 			std::cerr << "Error\n";
 		}
+		path = imgDirectory;
 		aSprite.setTexture(aTexture);
 	}
 
@@ -24,6 +26,7 @@ public:
 		if (!aTexture.loadFromFile(imgDirectory)) {
 			std::cerr << "Error\n";
 		}
+		path = imgDirectory;
 		aSprite.setTexture(aTexture);
 		aSprite.setPosition(positionX, positionY);
 	}
@@ -32,18 +35,20 @@ public:
 		if (!aTexture.loadFromFile(imgDirectory)) {
 			std::cerr << "Error\n";
 		}
+		path = imgDirectory;
 		aSprite.setTexture(aTexture);
 		aSprite.setPosition(positionX, positionY);
 		aSprite.setScale(scaleX, scaleY);
 	}
 	
 
-	void setString(string astring) {
-		aTexture.loadFromFile(astring);
+	void changeTexture(string path1) {
+		path = path1;
+		aTexture.loadFromFile(path);
 		aSprite.setTexture(aTexture);
 	}
-	void drawObject(sf::RenderWindow& window) {
-		window.draw(aSprite);
+	void drawObject(sf::RenderWindow* windowPtr) {
+		windowPtr->draw(aSprite);
 	}
 	
 	void setObjectPosition(float x, float y) {
