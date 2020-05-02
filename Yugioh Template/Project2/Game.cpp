@@ -349,7 +349,7 @@ void Game::playerSetPhase() {
 		
 	player[0].hand.removeCard(selection, temp);
 	player[0].attackQueue.enqueue(temp);
-
+	delayScreen(.5);
 	//defense
 	sf::Event event1;
 	selection = -1;
@@ -398,6 +398,7 @@ void Game::playerSetPhase() {
 		}
 
 	}
+	delayScreen(.5);
 
 	player[0].hand.removeCard(selection, temp);
 	player[0].defenseQueue.enqueue(temp);
