@@ -23,10 +23,10 @@ void Game::display(void) {
 	}
 	cout << "LifePoints: " << player[1].getLife() << endl;
 	cout << "Next in Atk Queue: " << ((player[1].attackQueue.peek(temp)) ? temp.getName() : "None ") << " "<< temp.getAtk() << "ATK + " << temp.getBoost() << "(" << temp.getTypeName() << ")" << endl;
-	temp.reset();
+	//temp.reset();
 	cout << "Next in Def Queue: " << ((player[1].defenseQueue.peek(temp)) ? temp.getName() : "None ") << " "<< temp.getDef() << "DEF" << endl;
 
-	temp.reset();
+	//temp.reset();
 	cout << "---------------------------------------------------------------------\n";
 	cout << "Player Side\n";
 	if (player[0].atkQueueActivation) {
@@ -36,9 +36,9 @@ void Game::display(void) {
 		cout << "Defense Queue is Activated.\n";
 	}
 	cout << "LifePoints: " << player[0].getLife() << endl;
-	temp.reset();
+	//temp.reset();
 	cout << "Next in Atk Queue: " << ((player[0].attackQueue.peek(temp)) ? temp.getName() : "None") <<" " <<temp.getAtk() << "ATK + " << temp.getBoost() << "(" << temp.getTypeName() << ")" << endl;
-	temp.reset();
+	//temp.reset();
 	cout << "Next in Def Queue: " << ((player[0].defenseQueue.peek(temp)) ? temp.getName() : "None") << " "<< temp.getDef() << "DEF" << endl;
 	cout << "\n---------------------------------------------------------------------\n";
 }
@@ -529,25 +529,24 @@ void Game::playerBattlePhase() {
 
 
 
-
 	//Half of this has been comment-ed out as it wasn't needed anymore. Still works though to look and make sure the right cards show and attack values show.
-	
-	do {
-		//selection = 0;
-		display();
-		/*cout << "Battle Phase:\n";
-		cout << "Which Queue would you like to activate?\n";
-		cout << "   1.Attack Queue\n";
-		cout << "   2.Defense Queue\n";
-		cout << "Make a selection: ";*/
-		//cin >> selection;
-		flushCin();
-	/*	if (selection != 1 && selection != 2) {
-			selection = INVALID;
-			cout << "\nPlease make a valid selection.\n";
-			EnterKey();
-		}*/
-	} while (selection == INVALID);
+	//display();
+	//do {
+	//	//selection = 0;
+	//	
+	//	/*cout << "Battle Phase:\n";
+	//	cout << "Which Queue would you like to activate?\n";
+	//	cout << "   1.Attack Queue\n";
+	//	cout << "   2.Defense Queue\n";
+	//	cout << "Make a selection: ";*/
+	//	//cin >> selection;
+	//	flushCin();
+	///*	if (selection != 1 && selection != 2) {
+	//		selection = INVALID;
+	//		cout << "\nPlease make a valid selection.\n";
+	//		EnterKey();
+	//	}*/
+	//} while (selection == INVALID);
 	
 	//cout << "Player activates the " << ((selection == 1) ? "Attack Queue" : "Defense Queue" )<< endl;
 	if (selection == 1) {
@@ -616,15 +615,19 @@ void Game::playerBattlePhase() {
 
 
 	}
-	
-	while (windowPtr->isOpen()) {
-		while (windowPtr->pollEvent(event)) {
-
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))) {
+	selection = 0;
+	while (windowPtr->isOpen() && selection == 0) {
+		while ((windowPtr->pollEvent(event))) {
+			if (event.type == sf::Event::Closed) {
 				windowPtr->close();
 			}
-
 		}
+		selection = 0;
+
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))) {
+				selection = 1;
+			}
+
 	}
 
 }
