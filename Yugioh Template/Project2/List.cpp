@@ -108,6 +108,7 @@ bool List::removeCard(int x, YCard& store) {
 		top = nullptr;
 		return true;
 	}
+	return true;
 }
 
 bool List::removeCard(int x) {

@@ -18,13 +18,6 @@ public:
 		bottom = nullptr;
 		temp = nullptr;
 	}
-	~List() {//deletes all cards in hand.
-		while (top != nullptr) {
-			temp = top->next;
-			delete top;
-			top = temp;
-		}
-	}
 	void addCard(YCard);//dynamically allocates space for the new card.
 	int size(void);//checks hand size.
 	bool card(int, YCard&);//copies the selected card the Card parameter, returns true, if successful.
