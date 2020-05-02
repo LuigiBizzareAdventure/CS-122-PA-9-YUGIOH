@@ -725,28 +725,7 @@ void Game::damageCalculation() {
 	float player_positionx = 50, player_positiony = 200;
 	float comp_positionx = 550, comp_positiony = 200;
 
-	//Draw Player Card
-	sf::Sprite cardSprite1;
-	sf::Texture texture1;
-	texture1.loadFromFile(monster[0].getFrontPath());
-	cardSprite1.setTexture(texture1);
-	cardSprite1.setPosition(player_positionx, player_positiony);
-	float x = 150;
-	float y = 225;
-	sf::Vector2f targetSize(x, y);
-	cardSprite1.setScale(targetSize.x / cardSprite1.getLocalBounds().width, targetSize.y / cardSprite1.getLocalBounds().height);
-	windowPtr->draw(cardSprite1);
-
-	//Draw Computer Card
-	sf::Sprite cardSprite2;
-	sf::Texture texture2;
-	texture2.loadFromFile(monster[0].getFrontPath());
-	cardSprite2.setTexture(texture2);
-	cardSprite2.setPosition(comp_positionx, comp_positiony);
-	x = 150;
-	y = 225;
-	cardSprite1.setScale(targetSize.x / cardSprite2.getLocalBounds().width, targetSize.y / cardSprite2.getLocalBounds().height);
-	windowPtr->draw(cardSprite2);
+	
 
 	//player activation
 	if (player[0].atkQueueActivation == 1) {
@@ -793,6 +772,31 @@ void Game::damageCalculation() {
 		windowPtr->draw(DEFVAL);
 	}
 
+	//Draw Player Card
+	sf::Sprite cardSprite1;
+	sf::Texture texture1;
+	texture1.loadFromFile(monster[0].getFrontPath());
+	cardSprite1.setTexture(texture1);
+	cardSprite1.setPosition(player_positionx, player_positiony);
+	float x = 150;
+	float y = 225;
+	sf::Vector2f targetSize(x, y);
+	cardSprite1.setScale(targetSize.x / cardSprite1.getLocalBounds().width, targetSize.y / cardSprite1.getLocalBounds().height);
+	windowPtr->draw(cardSprite1);
+
+	//Draw Computer Card
+	sf::Sprite cardSprite2;
+	sf::Texture texture2;
+	texture2.loadFromFile(monster[1].getFrontPath());
+	cardSprite2.setTexture(texture2);
+	cardSprite2.setPosition(comp_positionx, comp_positiony);
+	x = 150;
+	y = 225;
+	cardSprite1.setScale(targetSize.x / cardSprite2.getLocalBounds().width, targetSize.y / cardSprite2.getLocalBounds().height);
+	windowPtr->draw(cardSprite2);
+
+	windowPtr->display();
+
 	delayScreen(2);
 
 
@@ -819,7 +823,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
-			DEFVAL.setString("ATK: " + playerBattlePoints);
+			//DEFVAL.setString("ATK: " + playerBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -827,7 +831,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
-			DEFVAL.setString("DEF: " + playerBattlePoints);
+			//DEFVAL.setString("DEF: " + playerBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 
@@ -837,7 +841,7 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550, 150);
 			ATKVAL.setPosition(550, 500);
-			ATKVAL.setString("ATK: " + compBattlePoints);
+			//ATKVAL.setString("ATK: " + compBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -845,7 +849,7 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
-			DEFVAL.setString("DEF: " + compBattlePoints);
+			//DEFVAL.setString("DEF: " + compBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 		}
@@ -860,6 +864,8 @@ void Game::damageCalculation() {
 		fightCharSize += 1;
 
 		intro++;
+
+		windowPtr->display();
 
 	}
 
@@ -882,7 +888,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			ATKVAL.setPosition(50, 500);
-			ATKVAL.setString("ATK: " + playerBattlePoints);
+			//ATKVAL.setString("ATK: " + playerBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -890,7 +896,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50,150);
 			DEFVAL.setPosition(50, 500);
-			DEFVAL.setString("DEF: " + playerBattlePoints);
+			//DEFVAL.setString("DEF: " + playerBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 
@@ -900,7 +906,7 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550,150);
 			ATKVAL.setPosition(550, 500);
-			ATKVAL.setString("ATK: " + compBattlePoints);
+			//ATKVAL.setString("ATK: " + compBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -908,7 +914,7 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
-			DEFVAL.setString("DEF: " + compBattlePoints);
+			//DEFVAL.setString("DEF: " + compBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 		}
@@ -917,6 +923,8 @@ void Game::damageCalculation() {
 		player_positionx -= 1;
 
 		battle1 += 1;
+
+		windowPtr->display();
 
 	}
 
@@ -935,7 +943,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			ATKVAL.setPosition(50, 500);
-			ATKVAL.setString("ATK: " + playerBattlePoints);
+			//ATKVAL.setString("ATK: " + playerBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -943,7 +951,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
-			DEFVAL.setString("DEF: " + playerBattlePoints);
+			//DEFVAL.setString("DEF: " + playerBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 
@@ -953,7 +961,7 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550, 150);
 			ATKVAL.setPosition(550, 500);
-			ATKVAL.setString("ATK: " + compBattlePoints);
+			//ATKVAL.setString("ATK: " + compBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -961,15 +969,17 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
-			DEFVAL.setString("DEF: " + compBattlePoints);
+			//DEFVAL.setString("DEF: " + compBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 		}
 
 		comp_positionx -= 2;
-		player_positiony += 2;
+		player_positionx += 2;
 
 		battle1 += 1;
+
+		windowPtr->display();
 
 	}
 
@@ -980,6 +990,9 @@ void Game::damageCalculation() {
 		background.setFillColor(sf::Color::Black);
 		windowPtr->draw(background);
 		battle1 += 1;
+
+		windowPtr->display();
+
 	}
 
 	while (comp_positionx != 550 && player_positionx != 50) {
@@ -998,7 +1011,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			ATKVAL.setPosition(50, 500);
-			ATKVAL.setString("ATK: " + playerBattlePoints);
+			//ATKVAL.setString("ATK: " + playerBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -1006,7 +1019,7 @@ void Game::damageCalculation() {
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
-			DEFVAL.setString("DEF: " + playerBattlePoints);
+			//DEFVAL.setString("DEF: " + playerBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 
@@ -1016,7 +1029,7 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550, 150);
 			ATKVAL.setPosition(550, 500);
-			ATKVAL.setString("ATK: " + compBattlePoints);
+			//ATKVAL.setString("ATK: " + compBattlePoints);
 			windowPtr->draw(Attack);
 			windowPtr->draw(ATKVAL);
 		}
@@ -1024,13 +1037,15 @@ void Game::damageCalculation() {
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
-			DEFVAL.setString("DEF: " + compBattlePoints);
+			//DEFVAL.setString("DEF: " + compBattlePoints);
 			windowPtr->draw(Defense);
 			windowPtr->draw(DEFVAL);
 		}
 
 		player_positionx -= 1;
 		comp_positionx += 1;
+
+		windowPtr->display();
 
 	}
 	//End battle sequence
@@ -1110,6 +1125,8 @@ void Game::damageCalculation() {
 		windowPtr->draw(Defense);
 		windowPtr->draw(DEFVAL);
 	}
+
+	windowPtr->display();
 
 	delayScreen(5);
 
