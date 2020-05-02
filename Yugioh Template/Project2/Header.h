@@ -9,6 +9,7 @@
 #include <time.h>       /* time */
 #include <iomanip>
 #include <cstdlib>
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 #define clrscr() system("cls")//used to clear the screen
@@ -71,4 +72,6 @@ enum class Type{
 
 void EnterKey(void);//prompts the user to press enter, then clears the screen.
 
+//delay screen function
+void delayScreen(double);
 #endif

@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Object.h"
 void Game::swapTurn(int& player) {
 	if (player == 1) {
 		player = 0;
@@ -8,7 +9,7 @@ void Game::swapTurn(int& player) {
 }
 
 void Game::display(void) {
-	Card temp;
+	YCard temp;
 	cout << "---------------------------------------------------------------------\n";
 	cout << "Enemy Side\n";
 	if (player[1].atkQueueActivation) {
@@ -38,37 +39,108 @@ void Game::display(void) {
 	cout << "Next in Def Queue: " << ((player[0].defenseQueue.peek(temp)) ? temp.getName() : "None") << " "<< temp.getDef() << "DEF" << endl;
 	cout << "\n---------------------------------------------------------------------\n";
 }
-void Game::Start(void) {
+void Game::Start() {
 	player[0].setLife();
 	player[1].setLife();
-	int firstPlayer;
-	Card temp; //used for functions
-	//coin flip
-	int guess = 0;
-	do {
-		guess = 0;
-		cout << "Let's flip a coin to determine who goes first!\n";
-		cout << "Pick a side, 1 for Heads or 2 for Tails: ";
-		cin >> guess;
-		flushCin();
-		if (guess != 1 && guess != 2) {
-			guess = INVALID;
-			cout << "Invalid Input! What are you doing Ashlyn!\n";
-			EnterKey();
-		}
-	} while (guess != 1 && guess != 2);
-	int coin = rand() % 2 + 1;
-	if (coin == guess) {
-		firstPlayer = 1;
-	}
-	else
-		firstPlayer = 2;
-	cout << "The coin landed on " << ((coin == 1) ? "Heads" : "Tails") << ", Player " << firstPlayer << " will go first.\n";
-	EnterKey();
-	//
-	firstPlayer = firstPlayer - 1;
+	YCard temp; //used for functions
 
-	do{
+	//Create Yugioh Font 
+	sf::Font yugioh;
+	yugioh.loadFromFile("squealer embossed.ttf");
+
+	//render window
+	windowPtr->clear();
+	windowPtr->setFramerateLimit(30);
+	sf::Event event;
+
+	//Create a background
+	sf::RectangleShape background(sf::Vector2f(800, 800));
+	background.setFillColor(sf::Color::Black);
+	background.setPosition(0, 0);
+
+	//Create Regular Font 
+	sf::Font regular;
+	regular.loadFromFile("Bebas-Regular.ttf");
+
+	// create front of coin
+	Object Coin("coin.png", 275, 150, 0.5, 0.5);
+
+	//create back of coin
+	Object PokeCoin("Pokecoin.png", 275, 150, 1, 1);
+
+	// create text for coin flip
+	sf::Text Flip("We will flip a coin to see who goes first.\n              The Yugioh coin is you.\n          The Pokemon coin is the bot.", regular);
+	Flip.setCharacterSize(35);
+	Flip.setStyle(sf::Text::Bold);
+	Flip.setFillColor(sf::Color::White);
+	Flip.setPosition(130, 350);
+	Flip.setLineSpacing(1.3);
+
+	//DUEL
+	sf::Text Duel("Welcome to the\n      BATTLE!", yugioh);
+	Duel.setCharacterSize(100);
+	Duel.setStyle(sf::Text::Bold);
+	Duel.setFillColor(sf::Color::Red);
+	Duel.setPosition(120, 30);
+
+	//Player 1 goes first
+	sf::Text First("You're going\n    first", regular);
+	First.setCharacterSize(150);
+	First.setStyle(sf::Text::Bold);
+	First.setFillColor(sf::Color::Red);
+	First.setPosition(110, 80);
+
+	//Player 2 goes first
+	sf::Text Second(" The bot is\ngoing first", regular);
+	Second.setCharacterSize(150);
+	Second.setStyle(sf::Text::Bold);
+	Second.setFillColor(sf::Color::Red);
+	Second.setPosition(110, 80);
+
+	windowPtr->clear();
+	windowPtr->draw(background);
+	windowPtr->draw(Duel);
+	windowPtr->draw(Flip);
+	windowPtr->display();
+	delayScreen(5);
+
+	//flip coin
+	firstPlayer = rand() % 2;
+	for (int i = 0; i < 10; i++) {
+		windowPtr->clear();
+		windowPtr->draw(background);
+		Coin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.2);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		PokeCoin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.2);
+		windowPtr->clear();
+	}
+	if (firstPlayer == 0) {
+		windowPtr->draw(background);
+		Coin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.8);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(First);
+	}
+	else {
+		windowPtr->draw(background);
+		PokeCoin.drawObject(windowPtr);
+		windowPtr->display();
+		delayScreen(.8);
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(Second);
+	}
+	windowPtr->display();
+	delayScreen(2);
+	windowPtr->clear();
+	do {
 		//draw
 		while (player[0].hand.size() != 5 && player[0].getDeckSize() != 0) {
 			player[0].drawCard();
@@ -81,7 +153,7 @@ void Game::Start(void) {
 		player[0].defQueueActivation = 0;
 		player[1].atkQueueActivation = 0;
 		player[1].defQueueActivation = 0;
-		
+
 		if (firstPlayer == 0) {//player goes first
 			//Monster setting phase
 			playerSetPhase();
@@ -90,11 +162,11 @@ void Game::Start(void) {
 			playerBattlePhase();
 			compBattlePhase();
 		}
-		if (firstPlayer == 1) {//goes first
+		else if (firstPlayer == 1) {//computer goes first
 			//Monster setting phase
 			compSetPhase();
 			playerSetPhase();
-			
+
 			//Monster battling phase
 			compBattlePhase();
 			playerBattlePhase();
@@ -105,18 +177,12 @@ void Game::Start(void) {
 
 
 	} while (winnerCheck() == 0);
-	int winner = winnerCheck();	
+	int winner = winnerCheck();
 	if (winner == 1) {
-		cout << "Congratulations! You have won!";
 	}
 	else if (winner == 2) {
-		cout << "The computer has beaten you try again next time!";
 	}
-	else
-		cout << "Both players have drawn all 30 cards, the game has ended.";
-
-
-
+	windowPtr->close();
 }
 
 
@@ -139,95 +205,169 @@ int Game::winnerCheck(void) {
 
 
 void Game::playerSetPhase() {
-	Card temp;
-	int selection = 0;
+	YCard temp;
+	int selection;
+	//render window
+	windowPtr->setFramerateLimit(30);
+	sf::Event event;
+
+	//Create a background
+	sf::RectangleShape background(sf::Vector2f(800, 800));
+	background.setFillColor(sf::Color::Black);
+	background.setPosition(0, 0);
+
+	//Create Regular Font 
+	sf::Font regular;
+	regular.loadFromFile("Bebas-Regular.ttf");
+
+	//Choose card for attacking
+	sf::Text Choose("Choose A Card For Attacking(1-5):", regular);
+	Choose.setCharacterSize(50);
+	Choose.setStyle(sf::Text::Bold);
+	Choose.setFillColor(sf::Color::Red);
+	Choose.setPosition(110, 100);
+	Choose.setLineSpacing(1.3);
+
+
+	string player1stats = "Player1 Health: " + to_string(player[0].getLife());
+	string player2stats = "Player2 Health: " + to_string(player[1].getLife());
+
+	// Player stats
+	sf::Text Stats("   " + player1stats + "            " + player2stats, regular);
+	Stats.setCharacterSize(40);
+	Stats.setStyle(sf::Text::Bold);
+	Stats.setFillColor(sf::Color::White);
+	Stats.setPosition(0, 0);
+	Stats.setLineSpacing(1.3);
+
+	//Create card
+	float positionx = 10, positiony = 330; 
+	player[0].hand.card(0, temp);
+	selection = -1;
 	int handSize = player[0].hand.size();
-	do {
-		selection = 0;
-		display();
-		cout << "Hand:\n";
-		/////prints out top label information for the hand
-		cout.ios_base::setf(ios_base::left, ios_base::adjustfield);
-		cout << "#  " << setw(38) << "Monster Name";
-		cout << setw(4) << "ATK";
-		cout << " " << setw(4) << "DEF";
-		cout << " " << "Type" << endl;
-		//////
+
+	while (windowPtr->isOpen() && selection == -1) {
+		while ((windowPtr->pollEvent(event))) {
+			if (event.type == sf::Event::Closed) {
+				windowPtr->close();
+			}
+		}
+		positionx = 10, positiony = 330;
+		selection = -1;
+		windowPtr->clear();
+		windowPtr->draw(background);
+		windowPtr->draw(Choose);
+		windowPtr->draw(Stats);
+		sf::Sprite cardSprite;
+		sf::Texture texture;
+		for (int i = 0; i < 5; i++) {
+			player[0].hand.card(i, temp);
+			texture.loadFromFile(temp.getFrontPath());
+			cardSprite.setTexture(texture);
+			cardSprite.setPosition(positionx, positiony);
+			float x = 150;
+			float y = 225;
+			sf::Vector2f targetSize(x, y);
+			cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+			windowPtr->draw(cardSprite);
+			positionx += 160;
+
+		}
+		windowPtr->display();
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
+			selection = 0;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+			selection = 1;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+			selection = 2;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+			selection = 3;
+		}
+		else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+			selection = 4;
+		}
+	}
 		
-		for (int i = 0; i < handSize; i++) {
-			player[0].hand.card(i, temp);
-			cout << i + 1 << ". " << temp << "(+"<< temp.getBoost() << "ATK)\n";
-
-		}
-		cout << "Select which monster that you would like to send to the ATK Queue: \n";
-		cin >> selection;
-		flushCin();
-		if (selection < 1 || selection > player[0].hand.size()) {
-			selection = INVALID;
-			cout << "Please make a valid selection.\n";
-		}
-	} while (selection == INVALID);
-
-	player[0].hand.removeCard(selection-1, temp);
-	cout << "Player has added " << temp.getName() << " to the Attack Queue\n";
+	player[0].hand.removeCard(selection, temp);
 	player[0].attackQueue.enqueue(temp);
-	EnterKey();
 
+	//render window
+	sf::Event event1;
+	selection = -1;
 	handSize--;
+	Choose.setString("Choose A Card For Defending:");
+	positionx = 10;
+	while (windowPtr->isOpen() && selection == -1) {
+		while ((windowPtr->pollEvent(event1))) {
+			if (event1.type == sf::Event::Closed) {
+				windowPtr->close();
+			}
+			positionx = 10;
+			selection = -1;
+			windowPtr->clear();
+			windowPtr->draw(background);
+			windowPtr->draw(Choose);
+			windowPtr->draw(Stats);
+			sf::Sprite cardSprite;
+			sf::Texture texture;
+			for (int i = 0; i < 4; i++) {
+				player[0].hand.card(i, temp);
+				texture.loadFromFile(temp.getFrontPath());
+				cardSprite.setTexture(texture);
+				cardSprite.setPosition(positionx, positiony);
+				float x = 150;
+				float y = 225;
+				sf::Vector2f targetSize(x, y);
+				cardSprite.setScale(targetSize.x / cardSprite.getLocalBounds().width, targetSize.y / cardSprite.getLocalBounds().height);
+				windowPtr->draw(cardSprite);
+				positionx += 160;
 
-	//defense selection
-	do {
-		selection = 0;
-		display();
-		cout << "Hand:\n";
-		//////prints out top label information for the hand
-		cout.ios_base::setf(ios_base::left, ios_base::adjustfield);
-		cout << "#  " << setw(38) << "Monster Name";
-		cout << setw(4) << "ATK";
-		cout << " " << setw(4) << "DEF";
-		cout << " " << "Type" << endl;
-		//////
-		for (int i = 0; i < handSize; i++) {
-			player[0].hand.card(i, temp);
-
-
-			
-			cout << i + 1 << ". " << temp << endl;
-
+			}
+			windowPtr->display();
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))) {
+				selection = 0;
+			}
+			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2))) {
+				selection = 1;
+			}
+			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))) {
+				selection = 2;
+			}
+			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num4)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad4))) {
+				selection = 3;
+			}
+			else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num5)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad5))) {
+				selection = 4;
+			}
 		}
-		cout << "Select which monster that you would like to send to the DEF Queue: \n";
-		cin >> selection;
-		flushCin();
-		if (selection < 1 || selection > player[0].hand.size()) {
-			selection = INVALID;
-			cout << "\nPlease make a valid selection.\n";
-		}
-	} while (selection == INVALID);
 
-	player[0].hand.removeCard(selection-1, temp);
-	cout << "Player has added " << temp.getName() << " to the Defense Queue\n";
+	}
+
+	player[0].hand.removeCard(selection, temp);
 	player[0].defenseQueue.enqueue(temp);
-	EnterKey();
 }
 
 void Game::compSetPhase() {
-	Card temp;
+	YCard temp;
 	int randPick;
 	//attack Queue
-	display();
+//	display();
 	randPick = rand() % player[1].hand.size();
 	player[1].hand.removeCard(randPick, temp);
 	player[1].attackQueue.enqueue(temp);
 
-	cout << "Computer has added " << temp.getName() << " to the Attack Queue\n";
+	//cout << "Computer has added " << temp.getName() << " to the Attack Queue\n";
 
 	randPick = rand() % player[1].hand.size();
 	player[1].hand.removeCard(randPick, temp);
 	player[1].defenseQueue.enqueue(temp);
 
-	cout << "Computer has added " << temp.getName() << " to the Defense Queue\n";
+	//cout << "Computer has added " << temp.getName() << " to the Defense Queue\n";
 
-	EnterKey();
+	//EnterKey();
 }
 
 
@@ -264,7 +404,7 @@ void Game::playerBattlePhase() {
 }
 
 void Game::compBattlePhase() {
-	Card temp;
+	YCard temp;
 	int randPick;
 	//attack Queue
 	randPick = rand() % 2;
@@ -276,18 +416,18 @@ void Game::compBattlePhase() {
 		player[1].atkQueueActivation = 0;
 		player[1].defQueueActivation = 1;
 	}
-	cout << " Computer activates the " << ((randPick == 1) ? "Attack Queue" : "Defense Queue") << endl;
+	//cout << " Computer activates the " << ((randPick == 1) ? "Attack Queue" : "Defense Queue") << endl;
 
-	EnterKey();
+	//EnterKey();
 }
 
 //hubba bubba
 
 void Game::damageCalculation() {
-	cout << "Calculation:\n\n";
-	display();
-	cout << "\n";
-	Card monster[2];
+	//cout << "Calculation:\n\n";
+	//display();
+	//cout << "\n";
+	YCard monster[2];
 	int playerBattlePoints;
 	int compBattlePoints;
 
@@ -295,24 +435,24 @@ void Game::damageCalculation() {
 	if (player[0].atkQueueActivation == 1) {
 		player[0].attackQueue.dequeue(monster[0]);
 		playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
-		cout << "Player: " << monster[0].getName() << " has been activated to Attack with " << playerBattlePoints << "ATK"<<endl;
+		//cout << "Player: " << monster[0].getName() << " has been activated to Attack with " << playerBattlePoints << "ATK"<<endl;
 	}
 	else {
 		player[0].defenseQueue.dequeue(monster[0]);
 		playerBattlePoints = monster[0].getDef();
-		cout << "Player: " << monster[0].getName() << " has been activated to Defend with " << playerBattlePoints <<" DEF" <<endl ;
+		//cout << "Player: " << monster[0].getName() << " has been activated to Defend with " << playerBattlePoints <<" DEF" <<endl ;
 	}
 
 	//computer activation
 	if (player[1].atkQueueActivation == 1) {
 		player[1].attackQueue.dequeue(monster[1]);
 		compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
-		cout << "Computer: " << monster[1].getName() << " has been activated to Attack with " << compBattlePoints << "ATK" << endl;
+		//cout << "Computer: " << monster[1].getName() << " has been activated to Attack with " << compBattlePoints << "ATK" << endl;
 	}
 	else {
 		player[0].defenseQueue.dequeue(monster[1]);
 		compBattlePoints = monster[1].getDef();
-		cout << "Computer: " << monster[1].getName() << " has been activated to Defend with " << compBattlePoints << " DEF" << endl;
+		//cout << "Computer: " << monster[1].getName() << " has been activated to Defend with " << compBattlePoints << " DEF" << endl;
 	}
 
 	int difference = 0;
@@ -321,27 +461,27 @@ void Game::damageCalculation() {
 	if (player[0].atkQueueActivation != 0 && player[1].atkQueueActivation != 0) {//ATK-ATK, ATK-DEF, DEF-ATK
 		
 		difference = playerBattlePoints - compBattlePoints;
-		cout << playerBattlePoints << "(Player) - " << compBattlePoints << "(enemy) = " << difference << endl;
+		//cout << playerBattlePoints << "(Player) - " << compBattlePoints << "(enemy) = " << difference << endl;
 		//calculation
-		cout << "\n";
+		//cout << "\n";
 		if (difference == 0) {
-			cout << "No Player takes damage.\n";
+			//cout << "No Player takes damage.\n";
 		}
 		else if (difference < 0) {
-			cout << "Player has taken " << abs(difference) << " damage!\n";
+			//cout << "Player has taken " << abs(difference) << " damage!\n";
 			player[0].subLife(abs(difference));
 		}
 		else {
-			cout << "Computer has taken " << abs(difference) << "damage!\n";
+			//cout << "Computer has taken " << abs(difference) << "damage!\n";
 			player[1].subLife(abs(difference));
 		}
 	}
 	else {//DEF-DEF
 		difference = playerBattlePoints - compBattlePoints;
-		cout << "Both players have activated the defense queue." << endl;
-		cout << "\n";
-		cout << "No Player takes damage.\n";
+		//cout << "Both players have activated the defense queue." << endl;
+		//cout << "\n";
+		//cout << "No Player takes damage.\n";
 	}
-	cout << "\n";
-	EnterKey();
+	//cout << "\n";
+	//EnterKey();
 }

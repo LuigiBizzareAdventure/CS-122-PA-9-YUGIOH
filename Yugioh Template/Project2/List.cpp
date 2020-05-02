@@ -1,6 +1,6 @@
 #include "List.h"
 
-void List::addCard(Card newCard) {
+void List::addCard(YCard newCard) {
 	ListNode* x = new ListNode;
 	x->card = newCard;
 	x->next = nullptr;
@@ -40,7 +40,7 @@ int List::size(void) {
 	return count;
 }
 
-bool List::card(int x, Card& card) {
+bool List::card(int x, YCard& card) {
 	int count = 0;
 	ListNode* current = top;
 	while (current != nullptr && count != x) {
@@ -57,8 +57,25 @@ bool List::card(int x, Card& card) {
 		return true;
 	}
 }
+bool List::cardPtr(int x, YCard** cardPtr) {
+	int count = 0;
+	ListNode* current = top;
+	while (current != nullptr && count != x) {
+		count++;
+		current = current->next;
+	}
+	if (current == nullptr) {
+		cout << "You tried accessing a card that is out of bounds." << endl;
+		EnterKey();
+		return false;
+	}
+	else {
+		**cardPtr = current->card;
+		return true;
+	}
+}
 
-bool List::removeCard(int x, Card& store) {
+bool List::removeCard(int x, YCard& store) {
 	int count = 0;
 	ListNode* current = top;
 	ListNode* prev = nullptr;
