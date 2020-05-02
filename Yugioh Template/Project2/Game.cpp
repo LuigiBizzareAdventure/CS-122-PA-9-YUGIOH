@@ -86,11 +86,11 @@ void Game::Start() {
 	Duel.setPosition(120, 30);
 
 	//Player 1 goes first
-	sf::Text First("You're going\n    first", regular);
+	sf::Text First("You're going\n      first", regular);
 	First.setCharacterSize(150);
 	First.setStyle(sf::Text::Bold);
 	First.setFillColor(sf::Color::Red);
-	First.setPosition(110, 80);
+	First.setPosition(80, 80);
 
 	//Player 2 goes first
 	sf::Text Second(" The bot is\ngoing first", regular);
@@ -121,6 +121,7 @@ void Game::Start() {
 		delayScreen(.2);
 		windowPtr->clear();
 	}
+
 	if (firstPlayer == 0) {
 		windowPtr->draw(background);
 		Coin.drawObject(windowPtr);
@@ -181,59 +182,52 @@ void Game::Start() {
 	} while (winnerCheck() == 0);
 	//winning messages
 	int winner = winnerCheck();
-
+	
 
 	//Create Yugioh Font 
-//	sf::Font yugioh;
-	//yugioh.loadFromFile("squealer embossed.ttf");
+	sf::Font yugioh;
+	yugioh.loadFromFile("squealer embossed.ttf");
 
 	//Create Regular Font 
-	//sf::Font regular;
-	//regular.loadFromFile("Bebas-Regular.ttf");
+	sf::Font regular;
+	regular.loadFromFile("Bebas-Regular.ttf");
 
 	//first player win text
-	sf::Text winner1("Congratulations You have won", yugioh);
-	winner1.setCharacterSize(65);
+	sf::Text winner1("Congratulations!\n   You have won!", yugioh);
+	winner1.setCharacterSize(120);
 	winner1.setStyle(sf::Text::Bold);
-	winner1.setFillColor(sf::Color::Black);
-	winner1.setPosition(125, 20);
-	winner1.setOutlineThickness(1.5);
-	winner1.setOutlineColor(sf::Color::Color(150, 150, 150, 255));
+	winner1.setFillColor(sf::Color::Red);
+	winner1.setPosition(0, 100);
+
 
 	//second player win text
-	sf::Text winner2("The Computer has won!", yugioh);
-	winner2.setCharacterSize(65);
+	sf::Text winner2("The Computer\n    has won!", yugioh);
+	winner2.setCharacterSize(120);
 	winner2.setStyle(sf::Text::Bold);
-	winner2.setFillColor(sf::Color::Black);
-	winner2.setPosition(125, 20);
-	winner2.setOutlineThickness(1.5);
-	winner2.setOutlineColor(sf::Color::Color(150, 150, 150, 255));
+	winner2.setFillColor(sf::Color::Red);
+	winner2.setPosition(75, 100);
 
 	////Tie player win text
-	sf::Text tieText("The Computer has won!", yugioh);
-	tieText.setCharacterSize(65);
+	sf::Text tieText("You TIED!", yugioh);
+	tieText.setCharacterSize(180);
 	tieText.setStyle(sf::Text::Bold);
-	tieText.setFillColor(sf::Color::Black);
-	tieText.setPosition(125, 20);
-	tieText.setOutlineThickness(1.5);
-	tieText.setOutlineColor(sf::Color::Color(150, 150, 150, 255));
+	tieText.setFillColor(sf::Color::Red);
+	tieText.setPosition(80, 150);
 
-	//Create a background
-	//sf::RectangleShape background(sf::Vector2f(800, 800));
-	background.setFillColor(sf::Color::Black);
-	background.setPosition(0, 0);
+	windowPtr->clear();
+	windowPtr->draw(background);
 
 	if (winner == 1) {//player 1 wins
-
-
-
-
+		windowPtr->draw(winner1);
 	}
 	else if (winner == 2) {//playeer 2 wins
+		windowPtr->draw(winner2);
 	}
 	else {//tie
-
+		windowPtr->draw(tieText);
 	}
+	windowPtr->display();
+	delayScreen(4);
 	windowPtr->close();
 }
 
@@ -350,6 +344,7 @@ void Game::playerSetPhase() {
 	player[0].hand.removeCard(selection, temp);
 	player[0].attackQueue.enqueue(temp);
 	delayScreen(.5);
+
 	//defense
 	sf::Event event1;
 	selection = -1;
