@@ -1,12 +1,21 @@
 ﻿  Game.cpp
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(79,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(56,12): warning C4101: 'event': unreferenced local variable
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(285,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(297,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(456,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(469,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(478,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(578,29): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(589,29): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(596,29): warning C4305: 'argument': truncation from 'double' to 'float'
-  Project2.vcxproj -> C:\Users\ronst\source\repos\LuigiBizzareAdventure\CS-122-PA-9-YUGIOH\Yugioh Template\Debug\Project2.exe
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(80,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(57,12): warning C4101: 'event': unreferenced local variable
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(272,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(284,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(445,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(462,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(471,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(571,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(582,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(589,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(684,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(692,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(699,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(706,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(713,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(720,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(851,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(851,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Project2\Game.cpp(662,12): warning C4101: 'event': unreferenced local variable
+  Project2.vcxproj -> C:\Users\jerry\source\repos\CS-122-PA-9-YUGIOH\Yugioh Template\Debug\Project2.exe
