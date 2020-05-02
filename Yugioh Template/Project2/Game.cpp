@@ -40,6 +40,9 @@ void Game::display(void) {
 	cout << "\n---------------------------------------------------------------------\n";
 }
 void Game::Start() {
+
+	srand(time(NULL));
+
 	player[0].setLife();
 	player[1].setLife();
 	YCard temp; //used for functions
