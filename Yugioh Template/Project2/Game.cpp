@@ -220,7 +220,7 @@ void Game::Start() {
 		windowPtr->draw(tieText);
 	}
 	windowPtr->display();
-	delayScreen(4);
+	delayScreen(2);
 	windowPtr->close();
 }
 
