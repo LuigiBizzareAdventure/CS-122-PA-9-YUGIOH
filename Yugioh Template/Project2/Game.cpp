@@ -543,11 +543,11 @@ void Game::playerBattlePhase() {
 	do {
 		//selection = 0;
 		display();
-		cout << "Battle Phase:\n";
+		/*cout << "Battle Phase:\n";
 		cout << "Which Queue would you like to activate?\n";
 		cout << "   1.Attack Queue\n";
 		cout << "   2.Defense Queue\n";
-		cout << "Make a selection: ";
+		cout << "Make a selection: ";*/
 		//cin >> selection;
 		flushCin();
 	/*	if (selection != 1 && selection != 2) {
@@ -557,7 +557,7 @@ void Game::playerBattlePhase() {
 		}*/
 	} while (selection == INVALID);
 	
-	cout << "Player activates the " << ((selection == 1) ? "Attack Queue" : "Defense Queue" )<< endl;
+	//cout << "Player activates the " << ((selection == 1) ? "Attack Queue" : "Defense Queue" )<< endl;
 	if (selection == 1) {
 		player[0].atkQueueActivation = 1;
 		player[0].defQueueActivation = 0;
@@ -578,10 +578,6 @@ void Game::playerBattlePhase() {
 	Continue.setPosition(350, 250);
 	Continue.setLineSpacing(1.1);
 	
-
-
-
-	
 	sf::Text Attacker("Attack Queue Activated!\nATK:" + temp1.getAtk(), regular);
 	Attacker.setCharacterSize(30);
 	Attacker.setStyle(sf::Text::Bold);
@@ -599,7 +595,7 @@ void Game::playerBattlePhase() {
 	windowPtr->create(sf::VideoMode(800, 600), "Chosen Card!");							//creates another screen since I closed the last one.
 
 
-	if (player[0].atkQueueActivation = 1) {
+	if (player[0].atkQueueActivation == 1) {
 
 		Object cardSprite3(temp1.getName() + ".png", 100, 150);
 		cardSprite3.setDimensions((float)225, (float)337.5);
@@ -624,18 +620,6 @@ void Game::playerBattlePhase() {
 
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 	
 	while (windowPtr->isOpen()) {
 		while (windowPtr->pollEvent(event)) {
@@ -834,7 +818,6 @@ void Game::damageCalculation() {
 
 
 		if (player[0].atkQueueActivation == 1) {
-			player[0].attackQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
@@ -843,7 +826,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
@@ -854,7 +836,6 @@ void Game::damageCalculation() {
 		}
 
 		if (player[1].atkQueueActivation == 1) {
-			player[1].attackQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550, 150);
 			ATKVAL.setPosition(550, 500);
@@ -863,7 +844,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
@@ -901,7 +881,6 @@ void Game::damageCalculation() {
 		windowPtr->draw(cardSprite2);
 
 		if (player[0].atkQueueActivation == 1) {
-			player[0].attackQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			ATKVAL.setPosition(50, 500);
@@ -910,7 +889,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50,150);
 			DEFVAL.setPosition(50, 500);
@@ -921,7 +899,6 @@ void Game::damageCalculation() {
 		}
 
 		if (player[1].atkQueueActivation == 1) {
-			player[1].attackQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550,150);
 			ATKVAL.setPosition(550, 500);
@@ -930,7 +907,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
@@ -958,7 +934,6 @@ void Game::damageCalculation() {
 		windowPtr->draw(cardSprite2);
 
 		if (player[0].atkQueueActivation == 1) {
-			player[0].attackQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			ATKVAL.setPosition(50, 500);
@@ -967,7 +942,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
@@ -978,7 +952,6 @@ void Game::damageCalculation() {
 		}
 
 		if (player[1].atkQueueActivation == 1) {
-			player[1].attackQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550, 150);
 			ATKVAL.setPosition(550, 500);
@@ -987,7 +960,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
@@ -1025,7 +997,6 @@ void Game::damageCalculation() {
 		windowPtr->draw(cardSprite2);
 
 		if (player[0].atkQueueActivation == 1) {
-			player[0].attackQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 			Attack.setPosition(50, 150);
 			ATKVAL.setPosition(50, 500);
@@ -1034,7 +1005,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[0]);
 			playerBattlePoints = monster[0].getDef();
 			Defense.setPosition(50, 150);
 			DEFVAL.setPosition(50, 500);
@@ -1045,7 +1015,6 @@ void Game::damageCalculation() {
 		}
 
 		if (player[1].atkQueueActivation == 1) {
-			player[1].attackQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 			Attack.setPosition(550, 150);
 			ATKVAL.setPosition(550, 500);
@@ -1054,7 +1023,6 @@ void Game::damageCalculation() {
 			windowPtr->draw(ATKVAL);
 		}
 		else {
-			player[0].defenseQueue.dequeue(monster[1]);
 			compBattlePoints = monster[1].getDef();
 			Defense.setPosition(550, 150);
 			DEFVAL.setPosition(550, 500);
@@ -1111,7 +1079,6 @@ void Game::damageCalculation() {
 	windowPtr->draw(cardSprite2);
 
 	if (player[0].atkQueueActivation == 1) {
-		player[0].attackQueue.dequeue(monster[0]);
 		playerBattlePoints = monster[0].getAtk() + monster[0].getBoost();
 		Attack.setPosition(50, 150);
 		ATKVAL.setPosition(50, 500);
@@ -1120,7 +1087,6 @@ void Game::damageCalculation() {
 		windowPtr->draw(ATKVAL);
 	}
 	else {
-		player[0].defenseQueue.dequeue(monster[0]);
 		playerBattlePoints = monster[0].getDef();
 		Defense.setPosition(50, 150);
 		DEFVAL.setPosition(50, 500);
@@ -1131,7 +1097,6 @@ void Game::damageCalculation() {
 	}
 
 	if (player[1].atkQueueActivation == 1) {
-		player[1].attackQueue.dequeue(monster[1]);
 		compBattlePoints = monster[1].getAtk() + monster[1].getBoost();
 		Attack.setPosition(550, 150);
 		ATKVAL.setPosition(550, 500);
@@ -1140,7 +1105,6 @@ void Game::damageCalculation() {
 		windowPtr->draw(ATKVAL);
 	}
 	else {
-		player[0].defenseQueue.dequeue(monster[1]);
 		compBattlePoints = monster[1].getDef();
 		Defense.setPosition(550, 150);
 		DEFVAL.setPosition(550, 500);
